@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:i_explore/authentication.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'firebase_options.dart';
 
 
 void main() {
@@ -484,7 +484,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> AuthenticationPage()),);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const AuthenticationPage()),);
                   },
                       child: const Text("Authentication Page")
                   ),
