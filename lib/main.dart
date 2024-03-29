@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:i_explore/authentication.dart';
 
@@ -485,10 +487,74 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: const Text("Authentication Page")
                   ),
                 ],
-              )
+              ),
             ],
           ),
         )
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: SizedBox(
+        height: 50,
+        width: 50,
+        child: FittedBox(
+          child: FloatingActionButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+            },
+            child: Transform.scale(
+              scale: 1.275,
+              child: Image.asset('images/iexplore-logo-circle.png'),
+            ),
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: lightOrangeColor,
+        type: BottomNavigationBarType.fixed,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: SizedBox(
+              child: Transform.scale(
+                scale: 1.5,
+                child: const Icon(Icons.bookmark),
+              )
+          ),
+          label: "",
+          ),
+          BottomNavigationBarItem(icon: SizedBox(
+            child: Transform.scale(
+              scale: 1.5,
+              child: const Icon(Icons.search),
+            ),
+          ),
+              label: ""
+          ),
+          const BottomNavigationBarItem(icon: Icon(null),
+            label: "DASHBOARD",
+          ),
+          BottomNavigationBarItem(icon: SizedBox(
+            child: Transform.scale(
+              scale: 1.5,
+              child: const Icon(Icons.download),
+            ),
+          ),
+            label: ""
+          ),
+          BottomNavigationBarItem(icon: SizedBox(
+            child: Transform.scale(
+              scale: 1.5,
+              child: const Icon(Icons.person_2_outlined),
+            ),
+          ),
+              label: ""
+          ),
+        ],
+        unselectedLabelStyle: TextStyle(
+          fontFamily: "Fontspring-Demo",
+          fontWeight: FontWeight.bold,
+          color: orangeThreeColor
+        ),
+        unselectedItemColor: darkOrangeColor,
+        selectedItemColor: darkOrangeColor,
       ),
     );
   }
