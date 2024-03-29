@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_explore/authentication.dart';
 
 void main() {
   runApp(const MyApp());
@@ -472,6 +473,19 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
+              Container(
+                margin: const EdgeInsets.only(top:20),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> AuthenticationPage()),);
+                  },
+                      child: const Text("Authentication Page")
+                  ),
+                ],
+              )
             ],
           ),
         )
