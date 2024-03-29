@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "263648145143",
+    "project_id": "iexplore-aa583",
+    "storage_bucket": "iexplore-aa583.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263648145143:android:bda4db92bd4497ccf32df2",
+        "android_client_info": {
+          "package_name": "com.example.i_explore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADttRKNKG_qWqGo2BEuNswPJqx_KoJrr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
