@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:i_explore/components/TextFieldComponent.dart';
 
 Color orangeOneColor = const Color(0xFFD25017);
@@ -14,6 +15,12 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,17 +30,22 @@ class _RegisterState extends State<Register> {
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
       )),
-      child: const Scaffold(
+      child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
           child: Column(
             children: [
-              HeaderSection(
+              const HeaderSection(
                   imageSrc: 'images/iexplore-logo.png', logoTitle: 'iExplore'),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
-              RegisterFormSection(),
+              RegisterFormSection(
+                nameController: nameController,
+                emailController: emailController,
+                passwordController: passwordController,
+                confirmPasswordController: confirmPasswordController,
+              ),
             ],
           ),
         ),
@@ -43,14 +55,25 @@ class _RegisterState extends State<Register> {
 }
 
 class RegisterFormSection extends StatelessWidget {
-  const RegisterFormSection({super.key});
+  final TextEditingController nameController;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+  final TextEditingController confirmPasswordController;
+
+  const RegisterFormSection({
+    Key? key,
+    required this.nameController,
+    required this.emailController,
+    required this.passwordController,
+    required this.confirmPasswordController,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
         // Header
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 16),
           child: Row(
             children: [
@@ -64,29 +87,39 @@ class RegisterFormSection extends StatelessWidget {
           ),
         ),
         // Form Text Field
-        SizedBox(
+        const SizedBox(
           height: 25,
         ),
-        TextFieldComponent(name: "Name", icon: Icons.account_circle),
-        SizedBox(
+        TextFieldComponent(
+          name: "Name",
+          icon: Icons.account_circle,
+          textController: nameController,
+        ),
+        const SizedBox(
           height: 25,
         ),
-        TextFieldComponent(name: "Email", icon: Icons.email),
-        SizedBox(
+        TextFieldComponent(
+          name: "Email",
+          icon: Icons.email,
+          textController: emailController,
+        ),
+        const SizedBox(
           height: 25,
         ),
         TextFieldComponent(
           name: "Password",
           icon: Icons.password,
           obscureText: true,
+          textController: passwordController,
         ),
-        SizedBox(
+        const SizedBox(
           height: 25,
         ),
         TextFieldComponent(
           name: "Confirm Password",
           icon: Icons.password,
           obscureText: true,
+          textController: confirmPasswordController,
         ),
       ],
     );

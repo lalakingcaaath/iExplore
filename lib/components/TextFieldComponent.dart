@@ -5,19 +5,22 @@ class TextFieldComponent extends StatelessWidget {
   final String name;
   final IconData icon;
   final bool obscureText;
+  final TextEditingController textController;
 
   const TextFieldComponent({
-    super.key,
+    Key? key, 
     required this.name,
     required this.icon,
+    required this.textController, 
     this.obscureText = false,
-  });
+  }) : super(key: key); 
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextField(
+        controller: textController,
         enabled: true,
         obscureText: obscureText,
         maxLength: 32,
