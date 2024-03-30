@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:i_explore/components/TextFieldComponent.dart';
 
 Color orangeOneColor = const Color(0xFFD25017);
@@ -20,6 +20,32 @@ class _RegisterState extends State<Register> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future<void> createUserWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      UserCredential userCredential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      User? user = userCredential.user;
+      print('User signed up: ${user!.uid}');
+    } catch (e) {
+      print('Failed to sign up: $e');
+    }
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +71,7 @@ class _RegisterState extends State<Register> {
                 emailController: emailController,
                 passwordController: passwordController,
                 confirmPasswordController: confirmPasswordController,
+                onPressed: createUserWithEmailAndPassword,
               ),
             ],
           ),
@@ -59,6 +86,7 @@ class RegisterFormSection extends StatelessWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
   final TextEditingController confirmPasswordController;
+  final void Function(String, String) onPressed; // Change the type of onPressed
 
   const RegisterFormSection({
     Key? key,
@@ -66,6 +94,7 @@ class RegisterFormSection extends StatelessWidget {
     required this.emailController,
     required this.passwordController,
     required this.confirmPasswordController,
+    required this.onPressed, // Update the parameter type
   }) : super(key: key);
 
   @override
@@ -121,6 +150,35 @@ class RegisterFormSection extends StatelessWidget {
           obscureText: true,
           textController: confirmPasswordController,
         ),
+        const SizedBox(
+          height: 25,
+        ),
+        GestureDetector(
+          onTap: () {
+            onPressed(
+                emailController.text,
+                passwordController
+                    .text); // Pass email and password to onPressed
+          },
+          child: Container(
+            padding: const EdgeInsets.all(25),
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: const Center(
+              child: Text(
+                "Sign In",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ),
+        )
       ],
     );
   }

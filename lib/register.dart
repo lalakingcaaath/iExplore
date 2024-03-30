@@ -41,12 +41,10 @@ class _RegisterPageState extends State<RegisterPage> {
                         Navigator.pop(context);
                       },
                       child: SizedBox(
-                        child: Container(
-                          child: const Icon(
-                            Icons.arrow_back,
-                            size: 30,
-                            color: Colors.white,
-                          ),
+                        child: const Icon(
+                          Icons.arrow_back,
+                          size: 30,
+                          color: Colors.white,
                         ),
                       ),
                     ),
