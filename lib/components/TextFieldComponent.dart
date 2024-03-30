@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class TextFieldComponent extends StatelessWidget {
@@ -5,21 +7,24 @@ class TextFieldComponent extends StatelessWidget {
   final IconData icon;
   final bool obscureText;
   final TextEditingController textController;
+  final String? Function(String?)? validator;
 
   const TextFieldComponent({
-    Key? key, 
+    Key? key,
     required this.name,
     required this.icon,
-    required this.textController, 
+    required this.textController,
     this.obscureText = false,
-  }) : super(key: key); 
+    this.validator,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: TextField(
+      child: TextFormField(
         controller: textController,
+        validator: validator,
         enabled: true,
         obscureText: obscureText,
         maxLength: 32,

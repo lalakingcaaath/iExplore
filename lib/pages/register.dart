@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:i_explore/components/TextFieldComponent.dart';
+import 'package:i_explore/utils/validator.dart';
 
 Color orangeOneColor = const Color(0xFFD25017);
 Color orangeTwoColor = const Color(0xFFDD6614);
@@ -21,7 +22,7 @@ class _RegisterState extends State<Register> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  // final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> createUserWithEmailAndPassword(
       String email, String password) async {
@@ -66,13 +67,7 @@ class _RegisterState extends State<Register> {
               const SizedBox(
                 height: 25,
               ),
-              RegisterFormSection(
-                nameController: nameController,
-                emailController: emailController,
-                passwordController: passwordController,
-                confirmPasswordController: confirmPasswordController,
-                onPressed: createUserWithEmailAndPassword,
-              ),
+              RegisterForm(),
             ],
           ),
         ),
@@ -81,105 +76,117 @@ class _RegisterState extends State<Register> {
   }
 }
 
-class RegisterFormSection extends StatelessWidget {
-  final TextEditingController nameController;
-  final TextEditingController emailController;
-  final TextEditingController passwordController;
-  final TextEditingController confirmPasswordController;
-  final void Function(String, String) onPressed; // Change the type of onPressed
+class RegisterForm extends StatefulWidget {
+  // final void Function(String, String) onPressed;
 
-  const RegisterFormSection({
+  const RegisterForm({
     Key? key,
-    required this.nameController,
-    required this.emailController,
-    required this.passwordController,
-    required this.confirmPasswordController,
-    required this.onPressed, // Update the parameter type
+    // required this.onPressed,
   }) : super(key: key);
 
   @override
+  _RegisterFormState createState() => _RegisterFormState();
+}
+
+class _RegisterFormState extends State<RegisterForm> {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
+
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // Header
-        const Padding(
-          padding: EdgeInsets.only(left: 16),
-          child: Row(
-            children: [
-              Text('Create your Account:',
-                  style: TextStyle(
-                      fontFamily: "AdobeDevanagari",
-                      fontSize: 32,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white)),
-            ],
-          ),
-        ),
-        // Form Text Field
-        const SizedBox(
-          height: 25,
-        ),
-        TextFieldComponent(
-          name: "Name",
-          icon: Icons.account_circle,
-          textController: nameController,
-        ),
-        const SizedBox(
-          height: 25,
-        ),
-        TextFieldComponent(
-          name: "Email",
-          icon: Icons.email,
-          textController: emailController,
-        ),
-        const SizedBox(
-          height: 25,
-        ),
-        TextFieldComponent(
-          name: "Password",
-          icon: Icons.password,
-          obscureText: true,
-          textController: passwordController,
-        ),
-        const SizedBox(
-          height: 25,
-        ),
-        TextFieldComponent(
-          name: "Confirm Password",
-          icon: Icons.password,
-          obscureText: true,
-          textController: confirmPasswordController,
-        ),
-        const SizedBox(
-          height: 25,
-        ),
-        GestureDetector(
-          onTap: () {
-            onPressed(
-                emailController.text,
-                passwordController
-                    .text); // Pass email and password to onPressed
-          },
-          child: Container(
-            padding: const EdgeInsets.all(25),
-            margin: const EdgeInsets.symmetric(horizontal: 20),
-            decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.circular(8),
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          // Header
+          const Padding(
+            padding: EdgeInsets.only(left: 16),
+            child: Row(
+              children: [
+                Text('Create your Account:',
+                    style: TextStyle(
+                        fontFamily: "AdobeDevanagari",
+                        fontSize: 32,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white)),
+              ],
             ),
-            child: const Center(
-              child: Text(
-                "Sign In",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
+          ),
+          // Form Text Field
+          const SizedBox(
+            height: 25,
+          ),
+          TextFieldComponent(
+            name: "Name",
+            icon: Icons.account_circle,
+            textController: nameController,
+            validator: validateName,
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          TextFieldComponent(
+            name: "Email",
+            icon: Icons.email,
+            textController: emailController,
+            validator: validateEmail,
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          TextFieldComponent(
+            name: "Password",
+            icon: Icons.password,
+            obscureText: true,
+            textController: passwordController,
+            validator: validatePassword,
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          TextFieldComponent(
+            name: "Confirm Password",
+            icon: Icons.password,
+            obscureText: true,
+            textController: confirmPasswordController,
+            validator: (value) =>
+                validateConfirmPassword(value, passwordController.text),
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          GestureDetector(
+            onTap: () {
+              if (_formKey.currentState!.validate()) {
+                
+              }
+            },
+            child: Container(
+              padding: const EdgeInsets.all(25),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Center(
+                child: Text(
+                  "Sign Up",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }
