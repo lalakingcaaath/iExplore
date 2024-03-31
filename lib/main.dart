@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:i_explore/authentication.dart';
 
@@ -15,6 +13,7 @@ Color orangeTwoColor = const Color(0xFFDD6614);
 Color orangeThreeColor = const Color(0xFFE0750F);
 Color orangeFourColor = const Color(0xFFE88506);
 Color darkOrangeColor = const Color(0xFFBE5108);
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -61,8 +60,54 @@ class _MyHomePageState extends State<MyHomePage> {
         leading: Padding(
           padding: const EdgeInsets.all(8),
           child: Image.asset('images/iexplore-logo.png'),
-
         ),
+        actions: [
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Row(
+                children: [
+                  Positioned(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: lightOrangeColor,
+                          borderRadius: BorderRadius.circular(20)
+                        ),
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              'images/iexplore-coin.png',
+                              width: 40,
+                            ),
+                            Text(
+                                "0", style:
+                            TextStyle(
+                              fontFamily: 'AdobeDevanagari',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25,
+                              color: orangeOneColor
+                            ),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: darkOrangeColor,
+                                borderRadius: BorderRadius.circular(20)
+                              ),
+                              child: IconButton(
+                                  color: Colors.white,
+                                  onPressed: (){},
+                                  icon: Icon(Icons.add, size: 25),
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                  )
+                ],
+              ),
+            ],
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Container(
