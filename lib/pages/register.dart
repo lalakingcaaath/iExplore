@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:i_explore/utils/colors.dart';
 import 'package:i_explore/components/TextFieldComponent.dart';
 import 'package:i_explore/utils/validator.dart';
-
-Color orangeOneColor = const Color(0xFFD25017);
-Color orangeTwoColor = const Color(0xFFDD6614);
-Color orangeThreeColor = const Color(0xFFE0750F);
-Color brownColor = const Color(0xFF703A07);
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -16,17 +12,26 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
+  // final TextEditingController nameController = TextEditingController();
+  // final TextEditingController emailController = TextEditingController();
+  // final TextEditingController passwordController = TextEditingController();
+  // final TextEditingController confirmPasswordController =
+  //     TextEditingController();
 
   // final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> createUserWithEmailAndPassword(
       String email, String password) async {
     try {
+      // show progress indication
+      showDialog(
+          context: context,
+          builder: (context) {
+            return Center(
+                child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation(orangeTwoColor),
+            ));
+          });
       UserCredential userCredential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
@@ -34,18 +39,18 @@ class _RegisterState extends State<Register> {
       );
       User? user = userCredential.user;
       print('User signed up: ${user!.uid}');
+      // remove the progress indicator
+      if (mounted) {
+        Navigator.of(context).pop();
+      }
     } catch (e) {
-      print('Failed to sign up: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('Failed to create user'),
+        ));
+        Navigator.of(context).pop();
+      }
     }
-  }
-
-  @override
-  void dispose() {
-    nameController.dispose();
-    emailController.dispose();
-    passwordController.dispose();
-    confirmPasswordController.dispose();
-    super.dispose();
   }
 
   @override
@@ -57,17 +62,19 @@ class _RegisterState extends State<Register> {
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
       )),
-      child: const Scaffold(
+      child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
           child: Column(
             children: [
-              HeaderSection(
+              const HeaderSection(
                   imageSrc: 'images/iexplore-logo.png', logoTitle: 'iExplore'),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
-              RegisterForm(),
+              RegisterForm(
+                onPressed: createUserWithEmailAndPassword,
+              ),
             ],
           ),
         ),
@@ -77,11 +84,11 @@ class _RegisterState extends State<Register> {
 }
 
 class RegisterForm extends StatefulWidget {
-  // final void Function(String, String) onPressed;
+  final void Function(String, String) onPressed;
 
   const RegisterForm({
     Key? key,
-    // required this.onPressed,
+    required this.onPressed,
   }) : super(key: key);
 
   @override
@@ -161,9 +168,18 @@ class _RegisterFormState extends State<RegisterForm> {
             height: 25,
           ),
           GestureDetector(
-            onTap: () {
+            onTap: () async {
               if (_formKey.currentState!.validate()) {
-                
+                // Show loading indicator while creating user
+                try {
+                  widget.onPressed(
+                    emailController.text,
+                    passwordController.text,
+                  );
+                  // Hide loading indicator after user creation is completed
+                } catch (e) {
+                  // Hide loading indicator and show error message if user creation fails
+                }
               }
             },
             child: Container(
