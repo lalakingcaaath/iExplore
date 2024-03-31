@@ -37,8 +37,29 @@ class _RegisterState extends State<Register> {
         email: email,
         password: password,
       );
-      User? user = userCredential.user;
-      print('User signed up: ${user!.uid}');
+      // User? user = userCredential.user;
+      // print('User signed up: ${user!.uid}');
+
+      if (mounted) {
+        Navigator.of(context).pop();
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text('Success!'),
+              content: const Text('User creation success!'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(); // Close the dialog
+                  },
+                  child: const Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
       // remove the progress indicator
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
@@ -51,7 +72,7 @@ class _RegisterState extends State<Register> {
               builder: (context) {
                 return AlertDialog(
                   title: const Text('Error'),
-                  content: Text('Failed to create user: $e'),
+                  content: const Text('Failed to create user: Weak Password'),
                   actions: [
                     TextButton(
                       onPressed: () {
@@ -73,7 +94,8 @@ class _RegisterState extends State<Register> {
               builder: (context) {
                 return AlertDialog(
                   title: const Text('Error'),
-                  content: Text('Failed to create user: $e'),
+                  content: const Text(
+                      'Failed to create user: Email is already in use'),
                   actions: [
                     TextButton(
                       onPressed: () {
