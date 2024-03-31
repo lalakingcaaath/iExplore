@@ -2,7 +2,6 @@ String? validateName(String? value) {
   if (value == null || value.isEmpty) {
     return 'Please enter your name';
   }
-  // You can add additional validation rules here if needed
   return null;
 }
 
@@ -10,11 +9,7 @@ String? validateEmail(String? value) {
   if (value == null || value.isEmpty) {
     return 'Please enter your email';
   }
-  // You can use a regular expression to validate email format
-  // Example:
-  // if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
-  //   return 'Please enter a valid email address';
-  // }
+  // TO:DO need to validate if value is email
   return null;
 }
 
@@ -22,7 +17,7 @@ String? validatePassword(String? value) {
   if (value == null || value.isEmpty) {
     return 'Please enter a password';
   }
-  // You can add additional validation rules for password strength
+  // TO:DO check if value is less than 8 characters, have one special characters, capitals, and numbers.
   return null;
 }
 

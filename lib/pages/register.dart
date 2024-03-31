@@ -57,14 +57,14 @@ class _RegisterState extends State<Register> {
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
       )),
-      child: Scaffold(
+      child: const Scaffold(
         backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const HeaderSection(
+              HeaderSection(
                   imageSrc: 'images/iexplore-logo.png', logoTitle: 'iExplore'),
-              const SizedBox(
+              SizedBox(
                 height: 25,
               ),
               RegisterForm(),
