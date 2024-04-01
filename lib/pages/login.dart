@@ -29,8 +29,9 @@ class _LoginState extends State<Login> {
 
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
+      
+      
     } on FirebaseAuthException catch (e) {
-      print(e.code);
       String errorMessage = '';
       switch (e.code) {
         case 'user-not-found':
