@@ -6,14 +6,14 @@ class TextFieldComponent extends StatelessWidget {
   final String name;
   final IconData icon;
   final bool obscureText;
-  final TextEditingController textController;
+  final TextEditingController? textController;
   final String? Function(String?)? validator;
 
   const TextFieldComponent({
     Key? key,
     required this.name,
     required this.icon,
-    required this.textController,
+    this.textController,
     this.obscureText = false,
     this.validator,
   }) : super(key: key);

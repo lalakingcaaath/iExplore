@@ -1,30 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:i_explore/components/HeaderComponent.dart';
-import 'package:i_explore/utils/colors.dart';
 import 'package:i_explore/components/TextFieldComponent.dart';
+import 'package:i_explore/pages/register.dart';
+import 'package:i_explore/utils/colors.dart';
 import 'package:i_explore/utils/validator.dart';
 
-class Register extends StatefulWidget {
-  const Register({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<Register> createState() => _RegisterState();
+  State<Login> createState() => _LoginState();
 }
 
-class _RegisterState extends State<Register> {
-  // final TextEditingController nameController = TextEditingController();
-  // final TextEditingController emailController = TextEditingController();
-  // final TextEditingController passwordController = TextEditingController();
-  // final TextEditingController confirmPasswordController =
-  //     TextEditingController();
-
-  // final FirebaseAuth _auth = FirebaseAuth.instance;
-
-  Future<void> createUserWithEmailAndPassword(
-      String email, String password) async {
+class _LoginState extends State<Login> {
+  Future<void> signInUser(String email, String password) async {
     try {
-      // show progress indication
       showDialog(
           context: context,
           builder: (context) {
@@ -33,46 +26,21 @@ class _RegisterState extends State<Register> {
               valueColor: AlwaysStoppedAnimation(orangeTwoColor),
             ));
           });
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      // User? user = userCredential.user;
-      // print('User signed up: ${user!.uid}');
 
-      if (mounted) {
-        Navigator.of(context).pop();
-        showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: const Text('Success!'),
-              content: const Text('User creation success!'),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop(); // Close the dialog
-                  },
-                  child: const Text('OK'),
-                ),
-              ],
-            );
-          },
-        );
-      }
-      // remove the progress indicator
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+          
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
-        case 'weak-password':
-
+        case 'user-not-found':
           if (mounted) {
-            Navigator.of(context).pop();
             showDialog(
               context: context,
               builder: (context) {
                 return AlertDialog(
                   title: const Text('Error'),
-                  content: const Text('Failed to create user: Weak Password'),
+                  content: const Text(
+                      'Failed to login: No user found for that email.'),
                   actions: [
                     TextButton(
                       onPressed: () {
@@ -86,16 +54,14 @@ class _RegisterState extends State<Register> {
             );
           }
           break;
-        case 'email-already-in-use':
+        case 'wrong-password':
           if (mounted) {
-            Navigator.of(context).pop();
             showDialog(
               context: context,
               builder: (context) {
                 return AlertDialog(
                   title: const Text('Error'),
-                  content: const Text(
-                      'Failed to create user: Email is already in use'),
+                  content: const Text('Failed to login: Wrong Password'),
                   actions: [
                     TextButton(
                       onPressed: () {
@@ -118,7 +84,7 @@ class _RegisterState extends State<Register> {
           builder: (context) {
             return AlertDialog(
               title: const Text('Error'),
-              content: Text('Failed to create user: $e'),
+              content: const Text('Failed to login'),
               actions: [
                 TextButton(
                   onPressed: () {
@@ -137,66 +103,90 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
-        colors: [orangeOneColor, orangeTwoColor, orangeThreeColor],
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-      )),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: SingleChildScrollView(
-          child: Column(
+            colors: [orangeOneColor, orangeTwoColor, orangeThreeColor],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SingleChildScrollView(
+              child: Column(
             children: [
               const HeaderSection(
                   imageSrc: 'images/iexplore-logo.png', logoTitle: 'iExplore'),
               const SizedBox(
                 height: 25,
               ),
-              RegisterForm(
-                onPressed: createUserWithEmailAndPassword,
+              LoginForm(
+                onPressed: signInUser,
               ),
+              const SizedBox(
+                height: 50,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  const Text(
+                    "Have a account?",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Register()));
+                    },
+                    child: const Text(
+                      "Create a account here",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  )
+                ],
+              )
             ],
-          ),
-        ),
-      ),
-    );
+          )),
+        ));
   }
 }
 
-class RegisterForm extends StatefulWidget {
+class LoginForm extends StatefulWidget {
   final void Function(String, String) onPressed;
-
-  const RegisterForm({
+  const LoginForm({
     Key? key,
     required this.onPressed,
   }) : super(key: key);
 
   @override
-  _RegisterFormState createState() => _RegisterFormState();
+  LoginFormState createState() => LoginFormState();
 }
 
-class _RegisterFormState extends State<RegisterForm> {
-  final TextEditingController nameController = TextEditingController();
+class LoginFormState extends State<LoginForm> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
-
-  final _formKey = GlobalKey<FormState>();
+  final _loginFormKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
+      key: _loginFormKey,
       child: Column(
         children: [
-          // Header
           const Padding(
             padding: EdgeInsets.only(left: 16),
             child: Row(
               children: [
-                Text('Create your Account:',
+                Text('Login your Account:',
                     style: TextStyle(
                         fontFamily: "AdobeDevanagari",
                         fontSize: 32,
@@ -205,24 +195,14 @@ class _RegisterFormState extends State<RegisterForm> {
               ],
             ),
           ),
-          // Form Text Field
-          const SizedBox(
-            height: 25,
-          ),
-          TextFieldComponent(
-            name: "Name",
-            icon: Icons.account_circle,
-            textController: nameController,
-            validator: validateName,
-          ),
           const SizedBox(
             height: 25,
           ),
           TextFieldComponent(
             name: "Email",
             icon: Icons.email,
-            textController: emailController,
             validator: validateEmail,
+            textController: emailController,
           ),
           const SizedBox(
             height: 25,
@@ -231,27 +211,15 @@ class _RegisterFormState extends State<RegisterForm> {
             name: "Password",
             icon: Icons.password,
             obscureText: true,
-            textController: passwordController,
             validator: validatePassword,
-          ),
-          const SizedBox(
-            height: 25,
-          ),
-          TextFieldComponent(
-            name: "Confirm Password",
-            icon: Icons.password,
-            obscureText: true,
-            textController: confirmPasswordController,
-            validator: (value) =>
-                validateConfirmPassword(value, passwordController.text),
+            textController: passwordController,
           ),
           const SizedBox(
             height: 25,
           ),
           GestureDetector(
-            onTap: () async {
-              if (_formKey.currentState!.validate()) {
-                // Show loading indicator while creating user
+            onTap: () {
+              if (_loginFormKey.currentState!.validate()) {
                 widget.onPressed(
                   emailController.text,
                   passwordController.text,
@@ -267,7 +235,7 @@ class _RegisterFormState extends State<RegisterForm> {
               ),
               child: const Center(
                 child: Text(
-                  "Sign Up",
+                  "Sign In",
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -282,5 +250,3 @@ class _RegisterFormState extends State<RegisterForm> {
     );
   }
 }
-
-// Header Section
