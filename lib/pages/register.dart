@@ -62,53 +62,35 @@ class _RegisterState extends State<Register> {
       }
       // remove the progress indicator
     } on FirebaseAuthException catch (e) {
+      String errorMessage = '';
       switch (e.code) {
         case 'weak-password':
-
-          if (mounted) {
-            Navigator.of(context).pop();
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  title: const Text('Error'),
-                  content: const Text('Failed to create user: Weak Password'),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop(); // Close the dialog
-                      },
-                      child: const Text('OK'),
-                    ),
-                  ],
-                );
-              },
-            );
-          }
+          errorMessage = 'Failed to create user: Weak password';
           break;
         case 'email-already-in-use':
-          if (mounted) {
-            Navigator.of(context).pop();
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  title: const Text('Error'),
-                  content: const Text(
-                      'Failed to create user: Email is already in use'),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop(); // Close the dialog
-                      },
-                      child: const Text('OK'),
-                    ),
-                  ],
-                );
-              },
-            );
-          }
+          errorMessage = 'Failed to create user: Email is already in use';
           break;
+      }
+
+      if (mounted) {
+        Navigator.of(context).pop();
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text('Error'),
+              content: Text(errorMessage),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(); // Close the dialog
+                  },
+                  child: const Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
       }
     } catch (e) {
       if (mounted) {

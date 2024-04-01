@@ -29,52 +29,40 @@ class _LoginState extends State<Login> {
 
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-          
     } on FirebaseAuthException catch (e) {
+      print(e.code);
+      String errorMessage = '';
       switch (e.code) {
         case 'user-not-found':
-          if (mounted) {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  title: const Text('Error'),
-                  content: const Text(
-                      'Failed to login: No user found for that email.'),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop(); // Close the dialog
-                      },
-                      child: const Text('OK'),
-                    ),
-                  ],
-                );
-              },
-            );
-          }
+          errorMessage = 'Failed to login: No user found for that email.';
           break;
-        case 'wrong-password':
-          if (mounted) {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  title: const Text('Error'),
-                  content: const Text('Failed to login: Wrong Password'),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop(); // Close the dialog
-                      },
-                      child: const Text('OK'),
-                    ),
-                  ],
-                );
-              },
-            );
-          }
+        case 'too-many-requests':
+          errorMessage =
+              'Temporarily disabled due to many failed login attempts. Please try again later';
           break;
+        case 'invalid-credential':
+          errorMessage = 'Failed to login: Wrong email or password';
+          break;
+      }
+      if (mounted) {
+        Navigator.of(context).pop();
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text('Error'),
+              content: Text(errorMessage),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(); // Close the dialog
+                  },
+                  child: const Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
       }
     } catch (e) {
       if (mounted) {
