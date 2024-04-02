@@ -29,7 +29,7 @@ class HeaderSection extends StatelessWidget {
                 fontFamily: 'AdobeDevanagari',
                 fontStyle: FontStyle.normal,
                 fontSize: 20,
-                color: Color.fromARGB(255, 124, 116, 116)),
+                color: Colors.white),
           ),
           const SizedBox(
             width: 64,

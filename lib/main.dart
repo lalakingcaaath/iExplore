@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:i_explore/authentication.dart';
+import 'utils/colors.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'package:i_explore/pages/login.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
-
-Color brownColor = const Color(0xFF703A07);
-Color lightOrangeColor = const Color(0xFFF9DCAF);
-Color lightOrangeTwoColor = const Color(0xFFF5C57E);
-Color orangeOneColor = const Color(0xFFD25017);
-Color orangeTwoColor = const Color(0xFFDD6614);
-Color orangeThreeColor = const Color(0xFFE0750F);
-Color orangeFourColor = const Color(0xFFE88506);
-Color darkOrangeColor = const Color(0xFFBE5108);
 
 
 class MyApp extends StatelessWidget {
@@ -28,7 +26,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'iExplore PH'),
+      home: const Login(),
     );
   }
 }
@@ -520,19 +518,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-              Container(
-                margin: const EdgeInsets.only(top:20),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> AuthenticationPage()),);
-                  },
-                      child: const Text("Authentication Page")
-                  ),
-                ],
-              ),
             ],
           ),
         )
@@ -544,7 +529,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: FittedBox(
           child: FloatingActionButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHomePage(title: "iExplore")));
             },
             child: Transform.scale(
               scale: 1.275,
