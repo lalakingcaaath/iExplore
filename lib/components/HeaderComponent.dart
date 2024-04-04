@@ -23,14 +23,13 @@ class HeaderSection extends StatelessWidget {
             width: 64,
             height: 64,
           ),
-          Text(
-            logoTitle,
-            style: const TextStyle(
+          Text(logoTitle,
+              style: const TextStyle(
                 fontFamily: 'AdobeDevanagari',
                 fontStyle: FontStyle.normal,
                 fontSize: 20,
-                color: Color.fromARGB(255, 124, 116, 116)),
-          ),
+                color: Colors.white,
+              )),
           const SizedBox(
             width: 64,
           ),
