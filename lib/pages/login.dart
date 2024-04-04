@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:i_explore/components/HeaderComponent.dart';
 import 'package:i_explore/components/TextFieldComponent.dart';
+import 'package:i_explore/main.dart';
 import 'package:i_explore/pages/register.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:i_explore/utils/validator.dart';
+
 
 class Login extends StatefulWidget {
   const Login({
@@ -213,6 +215,7 @@ class LoginFormState extends State<LoginForm> {
                   emailController.text,
                   passwordController.text,
                 );
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHomePage(title: "iExplore")));
               }
             },
             child: Container(
