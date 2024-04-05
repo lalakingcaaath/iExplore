@@ -3,7 +3,6 @@ import 'package:i_explore/pages/homepage.dart';
 import 'utils/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'package:i_explore/pages/login.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

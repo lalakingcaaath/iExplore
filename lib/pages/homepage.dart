@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/components/ImageCircleComponent.dart';
 import 'package:i_explore/utils/colors.dart';
 
@@ -14,64 +15,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Home Dashboard",
-          style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'FSP-Demo',
-              fontWeight: FontWeight.normal),
-        ),
-        centerTitle: true,
-        backgroundColor: orangeOneColor,
-        leading: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Image.asset('images/iexplore-logo.png'),
-        ),
-        actions: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Row(
-                children: [
-                  Positioned(
-                      child: Container(
-                    decoration: BoxDecoration(
-                        color: lightOrangeColor,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          'images/iexplore-coin.png',
-                          width: 40,
-                        ),
-                        Text(
-                          "0",
-                          style: TextStyle(
-                              fontFamily: 'AdobeDevanagari',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25,
-                              color: orangeOneColor),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                              color: darkOrangeColor,
-                              borderRadius: BorderRadius.circular(20)),
-                          child: IconButton(
-                            color: Colors.white,
-                            onPressed: () {},
-                            icon: Icon(Icons.add, size: 25),
-                          ),
-                        )
-                      ],
-                    ),
-                  ))
-                ],
-              ),
-            ],
-          ),
-        ],
-      ),
+      appBar: HeaderAppBarComponent(headerTitle: 'Home dashboard'),
       body: SingleChildScrollView(
           child: Container(
         decoration: BoxDecoration(
