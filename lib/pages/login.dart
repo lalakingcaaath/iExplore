@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:i_explore/components/HeaderComponent.dart';
 import 'package:i_explore/components/TextFieldComponent.dart';
-import 'package:i_explore/main.dart';
+import 'package:i_explore/pages/homepage.dart';
 import 'package:i_explore/pages/register.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:i_explore/utils/validator.dart';
@@ -13,11 +13,14 @@ class Login extends StatefulWidget {
     Key? key,
   }) : super(key: key);
 
+
+
   @override
   State<Login> createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
+
   Future<void> signInUser(String email, String password) async {
     try {
       showDialog(
