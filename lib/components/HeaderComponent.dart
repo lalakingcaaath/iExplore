@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// Header for login and register
+
 class HeaderSection extends StatelessWidget {
   const HeaderSection({
     super.key,

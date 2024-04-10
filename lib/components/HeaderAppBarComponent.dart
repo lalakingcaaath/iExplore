@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:i_explore/utils/colors.dart';
 
+// Header App Bar for all pages EXCEPT login and register
+
 class HeaderAppBarComponent extends StatelessWidget
     implements PreferredSizeWidget {
   final String headerTitle;
@@ -77,60 +79,3 @@ class HeaderAppBarComponent extends StatelessWidget
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }
-
-// title: const Text(
-//           "Home Dashboard",
-//           style: TextStyle(
-//               color: Colors.white,
-//               fontFamily: 'FSP-Demo',
-//               fontWeight: FontWeight.normal),
-//         ),
-//         centerTitle: true,
-//         backgroundColor: orangeOneColor,
-//         leading: Padding(
-//           padding: const EdgeInsets.all(8),
-//           child: Image.asset('images/iexplore-logo.png'),
-//         ),
-//         actions: [
-//           Stack(
-//             alignment: Alignment.center,
-//             children: [
-//               Row(
-//                 children: [
-//                   Positioned(
-//                       child: Container(
-//                     decoration: BoxDecoration(
-//                         color: lightOrangeColor,
-//                         borderRadius: BorderRadius.circular(20)),
-//                     child: Row(
-//                       children: [
-//                         Image.asset(
-//                           'images/iexplore-coin.png',
-//                           width: 40,
-//                         ),
-//                         Text(
-//                           "0",
-//                           style: TextStyle(
-//                               fontFamily: 'AdobeDevanagari',
-//                               fontWeight: FontWeight.bold,
-//                               fontSize: 25,
-//                               color: orangeOneColor),
-//                         ),
-//                         Container(
-//                           decoration: BoxDecoration(
-//                               color: darkOrangeColor,
-//                               borderRadius: BorderRadius.circular(20)),
-//                           child: IconButton(
-//                             color: Colors.white,
-//                             onPressed: () {},
-//                             icon: Icon(Icons.add, size: 25),
-//                           ),
-//                         )
-//                       ],
-//                     ),
-//                   ))
-//                 ],
-//               ),
-//             ],
-//           ),
-//         ],
