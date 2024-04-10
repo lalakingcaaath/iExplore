@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:i_explore/pages/homepage.dart';
+import 'package:i_explore/pages/login.dart';
 import 'utils/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: orangeOneColor),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'iExplore'),
+      home: const Login(),
     );
   }
 }
