@@ -4,8 +4,8 @@ import 'package:i_explore/components/ImageCircleComponent.dart';
 import 'package:i_explore/utils/colors.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
+  const MyHomePage({super.key, required String title});
+
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();

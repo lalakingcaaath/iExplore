@@ -1,130 +1,86 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:i_explore/components/HeaderComponent.dart';
 import 'package:i_explore/components/TextFieldComponent.dart';
 import 'package:i_explore/pages/homepage.dart';
 import 'package:i_explore/pages/register.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:i_explore/utils/validator.dart';
+import 'package:provider/provider.dart';
 
+import '../services/AuthService.dart';
 
 class Login extends StatefulWidget {
   const Login({
     Key? key,
   }) : super(key: key);
 
-
-
   @override
   State<Login> createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
+  void _signInUser(String email, String password) async {
+    AuthService authService = Provider.of<AuthService>(context, listen: false);
 
-  Future<void> signInUser(String email, String password) async {
     try {
-      showDialog(
-          context: context,
-          builder: (context) {
-            return Center(
-                child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation(orangeTwoColor),
-            ));
-          });
-
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
-      
-      
-    } on FirebaseAuthException catch (e) {
-      String errorMessage = '';
-      switch (e.code) {
-        case 'user-not-found':
-          errorMessage = 'Failed to login: No user found for that email.';
-          break;
-        case 'too-many-requests':
-          errorMessage =
-              'Temporarily disabled due to many failed login attempts. Please try again later';
-          break;
-        case 'invalid-credential':
-          errorMessage = 'Failed to login: Wrong email or password';
-          break;
-      }
-      if (mounted) {
-        Navigator.of(context).pop();
-        showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: const Text('Error'),
-              content: Text(errorMessage),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop(); // Close the dialog
-                  },
-                  child: const Text('OK'),
-                ),
-              ],
-            );
-          },
-        );
-      }
+      await authService.signInUser(email, password);
+      // Navigate to home page after successful authentication
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (context) => const MyHomePage(title: "iExplore")),
+      );
     } catch (e) {
-      if (mounted) {
-        Navigator.of(context).pop();
-        showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: const Text('Error'),
-              content: const Text('Failed to login'),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop(); // Close the dialog
-                  },
-                  child: const Text('OK'),
-                ),
-              ],
-            );
-          },
-        );
-      }
+      // Handle authentication errors (e.g., show error dialog)
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Error'),
+            content: Text('Failed to login: ${e.toString()}'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(); // Close the dialog
+                },
+                child: const Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [orangeOneColor, orangeTwoColor, orangeThreeColor],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [orangeOneColor, orangeTwoColor, orangeThreeColor],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
         ),
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: SingleChildScrollView(
-              child: Column(
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: SingleChildScrollView(
+          child: Column(
             children: [
               const HeaderSection(
-                  imageSrc: 'images/iexplore-logo.png', logoTitle: 'iExplore'),
-              const SizedBox(
-                height: 25,
+                imageSrc: 'images/iexplore-logo.png',
+                logoTitle: 'iExplore',
               ),
+              const SizedBox(height: 25),
               LoginForm(
-                onPressed: signInUser,
+                onPressed: _signInUser, // Pass the correct callback function
               ),
-              const SizedBox(
-                height: 50,
-              ),
+              const SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   const Text(
-                    "Have a account?",
+                    "Don't have an account?",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -133,12 +89,13 @@ class _LoginState extends State<Login> {
                   InkWell(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Register()));
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Register()),
+                      );
                     },
                     child: const Text(
-                      "Create a account here",
+                      "Create an account here",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -149,8 +106,10 @@ class _LoginState extends State<Login> {
                 ],
               )
             ],
-          )),
-        ));
+          ),
+        ),
+      ),
+    );
   }
 }
 
@@ -218,7 +177,11 @@ class LoginFormState extends State<LoginForm> {
                   emailController.text,
                   passwordController.text,
                 );
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHomePage(title: "iExplore")));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const MyHomePage(title: "iExplore")));
               }
             },
             child: Container(
