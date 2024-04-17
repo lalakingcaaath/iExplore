@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/components/ImageCircleComponent.dart';
 import 'package:i_explore/utils/colors.dart';
+import 'package:i_explore/pages/luzon.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -56,18 +57,27 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               margin: const EdgeInsets.only(top: 30),
             ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ImageCircleComponent(
-                  desc: 'luzon',
-                  imageUrl: 'images/luzon.jpg',
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>  const luzon()));
+                  },
+                  child: ImageCircleComponent(
+                    desc: 'luzon',
+                    imageUrl: 'images/luzon.jpg',
+                  ),
                 ),
-                ImageCircleComponent(
-                    imageUrl: 'images/visayas.jpg', desc: 'visayas'),
-                ImageCircleComponent(
-                  imageUrl: 'images/mindanao.jpg',
-                  desc: 'Mindanao',
+                InkWell(
+                  child: ImageCircleComponent(
+                      imageUrl: 'images/visayas.jpg', desc: 'visayas'),
+                ),
+                InkWell(
+                  child: ImageCircleComponent(
+                    imageUrl: 'images/mindanao.jpg',
+                    desc: 'Mindanao',
+                  ),
                 ),
               ],
             ),
@@ -241,7 +251,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: brownColor,
                         child: const Center(
                           child: Text(
-                            "RURAL",
+                            "SCHOOLS",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontFamily: 'AdobeDevanagari',
@@ -325,7 +335,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: orangeTwoColor,
                         fontFamily: 'AdobeDevanagari',
                         fontStyle: FontStyle.italic,
-                        fontSize: 20),
+                        fontSize: 20
+                    ),
                   )
                 ],
               ),
@@ -336,47 +347,28 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 40,
-                ),
-                Flexible(
-                    flex: 1,
-                    child: SizedBox(
-                      width: 150,
-                      height: 50,
-                      child: Container(
-                        color: brownColor,
-                        child: const Center(
-                          child: Text(
-                            "MANILA CITY",
-                            style: TextStyle(color: Colors.white),
-                          ),
+                SizedBox(
+                  width: 250,
+                  height: 50,
+                  child: Container(
+                    color: brownColor,
+                    child: const Center(
+                      child: Text(
+                        "MANILA CITY",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'AdobeDevanagari',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          decoration: TextDecoration.underline,
+                          decorationColor: Colors.white,
                         ),
                       ),
-                    )),
-                Container(
-                  width: 40,
-                ),
-                Flexible(
-                    flex: 1,
-                    child: SizedBox(
-                      width: 150,
-                      height: 50,
-                      child: Container(
-                        color: brownColor,
-                        child: const Center(
-                          child: Text(
-                            "BAGUIO CITY",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ),
-                    )),
-                Container(
-                  width: 40,
-                ),
+                    ),
+                  ),
+                )
               ],
-            ),
+            )
           ],
         ),
       )),

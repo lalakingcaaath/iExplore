@@ -110,7 +110,7 @@ class _LoginState extends State<Login> {
               child: Column(
             children: [
               const HeaderSection(
-                  imageSrc: 'images/iexplore-logo.png', logoTitle: 'iExplore'),
+                  imageSrc: 'images/iexplore-logo.png', logoTitle: 'iExplorePH'),
               const SizedBox(
                 height: 25,
               ),
