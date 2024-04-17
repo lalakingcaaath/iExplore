@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:i_explore/components/BottomNavigationBarComponent.dart';
+import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/components/ImageCircleComponent.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:i_explore/pages/luzon.dart';
+import 'package:i_explore/pages/culinary.dart';
+import 'package:i_explore/pages/adventure.dart';
+import 'package:i_explore/pages/leisures.dart';
+import 'package:i_explore/pages/cultures.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -112,19 +118,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Flexible(
                     flex: 1,
-                    child: SizedBox(
-                      width: 150,
-                      height: 50,
-                      child: Container(
-                        color: brownColor,
-                        child: const Center(
-                          child: Text(
-                            "CULINARY",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold),
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => Culinary_Tours()));
+                      },
+                      child: SizedBox(
+                        width: 150,
+                        height: 50,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor,
+                          ),
+                          child: const Center(
+                            child: Text(
+                              "CULINARY",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'AdobeDevanagari',
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),
@@ -134,74 +148,26 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Flexible(
                     flex: 1,
-                    child: SizedBox(
-                      width: 150,
-                      height: 50,
-                      child: Container(
-                        color: brownColor,
-                        child: const Center(
-                          child: Text(
-                            "ECOTOURISM",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold),
+                    child: GestureDetector(
+                      onTap: (){},
+                      child: SizedBox(
+                        width: 150,
+                        height: 50,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor,
                           ),
-                        ),
-                      ),
-                    )),
-                Container(
-                  width: 40,
-                ),
-              ],
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 10),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 40,
-                ),
-                Flexible(
-                    flex: 1,
-                    child: SizedBox(
-                      width: 150,
-                      height: 50,
-                      child: Container(
-                        color: brownColor,
-                        child: const Center(
-                          child: Text(
-                            "ADVENTURE",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                    )),
-                Container(
-                  width: 40,
-                ),
-                Flexible(
-                    flex: 1,
-                    child: SizedBox(
-                      width: 150,
-                      height: 50,
-                      child: Container(
-                        color: brownColor,
-                        child: const Center(
-                          child: Text(
-                            "PILGRIMAGE",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold),
+                          child: const Center(
+                            child: Text(
+                              "ECOTOURISM",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'AdobeDevanagari',
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.bold
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -222,19 +188,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Flexible(
                     flex: 1,
-                    child: SizedBox(
-                      width: 150,
-                      height: 50,
-                      child: Container(
-                        color: brownColor,
-                        child: const Center(
-                          child: Text(
-                            "LEISURE",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold),
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => Adventure_Tours()));
+                      },
+                      child: SizedBox(
+                        width: 150,
+                        height: 50,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor,
+                          ),
+                          child: const Center(
+                            child: Text(
+                              "ADVENTURE",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'AdobeDevanagari',
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),
@@ -244,19 +218,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Flexible(
                     flex: 1,
-                    child: SizedBox(
-                      width: 150,
-                      height: 50,
-                      child: Container(
-                        color: brownColor,
-                        child: const Center(
-                          child: Text(
-                            "SCHOOLS",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold),
+                    child: GestureDetector(
+                      onTap: (){},
+                      child: SizedBox(
+                        width: 150,
+                        height: 50,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor,
+                          ),
+                          child: const Center(
+                            child: Text(
+                              "PILGRIMAGE",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'AdobeDevanagari',
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),
@@ -277,19 +257,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Flexible(
                     flex: 1,
-                    child: SizedBox(
-                      width: 150,
-                      height: 50,
-                      child: Container(
-                        color: brownColor,
-                        child: const Center(
-                          child: Text(
-                            "CULTURAL",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold),
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => Leisures_Tours()));
+                      },
+                      child: SizedBox(
+                        width: 150,
+                        height: 50,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor,
+                          ),
+                          child: const Center(
+                            child: Text(
+                              "LEISURE",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'AdobeDevanagari',
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),
@@ -299,19 +287,94 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Flexible(
                     flex: 1,
-                    child: SizedBox(
-                      width: 150,
-                      height: 50,
-                      child: Container(
-                        color: brownColor,
-                        child: const Center(
-                          child: Text(
-                            "WELLNESS",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold),
+                    child: GestureDetector(
+                      onTap: (){},
+                      child: SizedBox(
+                        width: 150,
+                        height: 50,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor,
+                          ),
+                          child: const Center(
+                            child: Text(
+                              "SCHOOLS",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'AdobeDevanagari',
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )),
+                Container(
+                  width: 40,
+                ),
+              ],
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 10),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 40,
+                ),
+                Flexible(
+                    flex: 1,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => Cultural_Tours()));
+                      },
+                      child: SizedBox(
+                        width: 150,
+                        height: 50,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor,
+                          ),
+                          child: const Center(
+                            child: Text(
+                              "CULTURAL",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'AdobeDevanagari',
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )),
+                Container(
+                  width: 40,
+                ),
+                Flexible(
+                    flex: 1,
+                    child: GestureDetector(
+                      onTap: (){},
+                      child: SizedBox(
+                        width: 150,
+                        height: 50,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor,
+                          ),
+                          child: const Center(
+                            child: Text(
+                              "WELLNESS",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'AdobeDevanagari',
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),
@@ -351,7 +414,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 250,
                   height: 50,
                   child: Container(
-                    color: brownColor,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: brownColor
+                    ),
                     child: const Center(
                       child: Text(
                         "MANILA CITY",
@@ -373,73 +439,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: SizedBox(
-        height: 50,
-        width: 50,
-        child: FittedBox(
-          child: FloatingActionButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          const MyHomePage(title: "iExplore")));
-            },
-            child: Transform.scale(
-              scale: 1.275,
-              child: Image.asset('images/iexplore-logo-circle.png'),
-            ),
-          ),
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: lightOrangeColor,
-        type: BottomNavigationBarType.fixed,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: SizedBox(
-                child: Transform.scale(
-              scale: 1.5,
-              child: const Icon(Icons.bookmark),
-            )),
-            label: "",
-          ),
-          BottomNavigationBarItem(
-              icon: SizedBox(
-                child: Transform.scale(
-                  scale: 1.5,
-                  child: const Icon(Icons.search),
-                ),
-              ),
-              label: ""),
-          const BottomNavigationBarItem(
-            icon: Icon(null),
-            label: "DASHBOARD",
-          ),
-          BottomNavigationBarItem(
-              icon: SizedBox(
-                child: Transform.scale(
-                  scale: 1.5,
-                  child: const Icon(Icons.download),
-                ),
-              ),
-              label: ""),
-          BottomNavigationBarItem(
-              icon: SizedBox(
-                child: Transform.scale(
-                  scale: 1.5,
-                  child: const Icon(Icons.person_2_outlined),
-                ),
-              ),
-              label: ""),
-        ],
-        unselectedLabelStyle: TextStyle(
-            fontFamily: "Fontspring-Demo",
-            fontWeight: FontWeight.bold,
-            color: orangeThreeColor),
-        unselectedItemColor: darkOrangeColor,
-        selectedItemColor: darkOrangeColor,
-      ),
+      floatingActionButton: FloatingButtonNavBarComponent(),
+      bottomNavigationBar: BottomNavigationBarComponent()
     );
   }
 }

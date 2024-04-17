@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
+import 'package:i_explore/components/BottomNavigationBarComponent.dart';
+import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/utils/colors.dart';
+import 'package:i_explore/pages/metroManila.dart';
 
 class luzon extends StatefulWidget {
   const luzon({Key? key}) : super(key: key);
@@ -41,7 +44,7 @@ class _luzonState extends State<luzon> {
                           padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                           decoration: BoxDecoration(
                               color: lightOrangeColor,
-                              borderRadius: BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -82,7 +85,7 @@ class _luzonState extends State<luzon> {
                           padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                           decoration: BoxDecoration(
                               color: lightOrangeColor,
-                              borderRadius: BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -123,7 +126,7 @@ class _luzonState extends State<luzon> {
                           padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                           decoration: BoxDecoration(
                               color: lightOrangeColor,
-                              borderRadius: BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -164,7 +167,7 @@ class _luzonState extends State<luzon> {
                           padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                           decoration: BoxDecoration(
                               color: lightOrangeColor,
-                              borderRadius: BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -207,7 +210,7 @@ class _luzonState extends State<luzon> {
                             padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                             decoration: BoxDecoration(
                                 color: lightOrangeColor,
-                                borderRadius: BorderRadius.circular(10)),
+                                borderRadius: BorderRadius.circular(20)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -255,7 +258,7 @@ class _luzonState extends State<luzon> {
                             padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                             decoration: BoxDecoration(
                                 color: lightOrangeColor,
-                                borderRadius: BorderRadius.circular(10)),
+                                borderRadius: BorderRadius.circular(20)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -289,21 +292,26 @@ class _luzonState extends State<luzon> {
                               duration: Duration(milliseconds: 300),
                               height: isDropdownVisible ? 30 : 0,
                               child: Center(
-                                child: Container(
-                                  width: 300,
-                                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                                  decoration: BoxDecoration(
-                                      color: orangeThreeColor,
-                                      borderRadius: BorderRadius.circular(10)
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "Metro Manila",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontFamily: 'AdobeDevanagari',
-                                          fontStyle: FontStyle.italic,
-                                          fontSize: 20
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => Metro_Manila()));
+                                  },
+                                  child: Container(
+                                    width: 300,
+                                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                                    decoration: BoxDecoration(
+                                        color: orangeThreeColor,
+                                        borderRadius: BorderRadius.circular(20)
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "Metro Manila",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontFamily: 'AdobeDevanagari',
+                                            fontStyle: FontStyle.italic,
+                                            fontSize: 20
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -328,7 +336,7 @@ class _luzonState extends State<luzon> {
                           padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                           decoration: BoxDecoration(
                               color: lightOrangeColor,
-                              borderRadius: BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -369,7 +377,7 @@ class _luzonState extends State<luzon> {
                           padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                           decoration: BoxDecoration(
                               color: lightOrangeColor,
-                              borderRadius: BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -401,6 +409,9 @@ class _luzonState extends State<luzon> {
             ),
           ),
         ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: FloatingButtonNavBarComponent(),
+          bottomNavigationBar: BottomNavigationBarComponent()
       ),
     );
   }
