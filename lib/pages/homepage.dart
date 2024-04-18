@@ -21,426 +21,461 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: HeaderAppBarComponent(headerTitle: 'Home dashboard'),
-      body: SingleChildScrollView(
-          child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              orangeOneColor,
-              orangeTwoColor,
-              orangeThreeColor
-            ], // Define your gradient colors
-            begin: Alignment.topCenter, // Define the gradient start point
-            end: Alignment.bottomCenter, // Define the gradient end point
-          ),
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [orangeOneColor, orangeTwoColor, orangeThreeColor],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
         ),
-        child: Column(
-          children: [
-            Container(
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: HeaderAppBarComponent(headerTitle: 'Home dashboard'),
+        body: SingleChildScrollView(
+            child: Container(
               margin: const EdgeInsets.only(top: 30),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                  decoration: BoxDecoration(
-                      color: lightOrangeColor,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Text(
-                    "Which Island do you want to explore?",
-                    style: TextStyle(
-                        color: orangeTwoColor,
-                        fontFamily: 'AdobeDevanagari',
-                        fontStyle: FontStyle.italic,
-                        fontSize: 20),
-                  ),
-                )
-              ],
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 30),
-            ),
-             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) =>  const luzon()));
-                  },
-                  child: ImageCircleComponent(
-                    desc: 'luzon',
-                    imageUrl: 'images/luzon.jpg',
-                  ),
-                ),
-                InkWell(
-                  child: ImageCircleComponent(
-                      imageUrl: 'images/visayas.jpg', desc: 'visayas'),
-                ),
-                InkWell(
-                  child: ImageCircleComponent(
-                    imageUrl: 'images/mindanao.jpg',
-                    desc: 'Mindanao',
-                  ),
-                ),
-              ],
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 30),
-            ),
-            Container(
-              color: lightOrangeColor,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Column(
                 children: [
-                  Text(
-                    "TOUR CATEGORIES",
-                    style: TextStyle(
-                      color: orangeTwoColor,
-                      fontSize: 20,
-                      fontFamily: 'AdobeDevanagari',
-                      fontStyle: FontStyle.italic,
-                    ),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 30),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 40,
-                ),
-                Flexible(
-                    flex: 1,
-                    child: GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => Culinary_Tours()));
-                      },
-                      child: SizedBox(
-                        width: 150,
-                        height: 50,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
-                          ),
-                          child: const Center(
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                        decoration: BoxDecoration(
+                            color: lightOrangeColor,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Text(
+                          "Which Island do you want to explore?",
+                          style: TextStyle(
+                              color: orangeTwoColor,
+                              fontFamily: 'AdobeDevanagari',
+                              fontStyle: FontStyle.italic,
+                              fontSize: 20),
+                        ),
+                      )
+                    ],
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 30),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => luzon()));
+                        },
+                        child: CircleAvatar(
+                          radius: 50,
+                          backgroundImage: AssetImage('images/luzon.jpg'),
+                          child: Center(
                             child: Text(
-                              "CULINARY",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'AdobeDevanagari',
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold),
+                              "LUZON", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'AdobeDevanagari',
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 4,
+                              fontSize: 12,
+                            ),
                             ),
                           ),
                         ),
                       ),
-                    )),
-                Container(
-                  width: 40,
-                ),
-                Flexible(
-                    flex: 1,
-                    child: GestureDetector(
-                      onTap: (){},
-                      child: SizedBox(
-                        width: 150,
+                      GestureDetector(
+                        onTap: (){},
+                        child: CircleAvatar(
+                          radius: 50,
+                          backgroundImage: AssetImage('images/visayas.jpg'),
+                          child: Center(
+                            child: Text(
+                              "VISAYAS", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'AdobeDevanagari',
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 4,
+                              fontSize: 12,
+                            ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: (){},
+                        child: CircleAvatar(
+                          radius: 50,
+                          backgroundImage: AssetImage('images/mindanao.jpg'),
+                          child: Center(
+                            child: Text(
+                              "MINDANAO", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'AdobeDevanagari',
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 4,
+                              fontSize: 12,
+                            ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 30),
+                  ),
+                  Container(
+                    color: lightOrangeColor,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "TOUR CATEGORIES",
+                          style: TextStyle(
+                            color: orangeTwoColor,
+                            fontSize: 20,
+                            fontFamily: 'AdobeDevanagari',
+                            fontStyle: FontStyle.italic,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 30),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 40,
+                      ),
+                      Flexible(
+                          flex: 1,
+                          child: GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Culinary_Tours()));
+                            },
+                            child: SizedBox(
+                              width: 150,
+                              height: 50,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: brownColor,
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "CULINARY",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'AdobeDevanagari',
+                                        fontStyle: FontStyle.italic,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )),
+                      Container(
+                        width: 40,
+                      ),
+                      Flexible(
+                          flex: 1,
+                          child: GestureDetector(
+                            onTap: (){},
+                            child: SizedBox(
+                              width: 150,
+                              height: 50,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: brownColor,
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "ECOTOURISM",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'AdobeDevanagari',
+                                        fontStyle: FontStyle.italic,
+                                        fontWeight: FontWeight.bold
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )),
+                      Container(
+                        width: 40,
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 10),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 40,
+                      ),
+                      Flexible(
+                          flex: 1,
+                          child: GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Adventure_Tours()));
+                            },
+                            child: SizedBox(
+                              width: 150,
+                              height: 50,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: brownColor,
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "ADVENTURE",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'AdobeDevanagari',
+                                        fontStyle: FontStyle.italic,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )),
+                      Container(
+                        width: 40,
+                      ),
+                      Flexible(
+                          flex: 1,
+                          child: GestureDetector(
+                            onTap: (){},
+                            child: SizedBox(
+                              width: 150,
+                              height: 50,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: brownColor,
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "PILGRIMAGE",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'AdobeDevanagari',
+                                        fontStyle: FontStyle.italic,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )),
+                      Container(
+                        width: 40,
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 10),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 40,
+                      ),
+                      Flexible(
+                          flex: 1,
+                          child: GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Leisures_Tours()));
+                            },
+                            child: SizedBox(
+                              width: 150,
+                              height: 50,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: brownColor,
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "LEISURE",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'AdobeDevanagari',
+                                        fontStyle: FontStyle.italic,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )),
+                      Container(
+                        width: 40,
+                      ),
+                      Flexible(
+                          flex: 1,
+                          child: GestureDetector(
+                            onTap: (){},
+                            child: SizedBox(
+                              width: 150,
+                              height: 50,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: brownColor,
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "SCHOOLS",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'AdobeDevanagari',
+                                        fontStyle: FontStyle.italic,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )),
+                      Container(
+                        width: 40,
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 10),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 40,
+                      ),
+                      Flexible(
+                          flex: 1,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Cultural_Tours()));
+                            },
+                            child: SizedBox(
+                              width: 150,
+                              height: 50,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: brownColor,
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "CULTURAL",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'AdobeDevanagari',
+                                        fontStyle: FontStyle.italic,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )),
+                      Container(
+                        width: 40,
+                      ),
+                      Flexible(
+                          flex: 1,
+                          child: GestureDetector(
+                            onTap: (){},
+                            child: SizedBox(
+                              width: 150,
+                              height: 50,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: brownColor,
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "WELLNESS",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'AdobeDevanagari',
+                                        fontStyle: FontStyle.italic,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )),
+                      Container(
+                        width: 40,
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 30),
+                  ),
+                  Container(
+                    color: lightOrangeColor,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "SUGGESTED ITINERARIES",
+                          style: TextStyle(
+                              color: orangeTwoColor,
+                              fontFamily: 'AdobeDevanagari',
+                              fontStyle: FontStyle.italic,
+                              fontSize: 20
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 30),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 250,
                         height: 50,
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
+                            color: brownColor
                           ),
                           child: const Center(
                             child: Text(
-                              "ECOTOURISM",
+                              "MANILA CITY",
                               style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'AdobeDevanagari',
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold
+                                color: Colors.white,
+                                fontFamily: 'AdobeDevanagari',
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                decoration: TextDecoration.underline,
+                                decorationColor: Colors.white,
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    )),
-                Container(
-                  width: 40,
-                ),
-              ],
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 10),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 40,
-                ),
-                Flexible(
-                    flex: 1,
-                    child: GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => Adventure_Tours()));
-                      },
-                      child: SizedBox(
-                        width: 150,
-                        height: 50,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
-                          ),
-                          child: const Center(
-                            child: Text(
-                              "ADVENTURE",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'AdobeDevanagari',
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    )),
-                Container(
-                  width: 40,
-                ),
-                Flexible(
-                    flex: 1,
-                    child: GestureDetector(
-                      onTap: (){},
-                      child: SizedBox(
-                        width: 150,
-                        height: 50,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
-                          ),
-                          child: const Center(
-                            child: Text(
-                              "PILGRIMAGE",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'AdobeDevanagari',
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    )),
-                Container(
-                  width: 40,
-                ),
-              ],
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 10),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 40,
-                ),
-                Flexible(
-                    flex: 1,
-                    child: GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => Leisures_Tours()));
-                      },
-                      child: SizedBox(
-                        width: 150,
-                        height: 50,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
-                          ),
-                          child: const Center(
-                            child: Text(
-                              "LEISURE",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'AdobeDevanagari',
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    )),
-                Container(
-                  width: 40,
-                ),
-                Flexible(
-                    flex: 1,
-                    child: GestureDetector(
-                      onTap: (){},
-                      child: SizedBox(
-                        width: 150,
-                        height: 50,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
-                          ),
-                          child: const Center(
-                            child: Text(
-                              "SCHOOLS",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'AdobeDevanagari',
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    )),
-                Container(
-                  width: 40,
-                ),
-              ],
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 10),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 40,
-                ),
-                Flexible(
-                    flex: 1,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => Cultural_Tours()));
-                      },
-                      child: SizedBox(
-                        width: 150,
-                        height: 50,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
-                          ),
-                          child: const Center(
-                            child: Text(
-                              "CULTURAL",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'AdobeDevanagari',
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    )),
-                Container(
-                  width: 40,
-                ),
-                Flexible(
-                    flex: 1,
-                    child: GestureDetector(
-                      onTap: (){},
-                      child: SizedBox(
-                        width: 150,
-                        height: 50,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
-                          ),
-                          child: const Center(
-                            child: Text(
-                              "WELLNESS",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'AdobeDevanagari',
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    )),
-                Container(
-                  width: 40,
-                ),
-              ],
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 30),
-            ),
-            Container(
-              color: lightOrangeColor,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "SUGGESTED ITINERARIES",
-                    style: TextStyle(
-                        color: orangeTwoColor,
-                        fontFamily: 'AdobeDevanagari',
-                        fontStyle: FontStyle.italic,
-                        fontSize: 20
-                    ),
+                      )
+                    ],
                   )
                 ],
               ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 30),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 250,
-                  height: 50,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: brownColor
-                    ),
-                    child: const Center(
-                      child: Text(
-                        "MANILA CITY",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'AdobeDevanagari',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          decoration: TextDecoration.underline,
-                          decorationColor: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            )
-          ],
-        ),
-      )),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingButtonNavBarComponent(),
-      bottomNavigationBar: BottomNavigationBarComponent()
+            )),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: FloatingButtonNavBarComponent(),
+        bottomNavigationBar: BottomNavigationBarComponent()
+      ),
     );
   }
 }

@@ -17,7 +17,7 @@ class ImageCircleComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: CircleAvatar(
-        radius: 55,
+        radius: 50,
         backgroundImage: AssetImage(imageUrl),
         child: Center(
           child: Text(
@@ -26,7 +26,7 @@ class ImageCircleComponent extends StatelessWidget {
               color: Colors.white,
               fontFamily: 'AdobeDevanagari',
               fontWeight: FontWeight.bold,
-              letterSpacing: 5,
+              letterSpacing: 4,
               fontSize: descSize,
             ),
           ),

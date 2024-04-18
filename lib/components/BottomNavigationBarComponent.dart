@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:i_explore/pages/homepage.dart';
 import 'package:i_explore/utils/colors.dart';
 
 // Bottom Navigation Bar for all pages EXCEPT login and register
@@ -32,11 +31,11 @@ class BottomNavigationBarComponent extends StatelessWidget {
                   ),
                 ), 
                 label: ""
-            ), 
+            ),
             const BottomNavigationBarItem(
-              icon: Icon(null), 
+              icon: Icon(null),
               label: "DASHBOARD",
-            ), 
+            ),
             BottomNavigationBarItem(
                 icon: SizedBox(
                   child: Transform.scale(
