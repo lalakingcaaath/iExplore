@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:i_explore/pages/coin_charge.dart';
 import 'package:i_explore/utils/colors.dart';
 
 // Header App Bar for all pages EXCEPT login and register
@@ -61,12 +63,17 @@ class HeaderAppBarComponent extends StatelessWidget
               ),
               Positioned(
                 right: -12,
-                child: Container(
-                    decoration: BoxDecoration(
-                      color: orangeThreeColor,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Icon(Icons.add, size: 24, color: Colors.white)),
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => iCoins()));
+                  },
+                  child: Container(
+                      decoration: BoxDecoration(
+                        color: orangeThreeColor,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Icon(Icons.add, size: 24, color: Colors.white)),
+                ),
               ),
             ],
           ),
