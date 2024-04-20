@@ -7,6 +7,7 @@ import 'package:i_explore/pages/culinary.dart';
 import 'package:i_explore/pages/adventure.dart';
 import 'package:i_explore/pages/leisures.dart';
 import 'package:i_explore/pages/cultures.dart';
+import 'package:i_explore/pages/itinerary_schedule.dart';
 
 class Manila_Itinerary extends StatefulWidget {
   const Manila_Itinerary({Key? key}) : super(key: key);
@@ -66,16 +67,21 @@ class _Manila_ItineraryState extends State<Manila_Itinerary> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Center(
-                            child: Text(
-                              "ITINERARY FOR TODAY", style: TextStyle(
-                                fontFamily: 'AdobeDevanagari',
-                                fontSize: 20,
-                                color: Colors.white,
-                                decoration: TextDecoration.underline,
-                                decorationColor: Colors.white,
-                                decorationThickness: 2
-                            ),
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => ItinerarySchedule()));
+                            },
+                            child: Center(
+                              child: Text(
+                                "ITINERARY FOR TODAY", style: TextStyle(
+                                  fontFamily: 'AdobeDevanagari',
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: Colors.white,
+                                  decorationThickness: 2
+                              ),
+                              ),
                             ),
                           ),
                           Container(
