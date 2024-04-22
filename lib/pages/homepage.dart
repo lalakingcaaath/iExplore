@@ -67,57 +67,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context) => luzon()));
                         },
-                        child: CircleAvatar(
-                          radius: 50,
-                          backgroundImage: AssetImage('images/luzon.jpg'),
-                          child: Center(
-                            child: Text(
-                              "LUZON", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'AdobeDevanagari',
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 4,
-                              fontSize: 12,
-                            ),
-                            ),
-                          ),
-                        ),
+                        child: ImageCircleComponent(imageUrl: 'images/luzon.jpg', desc: 'Luzon')
                       ),
                       GestureDetector(
                         onTap: (){},
-                        child: CircleAvatar(
-                          radius: 50,
-                          backgroundImage: AssetImage('images/visayas.jpg'),
-                          child: Center(
-                            child: Text(
-                              "VISAYAS", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'AdobeDevanagari',
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 4,
-                              fontSize: 12,
-                            ),
-                            ),
-                          ),
-                        ),
+                        child: ImageCircleComponent(imageUrl: 'images/visayas.jpg', desc: 'Visayas')
                       ),
                       GestureDetector(
                         onTap: (){},
-                        child: CircleAvatar(
-                          radius: 50,
-                          backgroundImage: AssetImage('images/mindanao.jpg'),
-                          child: Center(
-                            child: Text(
-                              "MINDANAO", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'AdobeDevanagari',
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 4,
-                              fontSize: 12,
-                            ),
-                            ),
-                          ),
-                        ),
+                        child: ImageCircleComponent(imageUrl: 'images/mindanao.jpg', desc: 'Mindanao')
                       ),
                     ],
                   ),

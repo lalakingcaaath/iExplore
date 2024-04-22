@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:i_explore/pages/profile.dart';
 import 'package:i_explore/utils/colors.dart';
 
 // Bottom Navigation Bar for all pages EXCEPT login and register
@@ -12,24 +13,24 @@ class BottomNavigationBarComponent extends StatelessWidget {
     return Stack(
       children: [
         BottomNavigationBar(
-          backgroundColor: lightOrangeColor, 
-          type: BottomNavigationBarType.fixed, 
+          backgroundColor: lightOrangeColor,
+          type: BottomNavigationBarType.fixed,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: SizedBox(
                   child: Transform.scale(
-                    scale: 1.5, 
+                    scale: 1.5,
                     child: const Icon(Icons.bookmark),
-                  )), 
+                  )),
               label: "",
-            ), 
+            ),
             BottomNavigationBarItem(
                 icon: SizedBox(
                   child: Transform.scale(
-                    scale: 1.5, 
+                    scale: 1.5,
                     child: const Icon(Icons.search),
                   ),
-                ), 
+                ),
                 label: ""
             ),
             const BottomNavigationBarItem(
@@ -39,27 +40,31 @@ class BottomNavigationBarComponent extends StatelessWidget {
             BottomNavigationBarItem(
                 icon: SizedBox(
                   child: Transform.scale(
-                    scale: 1.5, 
+                    scale: 1.5,
                     child: const Icon(Icons.download),
                   ),
-                ), 
+                ),
                 label: ""
-            ), 
+            ),
             BottomNavigationBarItem(
                 icon: SizedBox(
                   child: Transform.scale(
-                    scale: 1.5, 
-                    child: const Icon(Icons.person_2_outlined),
+                    scale: 1.5,
+                    child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Profile()));
+                        },
+                        child: const Icon(Icons.person_2_outlined)),
                   ),
-                ), 
+                ),
                 label: ""
             ),
-          ], 
+          ],
           unselectedLabelStyle: TextStyle(
-              fontFamily: "Fontspring-Demo", 
-              fontWeight: FontWeight.bold, 
-              color: orangeThreeColor), 
-          unselectedItemColor: darkOrangeColor, 
+              fontFamily: "Fontspring-Demo",
+              fontWeight: FontWeight.bold,
+              color: orangeThreeColor),
+          unselectedItemColor: darkOrangeColor,
           selectedItemColor: darkOrangeColor,
         ),
       ]);

@@ -3,7 +3,6 @@ import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/pages/manila_Itinerary.dart';
-import 'package:i_explore/pages/homepage.dart';
 import 'package:i_explore/utils/colors.dart';
 
 class Manila extends StatefulWidget {

@@ -15,20 +15,18 @@ class ImageCircleComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: CircleAvatar(
-        radius: 50,
-        backgroundImage: AssetImage(imageUrl),
-        child: Center(
-          child: Text(
-            desc.toUpperCase(),
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'AdobeDevanagari',
-              fontWeight: FontWeight.bold,
-              letterSpacing: 4,
-              fontSize: descSize,
-            ),
+    return CircleAvatar(
+      radius: 50,
+      backgroundImage: AssetImage(imageUrl),
+      child: Center(
+        child: Text(
+          desc.toUpperCase(),
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: 'AdobeDevanagari',
+            fontWeight: FontWeight.bold,
+            letterSpacing: 4,
+            fontSize: descSize,
           ),
         ),
       ),
