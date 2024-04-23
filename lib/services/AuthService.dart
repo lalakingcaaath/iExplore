@@ -43,6 +43,72 @@ class AuthService {
     }
   }
 
+  Future<User?> registerUser(
+      String name, String email, String password, String confirmPass) async {
+    try {
+      // Check if password matches the confirmed password
+      if (password != confirmPass) {
+        throw FirebaseAuthException(
+          code: 'password-mismatch',
+          message: 'Password and Confirm Password do not match.',
+        );
+      }
+
+      // Create user with email and password
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      // Get the user object from the userCredential
+      User? user = userCredential.user;
+
+      // Update display name after user is created
+      if (user != null) {
+        await user.updateDisplayName(name);
+        await user.reload(); // Refresh the user data
+      }
+      print('User: ${user}');
+      print('_auth User: ${_auth.currentUser}');
+      // Return the registered user
+      return _auth.currentUser;
+    } on FirebaseAuthException catch (e) {
+      String errorMessage = 'Failed to register: ';
+      switch (e.code) {
+        case 'email-already-in-use':
+          errorMessage += 'Email is already in use.';
+          break;
+        case 'invalid-email':
+          errorMessage += 'Invalid email.';
+          break;
+        case 'operation-not-allowed':
+          errorMessage += 'Operation is not allowed.';
+          break;
+        case 'weak-password':
+          errorMessage += 'Weak Password.';
+          break;
+        case 'password-mismatch':
+          errorMessage += 'Password and Confirm Password do not match.';
+          break;
+        default:
+          errorMessage += 'An error occurred (${e.code}).';
+      }
+
+      // Throw FirebaseAuthException with custom error message
+      throw FirebaseAuthException(
+        code: e.code,
+        message: errorMessage,
+      );
+    } catch (e) {
+      // Handle other exceptions
+      throw FirebaseAuthException(
+        code: 'unknown-error',
+        message: 'Failed to register: ${e.toString()}',
+      );
+    }
+  }
+
   Future<bool> logOutUser() async {
     try {
       await _auth.signOut();

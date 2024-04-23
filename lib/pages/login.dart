@@ -91,12 +91,12 @@ class LoginFormState extends State<LoginForm> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final _loginFormKey = GlobalKey<FormState>();
-  bool _loading = false;
+  bool _isLoading = false;
 
   void _signInUser(BuildContext context) async {
     if (_loginFormKey.currentState!.validate()) {
       setState(() {
-        _loading = true; // Set loading state to true while signing in
+        _isLoading = true; // Set loading state to true while signing in
       });
       String email = _emailController.text.trim();
       String password = _passwordController.text.trim();
@@ -130,7 +130,7 @@ class LoginFormState extends State<LoginForm> {
         );
       } finally {
         setState(() {
-          _loading = false;
+          _isLoading = false;
         });
       }
     }
@@ -177,7 +177,7 @@ class LoginFormState extends State<LoginForm> {
           const SizedBox(
             height: 25,
           ),
-          _loading
+          _isLoading
               ? CircularProgressIndicator()
               : GestureDetector(
                   onTap: () => _signInUser(context),

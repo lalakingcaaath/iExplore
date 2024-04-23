@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:go_router/go_router.dart';
 import 'package:i_explore/components/HeaderComponent.dart';
+import 'package:i_explore/services/AuthService.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:i_explore/components/TextFieldComponent.dart';
 import 'package:i_explore/utils/validator.dart';
+import 'package:provider/provider.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -21,100 +23,100 @@ class _RegisterState extends State<Register> {
 
   // final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  Future<void> createUserWithEmailAndPassword(
-      String email, String password) async {
-    try {
-      // show progress indication
-      showDialog(
-          context: context,
-          builder: (context) {
-            return Center(
-                child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation(orangeTwoColor),
-            ));
-          });
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      // User? user = userCredential.user;
-      // print('User signed up: ${user!.uid}');
+  // Future<void> createUserWithEmailAndPassword(
+  //     String email, String password) async {
+  //   try {
+  //     // show progress indication
+  //     showDialog(
+  //         context: context,
+  //         builder: (context) {
+  //           return Center(
+  //               child: CircularProgressIndicator(
+  //             valueColor: AlwaysStoppedAnimation(orangeTwoColor),
+  //           ));
+  //         });
+  //     await FirebaseAuth.instance.createUserWithEmailAndPassword(
+  //       email: email,
+  //       password: password,
+  //     );
+  //     // User? user = userCredential.user;
+  //     // print('User signed up: ${user!.uid}');
 
-      if (mounted) {
-        Navigator.of(context).pop();
-        showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: const Text('Success!'),
-              content: const Text('User creation success!'),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop(); // Close the dialog
-                  },
-                  child: const Text('OK'),
-                ),
-              ],
-            );
-          },
-        );
-      }
-      // remove the progress indicator
-    } on FirebaseAuthException catch (e) {
-      String errorMessage = '';
-      switch (e.code) {
-        case 'weak-password':
-          errorMessage = 'Failed to create user: Weak password';
-          break;
-        case 'email-already-in-use':
-          errorMessage = 'Failed to create user: Email is already in use';
-          break;
-      }
+  //     if (mounted) {
+  //       Navigator.of(context).pop();
+  //       showDialog(
+  //         context: context,
+  //         builder: (context) {
+  //           return AlertDialog(
+  //             title: const Text('Success!'),
+  //             content: const Text('User creation success!'),
+  //             actions: [
+  //               TextButton(
+  //                 onPressed: () {
+  //                   Navigator.of(context).pop(); // Close the dialog
+  //                 },
+  //                 child: const Text('OK'),
+  //               ),
+  //             ],
+  //           );
+  //         },
+  //       );
+  //     }
+  //     // remove the progress indicator
+  //   } on FirebaseAuthException catch (e) {
+  //     String errorMessage = '';
+  //     switch (e.code) {
+  //       case 'weak-password':
+  //         errorMessage = 'Failed to create user: Weak password';
+  //         break;
+  //       case 'email-already-in-use':
+  //         errorMessage = 'Failed to create user: Email is already in use';
+  //         break;
+  //     }
 
-      if (mounted) {
-        Navigator.of(context).pop();
-        showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: const Text('Error'),
-              content: Text(errorMessage),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop(); // Close the dialog
-                  },
-                  child: const Text('OK'),
-                ),
-              ],
-            );
-          },
-        );
-      }
-    } catch (e) {
-      if (mounted) {
-        Navigator.of(context).pop();
-        showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: const Text('Error'),
-              content: Text('Failed to create user: $e'),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop(); // Close the dialog
-                  },
-                  child: const Text('OK'),
-                ),
-              ],
-            );
-          },
-        );
-      }
-    }
-  }
+  //     if (mounted) {
+  //       Navigator.of(context).pop();
+  //       showDialog(
+  //         context: context,
+  //         builder: (context) {
+  //           return AlertDialog(
+  //             title: const Text('Error'),
+  //             content: Text(errorMessage),
+  //             actions: [
+  //               TextButton(
+  //                 onPressed: () {
+  //                   Navigator.of(context).pop(); // Close the dialog
+  //                 },
+  //                 child: const Text('OK'),
+  //               ),
+  //             ],
+  //           );
+  //         },
+  //       );
+  //     }
+  //   } catch (e) {
+  //     if (mounted) {
+  //       Navigator.of(context).pop();
+  //       showDialog(
+  //         context: context,
+  //         builder: (context) {
+  //           return AlertDialog(
+  //             title: const Text('Error'),
+  //             content: Text('Failed to create user: $e'),
+  //             actions: [
+  //               TextButton(
+  //                 onPressed: () {
+  //                   Navigator.of(context).pop(); // Close the dialog
+  //                 },
+  //                 child: const Text('OK'),
+  //               ),
+  //             ],
+  //           );
+  //         },
+  //       );
+  //     }
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -135,9 +137,7 @@ class _RegisterState extends State<Register> {
               const SizedBox(
                 height: 25,
               ),
-              RegisterForm(
-                onPressed: createUserWithEmailAndPassword,
-              ),
+              RegisterForm(),
             ],
           ),
         ),
@@ -147,11 +147,8 @@ class _RegisterState extends State<Register> {
 }
 
 class RegisterForm extends StatefulWidget {
-  final void Function(String, String) onPressed;
-
   const RegisterForm({
     Key? key,
-    required this.onPressed,
   }) : super(key: key);
 
   @override
@@ -159,18 +156,65 @@ class RegisterForm extends StatefulWidget {
 }
 
 class _RegisterFormState extends State<RegisterForm> {
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
       TextEditingController();
+  bool _isLoading = false;
 
-  final _formKey = GlobalKey<FormState>();
+  final _registerFormKey = GlobalKey<FormState>();
+
+  void _createUser(BuildContext context) async {
+    if (_registerFormKey.currentState!.validate()) {
+      setState(() {
+        _isLoading = true;
+      });
+    }
+    String name = _nameController.text.trim();
+    String email = _emailController.text.trim();
+    String password = _passwordController.text.trim();
+    String conPassword = _confirmPasswordController.text.trim();
+
+    try {
+      AuthService authService =
+          Provider.of<AuthService>(context, listen: false);
+      final user =
+          await authService.registerUser(name, email, password, conPassword);
+      print(user);
+      if (user != null) {
+        // Navigate to home page after successful authentication
+        context.go('/home');
+      }
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Error'),
+            content: Text('Failed to register: ${e.toString()}'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(); // Close the dialog
+                },
+                child: const Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
+      key: _registerFormKey,
       child: Column(
         children: [
           // Header
@@ -194,7 +238,7 @@ class _RegisterFormState extends State<RegisterForm> {
           TextFieldComponent(
             name: "Name",
             icon: Icons.account_circle,
-            textController: nameController,
+            textController: _nameController,
             validator: validateName,
           ),
           const SizedBox(
@@ -203,7 +247,7 @@ class _RegisterFormState extends State<RegisterForm> {
           TextFieldComponent(
             name: "Email",
             icon: Icons.email,
-            textController: emailController,
+            textController: _emailController,
             validator: validateEmail,
           ),
           const SizedBox(
@@ -213,7 +257,7 @@ class _RegisterFormState extends State<RegisterForm> {
             name: "Password",
             icon: Icons.password,
             obscureText: true,
-            textController: passwordController,
+            textController: _passwordController,
             validator: validatePassword,
           ),
           const SizedBox(
@@ -223,42 +267,36 @@ class _RegisterFormState extends State<RegisterForm> {
             name: "Confirm Password",
             icon: Icons.password,
             obscureText: true,
-            textController: confirmPasswordController,
+            textController: _confirmPasswordController,
             validator: (value) =>
-                validateConfirmPassword(value, passwordController.text),
+                validateConfirmPassword(value, _passwordController.text),
           ),
           const SizedBox(
             height: 25,
           ),
-          GestureDetector(
-            onTap: () async {
-              if (_formKey.currentState!.validate()) {
-                // Show loading indicator while creating user
-                widget.onPressed(
-                  emailController.text,
-                  passwordController.text,
-                );
-              }
-            },
-            child: Container(
-              padding: const EdgeInsets.all(25),
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: const Center(
-                child: Text(
-                  "Sign Up",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+          _isLoading
+              ? CircularProgressIndicator()
+              : GestureDetector(
+                  onTap: () => _createUser(context),
+                  child: Container(
+                    padding: const EdgeInsets.all(25),
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ),
-          )
+                )
         ],
       ),
     );

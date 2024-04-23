@@ -4,13 +4,11 @@ import 'package:go_router/go_router.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
-import 'package:i_explore/pages/login.dart';
 import 'package:i_explore/services/AuthService.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -100,7 +98,7 @@ class _ProfileState extends State<Profile> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Your Name",
+                      AuthService().user!.displayName!,
                       style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'FSP-Demo',
