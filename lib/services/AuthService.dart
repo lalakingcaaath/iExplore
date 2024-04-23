@@ -109,6 +109,18 @@ class AuthService {
     }
   }
 
+  Future<bool> changeName(String changed_name) async { 
+    try {
+      User? user = _auth.currentUser;
+      await user!.updateDisplayName(changed_name);
+      await user.reload();
+      return true;
+    } catch (e) {
+      print('Failed to change name ${e}');
+      return false;
+    }
+  }
+
   Future<bool> logOutUser() async {
     try {
       await _auth.signOut();

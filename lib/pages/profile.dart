@@ -1,14 +1,17 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/services/AuthService.dart';
 import 'package:i_explore/utils/colors.dart';
+import 'package:i_explore/utils/validator.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:provider/provider.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -18,6 +21,10 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  final TextEditingController _editNameController = TextEditingController();
+  final _editFormKey = GlobalKey<FormState>();
+  bool _isLoading = false;
+
   File? _profileImage;
   String? _profileImageUrl;
   final ImagePicker _picker = ImagePicker();
@@ -49,6 +56,38 @@ class _ProfileState extends State<Profile> {
         _profileImageUrl = downloadUrl;
       });
     }
+  }
+
+  void _changeName(BuildContext context) async {
+    if (_editFormKey.currentState!.validate()) {
+      setState(() {
+        _isLoading = true;
+      });
+
+      String username = _editNameController.text.trim();
+
+      try {
+        AuthService authService =
+            Provider.of<AuthService>(context, listen: false);
+        final isChangedName = await authService.changeName(username);
+        if (isChangedName) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: const Text('You changed your name')),
+          );
+        }
+      } catch (e) {
+      } finally {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _editNameController.dispose();
+    super.dispose();
   }
 
   @override
@@ -97,19 +136,68 @@ class _ProfileState extends State<Profile> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    GestureDetector(
-                      onTap:() { 
-
-                      },
-                      child: Text(
-                        AuthService().user!.displayName!,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'FSP-Demo',
-                            fontWeight: FontWeight.w500,
-                            fontSize: 20),
-                      ),
-                    )
+                    _isLoading
+                        ? CircularProgressIndicator()
+                        : GestureDetector(
+                            onTap: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                        title: Text(
+                                          'Edit your name',
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            fontFamily: 'FSP-Demo',
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                        ),
+                                        content: Form(
+                                            key: _editFormKey,
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                TextFormField(
+                                                  controller:
+                                                      _editNameController,
+                                                  validator: validateName,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.end,
+                                                  children: [
+                                                    ElevatedButton(
+                                                        onPressed: () =>
+                                                            context.pop(),
+                                                        child: Text('Close')),
+                                                    SizedBox(
+                                                      width: 4,
+                                                    ),
+                                                    ElevatedButton(
+                                                        onPressed: () {
+                                                          _changeName(context);
+                                                          context.pop();
+                                                        },
+                                                        child: Text('Edit')),
+                                                  ],
+                                                )
+                                              ],
+                                            )),
+                                      ));
+                            },
+                            child: Text(
+                              AuthService().user!.displayName!,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'FSP-Demo',
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 20),
+                            ),
+                          ),
+                    Icon(
+                      Icons.edit,
+                      size: 20,
+                      color: Colors.white,
+                    ),
                   ],
                 ),
                 Container(
