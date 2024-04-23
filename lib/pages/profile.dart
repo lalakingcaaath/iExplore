@@ -1,9 +1,11 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/pages/login.dart';
+import 'package:i_explore/services/AuthService.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -18,7 +20,6 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-
   File? _profileImage;
   String? _profileImageUrl;
   final ImagePicker _picker = ImagePicker();
@@ -32,16 +33,19 @@ class _ProfileState extends State<Profile> {
       });
 
       //Upload Image to Firebase Storage
-      final Reference storageRef =
-          FirebaseStorage.instance.ref().child('profile_pictures').child('user_profile_picture.jpg');
+      final Reference storageRef = FirebaseStorage.instance
+          .ref()
+          .child('profile_pictures')
+          .child('user_profile_picture.jpg');
       await storageRef.putFile(_profileImage!);
 
       //Get Download URL
       final String downloadUrl = await storageRef.getDownloadURL();
 
       //Storage download URL in Cloud Firestore
-      final userRef = FirebaseFirestore.instance.collection('users').doc('user_id');
-      await userRef.set({'profileImageUrl' : downloadUrl});
+      final userRef =
+          FirebaseFirestore.instance.collection('users').doc('user_id');
+      await userRef.set({'profileImageUrl': downloadUrl});
 
       setState(() {
         _profileImageUrl = downloadUrl;
@@ -51,7 +55,8 @@ class _ProfileState extends State<Profile> {
 
   Future<void> _signOut(BuildContext context) async {
     await FirebaseAuth.instance.signOut();
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Login()));
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => Login()));
   }
 
   @override
@@ -78,16 +83,19 @@ class _ProfileState extends State<Profile> {
                   children: [
                     GestureDetector(
                       onTap: () => _pickImage,
-                      child: _profileImage != null ? CircleAvatar(
-                        radius: 75,
-                        backgroundImage: FileImage(_profileImage!),
-                      ) : GestureDetector(
-                        onTap: _pickImage,
-                        child: CircleAvatar(
-                          radius: 75,
-                          child: Text('Upload\nProfile\nPhoto', textAlign: TextAlign.center),
-                        ),
-                      ),
+                      child: _profileImage != null
+                          ? CircleAvatar(
+                              radius: 75,
+                              backgroundImage: FileImage(_profileImage!),
+                            )
+                          : GestureDetector(
+                              onTap: _pickImage,
+                              child: CircleAvatar(
+                                radius: 75,
+                                child: Text('Upload\nProfile\nPhoto',
+                                    textAlign: TextAlign.center),
+                              ),
+                            ),
                     ),
                   ],
                 ),
@@ -167,6 +175,26 @@ class _ProfileState extends State<Profile> {
                 Divider(
                   color: Colors.white,
                 ),
+                Container(
+                  margin: const EdgeInsets.only(top: 50),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                        onPressed: () async {
+                          if (await AuthService().logOutUser()) {
+                            context.go('/login');
+                          }
+                        },
+                        child: Text('Logout')),
+                    ElevatedButton(
+                        onPressed: () {
+                          context.go('/profile/edit');
+                        },
+                        child: Text('Edit Profile')),
+                  ],
+                )
               ],
             ),
           ),

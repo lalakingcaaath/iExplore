@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:i_explore/pages/cultures.dart';
 import 'package:i_explore/pages/edit_profile.dart';
+
 import 'package:i_explore/pages/homepage.dart';
 import 'package:i_explore/pages/login.dart';
 import 'package:i_explore/pages/profile.dart';
@@ -26,7 +27,7 @@ final GoRouter routerConfig = GoRouter(
         routes: [
           GoRoute(
             path: 'edit',
-            builder: (context, state) => const Cultural_Tours(),
+            builder: (context, state) => const EditProfile(),
           )
         ],
       ),
