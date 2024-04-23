@@ -137,6 +137,14 @@ class LoginFormState extends State<LoginForm> {
   }
 
   @override
+  void dispose(){
+    // Clean up the controller when the widget is disposed.
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: _loginFormKey,

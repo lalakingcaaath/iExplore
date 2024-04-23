@@ -97,13 +97,18 @@ class _ProfileState extends State<Profile> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      AuthService().user!.displayName!,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'FSP-Demo',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20),
+                    GestureDetector(
+                      onTap:() { 
+
+                      },
+                      child: Text(
+                        AuthService().user!.displayName!,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'FSP-Demo',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20),
+                      ),
                     )
                   ],
                 ),

@@ -42,32 +42,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// // automatically login if user is logged in
-// class Auth extends StatelessWidget {
-//   const Auth({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final user = context.watch<User?>();
-
-//     // Use FutureBuilder to handle Firebase initialization state
-//     return FutureBuilder(
-//       future: Firebase.initializeApp(), // Ensure Firebase is initialized
-//       builder: (context, snapshot) {
-//         if (snapshot.connectionState == ConnectionState.done) {
-//           if (user != null) {
-//             return const MyHomePage(title: 'Homepage');
-//           } else {
-//             return const Login();
-//           }
-//         } else {
-//           return const Scaffold(
-//             body: Center(
-//               child: CircularProgressIndicator(),
-//             ),
-//           );
-//         }
-//       },
-//     );
-//   }
-// }

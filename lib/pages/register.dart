@@ -15,7 +15,6 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -109,8 +108,9 @@ class _RegisterFormState extends State<RegisterForm> {
     }
   }
 
-  @override 
-  void dispose() { 
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
     _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
