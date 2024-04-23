@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:i_explore/pages/adventure.dart';
+import 'package:i_explore/pages/culinary.dart';
+import 'package:i_explore/pages/cultures.dart';
 import 'package:i_explore/pages/edit_profile.dart';
 import 'package:i_explore/pages/homepage.dart';
+import 'package:i_explore/pages/leisures.dart';
 import 'package:i_explore/pages/login.dart';
+import 'package:i_explore/pages/luzon.dart';
 import 'package:i_explore/pages/profile.dart';
 import 'package:i_explore/pages/register.dart';
 import 'package:i_explore/services/AuthService.dart';
@@ -18,7 +23,29 @@ final GoRouter routerConfig = GoRouter(
     routes: <RouteBase>[
       GoRoute(
           path: '/home',
-          builder: (context, state) => const MyHomePage(title: 'Homepage')),
+          builder: (context, state) => const MyHomePage(title: 'Homepage'),
+          routes: [
+            GoRoute(
+              path: 'luzon',
+              builder: (context, state) => const luzon()),
+            // visayas
+            // mindanao
+            // Tour categories
+            GoRoute(path: 'culinaries', builder: (context, state) =>  const Culinary_Tours(),),
+            GoRoute(path: 'adventures', builder: (context, state) =>  const Adventure_Tours(),),
+            GoRoute(path: 'leisures', builder: (context, state) =>  const Leisures_Tours(),),
+            GoRoute(path: 'cultural', builder: (context, state) =>  const Cultural_Tours(),),
+
+            // WIP (TO:DO NEEDED PAGES)
+            // GoRoute(path: 'ecotourism', builder: (context, state) =>  const Ecotourism_Tours(),),
+            // GoRoute(path: 'pilgrimage', builder: (context, state) =>  const Pilgrimage_Tours(),),
+            // GoRoute(path: 'schools', builder: (context, state) =>  const Schools_Tours(),),
+            // GoRoute(path: 'wellness', builder: (context, state) =>  const Wellness_Tours(),),
+
+
+          ]
+          ),
+
       GoRoute(
         path: '/profile',
         builder: (context, state) => const Profile(),
@@ -29,6 +56,10 @@ final GoRouter routerConfig = GoRouter(
           )
         ],
       ),
+
+
+
+      // Login and Register
       GoRoute(path: '/login', builder: (context, state) => const Login()),
       GoRoute(path: '/register', builder: (context, state) => const Register()),
     ],
