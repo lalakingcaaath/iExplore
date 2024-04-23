@@ -4,7 +4,7 @@ class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   // GET USER DATA
-  User get user => _auth.currentUser!;
+  User? get user => _auth.currentUser;
 
   // STATE PERSISTENCE STREAM
   Stream<User?> get authState => FirebaseAuth.instance.authStateChanges();
@@ -40,6 +40,16 @@ class AuthService {
         message: 'Failed to login: ${e.toString()}',
         code: 'unknown-error',
       );
+    }
+  }
+
+  Future<bool> logOutUser() async {
+    try {
+      await _auth.signOut();
+      return true;
+    } catch (e) {
+      print('Failed to sign out ${e}');
+      return false;
     }
   }
 }

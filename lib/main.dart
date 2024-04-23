@@ -8,24 +8,11 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
-  runApp(MultiProvider(
-    providers: [
-      Provider<AuthService>(
-          create: (_) => AuthService(),
-        ),
-        StreamProvider(
-            create: (context) => context.read<AuthService>().authState,
-            initialData: null)
-    ],
-    child: MyApp(),
-  ));
+  runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -33,17 +20,25 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return 
-      MaterialApp.router(
-        debugShowCheckedModeBanner: false,
+    return MultiProvider(
+      providers: [
+        Provider<AuthService>(
+          create: (_) => AuthService(),
+        ),
+        StreamProvider(
+            create: (context) => context.read<AuthService>().authState,
+            initialData: null)
+      ],
+      child: MaterialApp.router(
         routerConfig: routerConfig,
+        debugShowCheckedModeBanner: false,
         title: 'iExplore',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: orangeOneColor),
           useMaterial3: true,
         ),
-      );
-
+      ),
+    );
   }
 }
 

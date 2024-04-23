@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
-class EditProfile extends StatefulWidget { 
+class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
 
   @override
   State<EditProfile> createState() => _EditProfileState();
 }
 
-class _EditProfileState extends State<EditProfile> { 
-
+class _EditProfileState extends State<EditProfile> {
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Test'),
+      ),
       body: Column(
         children: [
           Center(
