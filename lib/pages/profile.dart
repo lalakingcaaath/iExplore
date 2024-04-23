@@ -12,7 +12,6 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,12 +47,12 @@ class _ProfileState extends State<Profile> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Your Name", style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'FSP-Demo',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20
-                    ),
+                      "Your Name",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'FSP-Demo',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20),
                     )
                   ],
                 ),
@@ -66,31 +65,12 @@ class _ProfileState extends State<Profile> {
                     Container(
                       margin: const EdgeInsets.only(left: 30),
                       child: Text(
-                        "TRAVEL HISTORY", style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'FSP-Demo',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20
-                      ),
-                      ),
-                    ),
-                  ],
-                ),
-                Divider(
-                  color: Colors.white,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(left: 30),
-                      child: Text(
-                        "CUSTOMIZED ITINERARIES", style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'FSP-Demo',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20
-                      ),
+                        "TRAVEL HISTORY",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'FSP-Demo',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
                       ),
                     ),
                   ],
@@ -104,12 +84,31 @@ class _ProfileState extends State<Profile> {
                     Container(
                       margin: const EdgeInsets.only(left: 30),
                       child: Text(
-                        "MY REVIEWS", style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'FSP-Demo',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20
+                        "CUSTOMIZED ITINERARIES",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'FSP-Demo',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
                       ),
+                    ),
+                  ],
+                ),
+                Divider(
+                  color: Colors.white,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(left: 30),
+                      child: Text(
+                        "MY REVIEWS",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'FSP-Demo',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
                       ),
                     ),
                   ],

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:i_explore/pages/profile.dart';
 import 'package:i_explore/utils/colors.dart';
 

@@ -33,12 +33,12 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
               children: [
                 Center(
                   child: Text(
-                    "NEARBY RESTAURANTS", style: TextStyle(
-                    fontFamily: 'FSP-Demo',
-                    fontWeight: FontWeight.w500,
-                    fontSize: 20,
-                    color: Colors.white
-                  ),
+                    "NEARBY RESTAURANTS",
+                    style: TextStyle(
+                        fontFamily: 'FSP-Demo',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20,
+                        color: Colors.white),
                   ),
                 ),
                 Container(
@@ -66,12 +66,13 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                             children: [
                               Center(
                                 child: Text(
-                                  "CASA ESPANOL \nDE MANILA", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
+                                  "CASA ESPANOL \nDE MANILA",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
                                 ),
                               )
                             ],
@@ -98,12 +99,13 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                             children: [
                               Center(
                                 child: Text(
-                                  "BINONDO \nCHINATOWN", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
+                                  "BINONDO \nCHINATOWN",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
                                 ),
                               )
                             ],
@@ -111,9 +113,7 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                        width: 40
-                    )
+                    SizedBox(width: 40)
                   ],
                 ),
                 Container(
@@ -122,9 +122,7 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SizedBox(
-                      width: 40
-                    ),
+                    SizedBox(width: 40),
                     Flexible(
                       flex: 1,
                       child: GestureDetector(
@@ -141,12 +139,13 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                             children: [
                               Center(
                                 child: Text(
-                                  "KAPETOLYO", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
+                                  "KAPETOLYO",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
                                 ),
                               )
                             ],
@@ -173,12 +172,13 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                             children: [
                               Center(
                                 child: Text(
-                                  "LA CATHEDRAL\nCAFE", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
+                                  "LA CATHEDRAL\nCAFE",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
                                 ),
                               )
                             ],
@@ -186,9 +186,7 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                        width: 40
-                    )
+                    SizedBox(width: 40)
                   ],
                 ),
                 Container(
@@ -197,9 +195,7 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SizedBox(
-                        width: 40
-                    ),
+                    SizedBox(width: 40),
                     Flexible(
                       flex: 1,
                       child: GestureDetector(
@@ -216,12 +212,13 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                             children: [
                               Center(
                                 child: Text(
-                                  "BARBARA'S \nHERITAGE\nRESTAURANT", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
+                                  "BARBARA'S \nHERITAGE\nRESTAURANT",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
                                 ),
                               )
                             ],
@@ -248,12 +245,13 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                             children: [
                               Center(
                                 child: Text(
-                                  "UN SQUARE", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
+                                  "UN SQUARE",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
                                 ),
                               )
                             ],
@@ -261,9 +259,7 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                        width: 40
-                    )
+                    SizedBox(width: 40)
                   ],
                 ),
               ],
