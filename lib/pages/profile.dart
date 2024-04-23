@@ -116,6 +116,22 @@ class _ProfileState extends State<Profile> {
                 Divider(
                   color: Colors.white,
                 ),
+                Container(
+                  margin: const EdgeInsets.only(top: 50),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {}, 
+                      child: Text('Sign out')
+                    ),
+                    ElevatedButton(
+                        onPressed: () {}, 
+                        child: Text('Edit Profile')
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
