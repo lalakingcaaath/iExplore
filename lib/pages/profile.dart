@@ -53,12 +53,6 @@ class _ProfileState extends State<Profile> {
     }
   }
 
-  Future<void> _signOut(BuildContext context) async {
-    await FirebaseAuth.instance.signOut();
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Login()));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
