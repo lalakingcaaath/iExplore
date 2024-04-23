@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:i_explore/router/router_config.dart';
 import 'package:i_explore/services/AuthService.dart';
+import 'package:i_explore/services/FireStorageService.dart';
 import 'utils/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        Provider<FirebaseStorageService>(create: (_) => FirebaseStorageService()),
         Provider<AuthService>(
           create: (_) => AuthService(),
         ),

@@ -121,6 +121,18 @@ class AuthService {
     }
   }
 
+  Future<bool> changeProfile(String url) async { 
+    try {
+      User? user = _auth.currentUser;
+      await user!.updatePhotoURL(url);
+      await user.reload();
+      return true;
+    } catch (e) { 
+      print('Failed to upload profile');
+      return false;
+    }
+  }
+
   Future<bool> logOutUser() async {
     try {
       await _auth.signOut();

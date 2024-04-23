@@ -1,16 +1,13 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/services/AuthService.dart';
+import 'package:i_explore/services/FireStorageService.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:i_explore/utils/validator.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:provider/provider.dart';
 
 class Profile extends StatefulWidget {
@@ -25,36 +22,39 @@ class _ProfileState extends State<Profile> {
   final _editFormKey = GlobalKey<FormState>();
   bool _isLoading = false;
 
-  File? _profileImage;
-  String? _profileImageUrl;
-  final ImagePicker _picker = ImagePicker();
+  String? photoURL;
 
   Future<void> _pickImage() async {
-    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+    try {
+      final pickedFile =
+          await ImagePicker().pickImage(source: ImageSource.gallery);
 
-    if (pickedFile != null) {
+      final String filePath = pickedFile!.path;
+      print('Filepath: ${filePath}');
+
+      AuthService _authService =
+          Provider.of<AuthService>(context, listen: false);
+      final String userUid = _authService.user!.uid;
+      print('UserUID: ${userUid}');
+      FirebaseStorageService _fbStorage =
+          Provider.of<FirebaseStorageService>(context, listen: false);
+
+      final String? _downloadUrl =
+          await _fbStorage.uploadProfile(filePath, userUid);
+      print('DL URL: ${_downloadUrl}');
+
+      if (await _authService.changeProfile(_downloadUrl!)) {
+        print('SUCCESS');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: const Text('You changed your profile')),
+        );
+      }
+
       setState(() {
-        _profileImage = File(pickedFile.path);
+        photoURL = _authService.user!.photoURL;
       });
-
-      //Upload Image to Firebase Storage
-      final Reference storageRef = FirebaseStorage.instance
-          .ref()
-          .child('profile_pictures')
-          .child('user_profile_picture.jpg');
-      await storageRef.putFile(_profileImage!);
-
-      //Get Download URL
-      final String downloadUrl = await storageRef.getDownloadURL();
-
-      //Storage download URL in Cloud Firestore
-      final userRef =
-          FirebaseFirestore.instance.collection('users').doc('user_id');
-      await userRef.set({'profileImageUrl': downloadUrl});
-
-      setState(() {
-        _profileImageUrl = downloadUrl;
-      });
+    } catch (e) {
+      print(e);
     }
   }
 
@@ -82,6 +82,13 @@ class _ProfileState extends State<Profile> {
         });
       }
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    AuthService authService = Provider.of<AuthService>(context, listen: false);
+    photoURL = authService.user?.photoURL;
   }
 
   @override
@@ -113,20 +120,16 @@ class _ProfileState extends State<Profile> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () => _pickImage,
-                      child: _profileImage != null
-                          ? CircleAvatar(
-                              radius: 75,
-                              backgroundImage: FileImage(_profileImage!),
-                            )
-                          : GestureDetector(
-                              onTap: _pickImage,
-                              child: CircleAvatar(
-                                radius: 75,
-                                child: Text('Upload\nProfile\nPhoto',
-                                    textAlign: TextAlign.center),
-                              ),
-                            ),
+                      onTap: _pickImage,
+                      child: CircleAvatar(
+                        radius: 75,
+                        backgroundImage:
+                            photoURL != null ? NetworkImage(photoURL!) : null,
+                        child: photoURL == null
+                            ? Text('Upload\nProfile\nPhoto',
+                                textAlign: TextAlign.center)
+                            : null,
+                      ),
                     ),
                   ],
                 ),
@@ -185,7 +188,7 @@ class _ProfileState extends State<Profile> {
                                       ));
                             },
                             child: Text(
-                              AuthService().user!.displayName!,
+                              AuthService().user?.displayName ?? 'User',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontFamily: 'FSP-Demo',
