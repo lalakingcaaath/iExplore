@@ -190,7 +190,7 @@ class _ProfileState extends State<Profile> {
                         child: Text('Logout')),
                     ElevatedButton(
                         onPressed: () {
-                          context.go('/profile/edit');
+                          context.push('/profile/edit');
                         },
                         child: Text('Edit Profile')),
                   ],
