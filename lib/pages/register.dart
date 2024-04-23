@@ -15,108 +15,6 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  // final TextEditingController nameController = TextEditingController();
-  // final TextEditingController emailController = TextEditingController();
-  // final TextEditingController passwordController = TextEditingController();
-  // final TextEditingController confirmPasswordController =
-  //     TextEditingController();
-
-  // final FirebaseAuth _auth = FirebaseAuth.instance;
-
-  // Future<void> createUserWithEmailAndPassword(
-  //     String email, String password) async {
-  //   try {
-  //     // show progress indication
-  //     showDialog(
-  //         context: context,
-  //         builder: (context) {
-  //           return Center(
-  //               child: CircularProgressIndicator(
-  //             valueColor: AlwaysStoppedAnimation(orangeTwoColor),
-  //           ));
-  //         });
-  //     await FirebaseAuth.instance.createUserWithEmailAndPassword(
-  //       email: email,
-  //       password: password,
-  //     );
-  //     // User? user = userCredential.user;
-  //     // print('User signed up: ${user!.uid}');
-
-  //     if (mounted) {
-  //       Navigator.of(context).pop();
-  //       showDialog(
-  //         context: context,
-  //         builder: (context) {
-  //           return AlertDialog(
-  //             title: const Text('Success!'),
-  //             content: const Text('User creation success!'),
-  //             actions: [
-  //               TextButton(
-  //                 onPressed: () {
-  //                   Navigator.of(context).pop(); // Close the dialog
-  //                 },
-  //                 child: const Text('OK'),
-  //               ),
-  //             ],
-  //           );
-  //         },
-  //       );
-  //     }
-  //     // remove the progress indicator
-  //   } on FirebaseAuthException catch (e) {
-  //     String errorMessage = '';
-  //     switch (e.code) {
-  //       case 'weak-password':
-  //         errorMessage = 'Failed to create user: Weak password';
-  //         break;
-  //       case 'email-already-in-use':
-  //         errorMessage = 'Failed to create user: Email is already in use';
-  //         break;
-  //     }
-
-  //     if (mounted) {
-  //       Navigator.of(context).pop();
-  //       showDialog(
-  //         context: context,
-  //         builder: (context) {
-  //           return AlertDialog(
-  //             title: const Text('Error'),
-  //             content: Text(errorMessage),
-  //             actions: [
-  //               TextButton(
-  //                 onPressed: () {
-  //                   Navigator.of(context).pop(); // Close the dialog
-  //                 },
-  //                 child: const Text('OK'),
-  //               ),
-  //             ],
-  //           );
-  //         },
-  //       );
-  //     }
-  //   } catch (e) {
-  //     if (mounted) {
-  //       Navigator.of(context).pop();
-  //       showDialog(
-  //         context: context,
-  //         builder: (context) {
-  //           return AlertDialog(
-  //             title: const Text('Error'),
-  //             content: Text('Failed to create user: $e'),
-  //             actions: [
-  //               TextButton(
-  //                 onPressed: () {
-  //                   Navigator.of(context).pop(); // Close the dialog
-  //                 },
-  //                 child: const Text('OK'),
-  //               ),
-  //             ],
-  //           );
-  //         },
-  //       );
-  //     }
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -209,6 +107,15 @@ class _RegisterFormState extends State<RegisterForm> {
         _isLoading = false;
       });
     }
+  }
+
+  @override 
+  void dispose() { 
+    _nameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
   }
 
   @override
