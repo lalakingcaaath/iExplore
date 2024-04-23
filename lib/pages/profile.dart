@@ -1,8 +1,14 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
+import 'package:i_explore/pages/login.dart';
 import 'package:i_explore/utils/colors.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -12,6 +18,41 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+
+  File? _profileImage;
+  String? _profileImageUrl;
+  final ImagePicker _picker = ImagePicker();
+
+  Future<void> _pickImage() async {
+    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      setState(() {
+        _profileImage = File(pickedFile.path);
+      });
+
+      //Upload Image to Firebase Storage
+      final Reference storageRef =
+          FirebaseStorage.instance.ref().child('profile_pictures').child('user_profile_picture.jpg');
+      await storageRef.putFile(_profileImage!);
+
+      //Get Download URL
+      final String downloadUrl = await storageRef.getDownloadURL();
+
+      //Storage download URL in Cloud Firestore
+      final userRef = FirebaseFirestore.instance.collection('users').doc('user_id');
+      await userRef.set({'profileImageUrl' : downloadUrl});
+
+      setState(() {
+        _profileImageUrl = downloadUrl;
+      });
+    }
+  }
+
+  Future<void> _signOut(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Login()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +76,18 @@ class _ProfileState extends State<Profile> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircleAvatar(
-                      radius: 75,
-                      backgroundImage: AssetImage('images/avatar.png'),
+                    GestureDetector(
+                      onTap: () => _pickImage,
+                      child: _profileImage != null ? CircleAvatar(
+                        radius: 75,
+                        backgroundImage: FileImage(_profileImage!),
+                      ) : GestureDetector(
+                        onTap: _pickImage,
+                        child: CircleAvatar(
+                          radius: 75,
+                          child: Text('Upload\nProfile\nPhoto', textAlign: TextAlign.center),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -117,6 +167,25 @@ class _ProfileState extends State<Profile> {
                 Divider(
                   color: Colors.white,
                 ),
+                SizedBox(height: 40),
+                GestureDetector(
+                  onTap: () => _signOut(context),
+                  child: Container(
+                    padding: const EdgeInsets.all(13),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: brownColor
+                    ),
+                    child: Text(
+                      "Sign Out", style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'FSP-Demo',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15
+                    ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
