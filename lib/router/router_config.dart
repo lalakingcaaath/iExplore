@@ -11,7 +11,7 @@ import 'package:i_explore/pages/luzon.dart';
 import 'package:i_explore/pages/profile.dart';
 import 'package:i_explore/pages/register.dart';
 import 'package:i_explore/pages/test.dart';
-import 'package:i_explore/services/AuthService.dart';
+import 'package:i_explore/services/auth_service.dart';
 import 'package:provider/provider.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =

@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:i_explore/services/FirestoreService.dart';
+import 'package:i_explore/provider/coin_provider.dart';
+import 'package:i_explore/services/auth_service.dart';
+import 'package:i_explore/services/firestore_service.dart';
+import 'package:provider/provider.dart';
 
-class Test extends StatelessWidget {
+class Test extends StatefulWidget {
   const Test({super.key});
+
+  State<Test> createState() => _TestState();
+}
+
+class _TestState extends State<Test> {
+  late String uid;
+
+  @override
+  void initState() {
+    super.initState();
+    AuthService _authService = Provider.of<AuthService>(context, listen: false);
+    uid = _authService.user!.uid;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +34,17 @@ class Test extends StatelessWidget {
               Row(
                 children: [
                   ElevatedButton(
-                    onPressed: () {
-                      FirestoreService().addSampleData();
-                    }, 
-                    child: Text('Add data'))
+                      onPressed: () {
+                        FirestoreService().addSampleCoins(uid, 50);
+                      },
+                      child: Text('Add data')),
+                  ElevatedButton(
+                      onPressed: () {
+                        CoinProvider coinProvider =
+                            Provider.of<CoinProvider>(context, listen: false);
+                        coinProvider.fetchCoinData(uid);
+                      },
+                      child: Text('Read data')),
                 ],
               )
             ],

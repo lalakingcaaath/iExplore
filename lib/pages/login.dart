@@ -7,7 +7,7 @@ import 'package:i_explore/utils/colors.dart';
 import 'package:i_explore/utils/validator.dart';
 import 'package:provider/provider.dart';
 
-import '../services/AuthService.dart';
+import '../services/auth_service.dart';
 
 class Login extends StatefulWidget {
   const Login({

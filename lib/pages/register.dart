@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:i_explore/components/HeaderComponent.dart';
-import 'package:i_explore/services/AuthService.dart';
+import 'package:i_explore/services/auth_service.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:i_explore/components/TextFieldComponent.dart';
 import 'package:i_explore/utils/validator.dart';
