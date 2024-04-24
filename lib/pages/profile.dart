@@ -278,9 +278,9 @@ class _ProfileState extends State<Profile> {
                         child: Text('Logout')),
                     ElevatedButton(
                         onPressed: () {
-                          context.push('/profile/edit');
+                          context.push('/test');
                         },
-                        child: Text('Edit Profile')),
+                        child: Text('Test Page')),
                   ],
                 )
               ],

@@ -10,6 +10,7 @@ import 'package:i_explore/pages/login.dart';
 import 'package:i_explore/pages/luzon.dart';
 import 'package:i_explore/pages/profile.dart';
 import 'package:i_explore/pages/register.dart';
+import 'package:i_explore/pages/test.dart';
 import 'package:i_explore/services/AuthService.dart';
 import 'package:provider/provider.dart';
 
@@ -58,11 +59,12 @@ final GoRouter routerConfig = GoRouter(
       ),
       
 
-
-
       // Login and Register
       GoRoute(path: '/login', builder: (context, state) => const Login()),
       GoRoute(path: '/register', builder: (context, state) => const Register()),
+
+      // FOR DEBUGGIN AND TESTING PURPOSE
+      GoRoute(path: '/test', builder: (context, state) => const Test(),)
     ],
     redirect: (context, state) {
       // check if user is logged in
