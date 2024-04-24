@@ -24,7 +24,7 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: HeaderAppBarComponent(headerTitle: "Leisure Tours"),
+        appBar: HeaderAppBarComponent(headerTitle: "Cultural Tours"),
         body: SingleChildScrollView(
           child: Container(
             margin: const EdgeInsets.only(top: 30),
@@ -33,12 +33,12 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
               children: [
                 Center(
                   child: Text(
-                    "NEARBY LEISURES", style: TextStyle(
-                      fontFamily: 'FSP-Demo',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20,
-                      color: Colors.white
-                  ),
+                    "NEARBY LEISURES",
+                    style: TextStyle(
+                        fontFamily: 'FSP-Demo',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20,
+                        color: Colors.white),
                   ),
                 ),
                 Container(
@@ -66,12 +66,13 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                             children: [
                               Center(
                                 child: Text(
-                                  "NATIONAL \nMUSEUM", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
+                                  "NATIONAL \nMUSEUM",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
                                 ),
                               )
                             ],
@@ -98,12 +99,13 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                             children: [
                               Center(
                                 child: Text(
-                                  "MUSEO DE \nINTRAMUROS", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
+                                  "MUSEO DE \nINTRAMUROS",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
                                 ),
                               )
                             ],
@@ -111,9 +113,7 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                        width: 40
-                    )
+                    SizedBox(width: 40)
                   ],
                 ),
                 Container(
@@ -122,9 +122,7 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SizedBox(
-                        width: 40
-                    ),
+                    SizedBox(width: 40),
                     Flexible(
                       flex: 1,
                       child: GestureDetector(
@@ -141,12 +139,13 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                             children: [
                               Center(
                                 child: Text(
-                                  "CASA MANILA", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
+                                  "CASA MANILA",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
                                 ),
                               )
                             ],
@@ -173,12 +172,13 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                             children: [
                               Center(
                                 child: Text(
-                                  "KATIPUNAN \nMONUMENT", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
+                                  "KATIPUNAN \nMONUMENT",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
                                 ),
                               )
                             ],
@@ -186,9 +186,7 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                        width: 40
-                    )
+                    SizedBox(width: 40)
                   ],
                 ),
               ],

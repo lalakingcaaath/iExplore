@@ -24,7 +24,7 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: HeaderAppBarComponent(headerTitle: "Leisure Tours"),
+        appBar: HeaderAppBarComponent(headerTitle: "Adventure Tours"),
         body: SingleChildScrollView(
           child: Container(
             margin: const EdgeInsets.only(top: 30),
@@ -33,12 +33,12 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
               children: [
                 Center(
                   child: Text(
-                    "NEARBY LEISURES", style: TextStyle(
-                      fontFamily: 'FSP-Demo',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20,
-                      color: Colors.white
-                  ),
+                    "NEARBY LEISURES",
+                    style: TextStyle(
+                        fontFamily: 'FSP-Demo',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20,
+                        color: Colors.white),
                   ),
                 ),
                 Container(
@@ -66,12 +66,13 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
                             children: [
                               Center(
                                 child: Text(
-                                  "BAMBIKE TOUR", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
+                                  "BAMBIKE TOUR",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
                                 ),
                               )
                             ],
@@ -98,12 +99,13 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
                             children: [
                               Center(
                                 child: Text(
-                                  "KALESA RIDE", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
+                                  "KALESA RIDE",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
                                 ),
                               )
                             ],
@@ -111,9 +113,7 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                        width: 40
-                    )
+                    SizedBox(width: 40)
                   ],
                 ),
               ],
