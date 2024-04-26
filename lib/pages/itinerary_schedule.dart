@@ -1,16 +1,18 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/pages/coin_charge.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ItinerarySchedule extends StatefulWidget {
   const ItinerarySchedule({Key? key}) : super(key: key);
-
   @override
   State<ItinerarySchedule> createState() => _ItineraryScheduleState();
 }
+final commentController = TextEditingController();
 
 class _ItineraryScheduleState extends State<ItinerarySchedule> {
   @override
@@ -441,6 +443,115 @@ class _ItineraryScheduleState extends State<ItinerarySchedule> {
                     Container(
                       margin: const EdgeInsets.only(top: 10),
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.only(left: 10),
+                          width: 300,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white)
+                          ),
+                          child: Column(
+                            children: [
+                              TextField(
+                                controller: commentController,
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Write your thoughts...',
+                                  hintStyle: TextStyle(
+                                    fontFamily: 'AdobeDevanagari',
+                                    fontSize: 11,
+                                    color: Colors.white
+                                  )
+                                ),
+                                style: TextStyle(
+                                    fontFamily: 'AdobeDevanagari',
+                                    fontSize: 11,
+                                    color: Colors.white
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      CollectionReference collRef = FirebaseFirestore.instance.collection('comments');
+                                      collRef.add({
+                                        'comment': commentController
+                                      });
+                                    },
+                                    child: Text(
+                                      "Add review", style: TextStyle(
+                                        fontFamily: 'AdobeDevanagari',
+                                        fontSize: 11,
+                                        color: Colors.white
+                                    ),
+                                    )
+                                  ),
+                                  Spacer(),
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 5),
+                                    child: RatingBar.builder(
+                                        initialRating: 0,
+                                        minRating: 1,
+                                        direction: Axis.horizontal,
+                                        allowHalfRating: true,
+                                        itemCount: 5,
+                                        itemSize: 24,
+                                        itemBuilder: (context, _) => Icon(
+                                          Icons.star,
+                                          color: Colors.amber,
+                                        ),
+                                        onRatingUpdate: (rating) {
+                                          print(rating);
+                                        }
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 15),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(left: 50),
+                          child: Text(
+                            "OTHER USER REVIEWS", style: TextStyle(
+                              fontFamily: 'FSP-Demo',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 20,
+                              color: Colors.white
+                          ),
+                          ),
+                        )
+                      ],
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 10),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 300,
+                          height: 200,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor
+                          ),
+                        )
+                      ],
+                    )
                   ],
                 );
               }
@@ -454,16 +565,6 @@ class _ItineraryScheduleState extends State<ItinerarySchedule> {
     );
   }
 }
-
-class ExitDialog extends StatelessWidget {
-  const ExitDialog({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-
 
 class CustomDialogWidget extends StatelessWidget {
   const CustomDialogWidget({Key? key}) : super(key: key);
