@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:i_explore/model/coin_model.dart';
 import 'package:i_explore/provider/coin_provider.dart';
 import 'package:i_explore/services/auth_service.dart';
 import 'package:i_explore/utils/colors.dart';
