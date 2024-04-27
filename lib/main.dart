@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => CoinProvider()),
+        ChangeNotifierProvider<CoinProvider>(create: (_) => CoinProvider()),
         Provider<FirebaseStorageService>(
             create: (_) => FirebaseStorageService()),
         Provider<AuthService>(
