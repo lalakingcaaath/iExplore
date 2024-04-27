@@ -7,18 +7,8 @@ class FirestoreService {
 
   final String userId = AuthService().user!.uid;
 
-  void addUserSampleData(
-    String user_id,
-    String displayName,
-    int age,
-  ) {
-    print(displayName);
-    final sampleData = <String, dynamic>{
-      "name": displayName,
-      "age": age,
-    };
-
-    db.collection('users').doc(user_id).set(sampleData).onError(
+  void addUser() {
+    db.collection('users').doc(userId).set({'iCoins': 0}).onError(
         (error, stackTrace) => print('Error writing document: $error'));
   }
 
@@ -51,6 +41,9 @@ class FirestoreService {
       final docRef = await db.collection('users').doc(userId).get();
 
       if (!docRef.exists) {
+        // create a document if user doesnt exists in the database
+        addUser();
+        // then show the value of coin as 0
         return Coin(coinValue: 0);
       }
 
