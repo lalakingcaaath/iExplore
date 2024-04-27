@@ -35,7 +35,11 @@ class _TestState extends State<Test> {
                 children: [
                   ElevatedButton(
                       onPressed: () {
-                        FirestoreService().addSampleCoins(uid, 50);
+                        // after adding coin
+                        FirestoreService().addSampleCoins(1);
+                        // then reload the coin value
+                        Provider.of<CoinProvider>(context, listen: false)
+                            .fetchCoinData();
                       },
                       child: Text('Add data')),
                   ElevatedButton(
@@ -46,7 +50,20 @@ class _TestState extends State<Test> {
                       },
                       child: Text('Read data')),
                 ],
-              )
+              ),
+              Row(
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        // after adding coin
+                        FirestoreService().removeSampleCoins(1);
+                        // then reload the coin value
+                        Provider.of<CoinProvider>(context, listen: false)
+                            .fetchCoinData();
+                      },
+                      child: Text('-1 coin')),
+                ],
+              ),
             ],
           ),
         ),

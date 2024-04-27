@@ -5,6 +5,8 @@ import 'package:i_explore/utils/colors.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:provider/provider.dart';
 
+// Initial screen for fetching the data to the database
+
 class Splash extends StatefulWidget {
   const Splash({super.key});
 
@@ -19,7 +21,7 @@ class _SplashState extends State<Splash> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Provider.of<CoinProvider>(context, listen: false).fetchCoinData();
-      Future.delayed(const Duration(milliseconds: 3000), () {
+      Future.delayed(const Duration(milliseconds: 3500), () {
         context.go('/home');
       });
     });
