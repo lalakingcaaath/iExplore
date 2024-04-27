@@ -56,14 +56,6 @@ class FirestoreService {
     print('Added coins');
   }
 
-  Future<void> readData() async {
-    await db.collection("users").get().then((event) {
-      for (var doc in event.docs) {
-        print("${doc.id} => ${doc.data()}");
-      }
-    });
-  }
-
   Future<Map<String, dynamic>> readCoinData(String user_id) async {
     try {
       final docRef = await db.collection('users').doc(user_id).get();

@@ -23,18 +23,6 @@ class HeaderAppBarComponent extends StatefulWidget
 
 class _HeaderAppBarComponentState extends State<HeaderAppBarComponent> {
   @override
-  void initState() {
-    super.initState();
-    // Fetch coin data when the widget is initialized
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      AuthService authService =
-          Provider.of<AuthService>(context, listen: false);
-      Provider.of<CoinProvider>(context, listen: false)
-          .fetchCoinData(authService.user!.uid);
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Consumer<CoinProvider>(
       builder: (context, coinProvider, _) {

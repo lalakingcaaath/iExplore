@@ -10,6 +10,7 @@ import 'package:i_explore/pages/login.dart';
 import 'package:i_explore/pages/luzon.dart';
 import 'package:i_explore/pages/profile.dart';
 import 'package:i_explore/pages/register.dart';
+import 'package:i_explore/pages/splash_screen.dart';
 import 'package:i_explore/pages/test.dart';
 import 'package:i_explore/services/auth_service.dart';
 import 'package:provider/provider.dart';
@@ -63,6 +64,9 @@ final GoRouter routerConfig = GoRouter(
       GoRoute(path: '/login', builder: (context, state) => const Login()),
       GoRoute(path: '/register', builder: (context, state) => const Register()),
 
+
+      // Splash
+      GoRoute(path: '/loading', builder: (context, state) => const Splash(),),
       // FOR DEBUGGIN AND TESTING PURPOSE
       GoRoute(path: '/test', builder: (context, state) => const Test(),)
     ],
@@ -79,7 +83,7 @@ final GoRouter routerConfig = GoRouter(
       // if the user is logged in but still on the login page, send them to
       // the home page
       if (loggingIn) {
-        return '/home';
+        return '/loading';
       }
 
       return null;

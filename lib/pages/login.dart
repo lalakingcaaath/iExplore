@@ -107,7 +107,7 @@ class LoginFormState extends State<LoginForm> {
         print('user: ${user}');
         if (user != null) {
           // Navigate to home page after successful authentication
-          context.go('/home');
+          context.go('/loading');
         }
       } catch (e) {
         // Handle authentication errors (e.g., show error dialog)

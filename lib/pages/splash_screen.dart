@@ -23,9 +23,10 @@ class _SplashState extends State<Splash> {
       AuthService authService =
           Provider.of<AuthService>(context, listen: false);
       Provider.of<CoinProvider>(context, listen: false)
-          .fetchCoinData(authService.user!.uid as Coin);
-
-      context.go('/home');
+          .fetchCoinData(authService.user!.uid);
+      Future.delayed(const Duration(milliseconds: 3000), () {
+        context.go('/home');
+      });
     });
   }
 
