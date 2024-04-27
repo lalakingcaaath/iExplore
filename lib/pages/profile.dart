@@ -164,6 +164,9 @@ class _ProfileState extends State<Profile> {
                                                       _editNameController,
                                                   validator: validateName,
                                                 ),
+                                                SizedBox(
+                                                  height: 4,
+                                                ),
                                                 Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.end,

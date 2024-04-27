@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
+import 'package:i_explore/provider/coin_provider.dart';
+import 'package:i_explore/services/firestore_service.dart';
 import 'package:i_explore/utils/colors.dart';
+import 'package:provider/provider.dart';
 
 class iCoins extends StatefulWidget {
   const iCoins({Key? key}) : super(key: key);
@@ -12,6 +16,58 @@ class iCoins extends StatefulWidget {
 }
 
 class _iCoinsState extends State<iCoins> {
+  void addCoins(int coinValue) {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: Text(
+                'Alert!',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontFamily: 'FSP-AdobeDevanagari',
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              content: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'images/iexplore-coin-2.png',
+                    scale: 4,
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    'Buy ${coinValue} coins?',
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+              actions: [
+                ElevatedButton(
+                    onPressed: () {
+                      context.pop();
+                    },
+                    child: Text('Close')),
+                ElevatedButton(
+                    onPressed: () {
+                      // after adding coin
+                      FirestoreService().addSampleCoins(coinValue);
+                      // then reload the coin value
+                      Provider.of<CoinProvider>(context, listen: false)
+                          .fetchCoinData();
+
+                      // TO:DO add something snackbar and payment method.
+                      context.pop();
+                    },
+                    child: Text('Buy')),
+              ],
+            ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,12 +92,12 @@ class _iCoinsState extends State<iCoins> {
                   children: [
                     Center(
                       child: Text(
-                        "COIN CHARGING", style: TextStyle(
-                          fontFamily: 'FSP-Demo',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20,
-                          color: Colors.white
-                      ),
+                        "COIN CHARGING",
+                        style: TextStyle(
+                            fontFamily: 'FSP-Demo',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20,
+                            color: Colors.white),
                       ),
                     )
                   ],
@@ -56,9 +112,8 @@ class _iCoinsState extends State<iCoins> {
                       height: 65,
                       width: 350,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: lightOrangeColor
-                      ),
+                          borderRadius: BorderRadius.circular(10),
+                          color: lightOrangeColor),
                       child: Row(
                         children: [
                           Padding(
@@ -69,42 +124,42 @@ class _iCoinsState extends State<iCoins> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "1", textAlign: TextAlign.left ,style: TextStyle(
-                                fontFamily: "AdobeDevanagari",
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25,
-                                color: brownColor
-                              ),
+                                "1",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                    color: brownColor),
                               ),
                               Text(
-                                "Free iExplore Coins Charge \nWatch Maximum 5 ads per day", style: TextStyle(
-                                fontFamily: "AdobeDevanagari",
-                                fontSize: 10,
-                                color: brownColor
-                              ),
+                                "Free iExplore Coins Charge \nWatch Maximum 5 ads per day",
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontSize: 10,
+                                    color: brownColor),
                               )
                             ],
                           ),
                           Spacer(),
                           GestureDetector(
-                            onTap: (){},
+                            onTap: () {},
                             child: Container(
                               margin: const EdgeInsets.only(right: 5),
                               height: 40,
                               width: 100,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: darkOrangeColor
-                              ),
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: darkOrangeColor),
                               child: Center(
                                 child: Text(
-                                  "Watch Ad", style: TextStyle(
-                                  fontFamily: "AdobeDevanagari",
-                                  fontStyle: FontStyle.italic,
-                                  fontSize: 20,
-                                  color: Colors.white
-                                ),
+                                  "Watch Ad",
+                                  style: TextStyle(
+                                      fontFamily: "AdobeDevanagari",
+                                      fontStyle: FontStyle.italic,
+                                      fontSize: 20,
+                                      color: Colors.white),
                                 ),
                               ),
                             ),
@@ -125,8 +180,7 @@ class _iCoinsState extends State<iCoins> {
                       width: 350,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: lightOrangeColor
-                      ),
+                          color: lightOrangeColor),
                       child: Row(
                         children: [
                           Padding(
@@ -137,42 +191,44 @@ class _iCoinsState extends State<iCoins> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "6", textAlign: TextAlign.left ,style: TextStyle(
-                                  fontFamily: "AdobeDevanagari",
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
-                                  color: brownColor
-                              ),
+                                "6",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                    color: brownColor),
                               ),
                               Text(
-                                "iExplore Coin Bonus!", style: TextStyle(
-                                  fontFamily: "AdobeDevanagari",
-                                  fontSize: 10,
-                                  color: brownColor
-                              ),
+                                "iExplore Coin Bonus!",
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontSize: 16,
+                                    color: brownColor),
                               )
                             ],
                           ),
                           Spacer(),
                           GestureDetector(
-                            onTap: (){},
+                            onTap: () {
+                              addCoins(6);
+                            },
                             child: Container(
                               margin: const EdgeInsets.only(right: 5),
                               height: 40,
                               width: 100,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
-                                  color: darkOrangeColor
-                              ),
+                                  color: darkOrangeColor),
                               child: Center(
                                 child: Text(
-                                  "PHP 20", style: TextStyle(
-                                    fontFamily: "AdobeDevanagari",
-                                    fontStyle: FontStyle.italic,
-                                    fontSize: 20,
-                                    color: Colors.white
-                                ),
+                                  "PHP 20",
+                                  style: TextStyle(
+                                      fontFamily: "AdobeDevanagari",
+                                      fontStyle: FontStyle.italic,
+                                      fontSize: 20,
+                                      color: Colors.white),
                                 ),
                               ),
                             ),
@@ -193,8 +249,7 @@ class _iCoinsState extends State<iCoins> {
                       width: 350,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: lightOrangeColor
-                      ),
+                          color: lightOrangeColor),
                       child: Row(
                         children: [
                           Padding(
@@ -205,42 +260,42 @@ class _iCoinsState extends State<iCoins> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "15", textAlign: TextAlign.left ,style: TextStyle(
-                                  fontFamily: "AdobeDevanagari",
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
-                                  color: brownColor
-                              ),
+                                "15",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                    color: brownColor),
                               ),
                               Text(
-                                "iExplore Coin Bonus!", style: TextStyle(
-                                  fontFamily: "AdobeDevanagari",
-                                  fontSize: 10,
-                                  color: brownColor
-                              ),
+                                "iExplore Coin Bonus!",
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontSize: 16,
+                                    color: brownColor),
                               )
                             ],
                           ),
                           Spacer(),
                           GestureDetector(
-                            onTap: (){},
+                            onTap: () {},
                             child: Container(
                               margin: const EdgeInsets.only(right: 5),
                               height: 40,
                               width: 100,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
-                                  color: darkOrangeColor
-                              ),
+                                  color: darkOrangeColor),
                               child: Center(
                                 child: Text(
-                                  "PHP 50", style: TextStyle(
-                                    fontFamily: "AdobeDevanagari",
-                                    fontStyle: FontStyle.italic,
-                                    fontSize: 20,
-                                    color: Colors.white
-                                ),
+                                  "PHP 50",
+                                  style: TextStyle(
+                                      fontFamily: "AdobeDevanagari",
+                                      fontStyle: FontStyle.italic,
+                                      fontSize: 20,
+                                      color: Colors.white),
                                 ),
                               ),
                             ),
@@ -261,8 +316,7 @@ class _iCoinsState extends State<iCoins> {
                       width: 350,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: lightOrangeColor
-                      ),
+                          color: lightOrangeColor),
                       child: Row(
                         children: [
                           Padding(
@@ -273,42 +327,42 @@ class _iCoinsState extends State<iCoins> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "20", textAlign: TextAlign.left ,style: TextStyle(
-                                  fontFamily: "AdobeDevanagari",
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
-                                  color: brownColor
-                              ),
+                                "20",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                    color: brownColor),
                               ),
                               Text(
-                                "iExplore Coin Bonus!", style: TextStyle(
-                                  fontFamily: "AdobeDevanagari",
-                                  fontSize: 10,
-                                  color: brownColor
-                              ),
+                                "iExplore Coin Bonus!",
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontSize: 16,
+                                    color: brownColor),
                               )
                             ],
                           ),
                           Spacer(),
                           GestureDetector(
-                            onTap: (){},
+                            onTap: () {},
                             child: Container(
                               margin: const EdgeInsets.only(right: 5),
                               height: 40,
                               width: 100,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
-                                  color: darkOrangeColor
-                              ),
+                                  color: darkOrangeColor),
                               child: Center(
                                 child: Text(
-                                  "PHP 70", style: TextStyle(
-                                    fontFamily: "AdobeDevanagari",
-                                    fontStyle: FontStyle.italic,
-                                    fontSize: 20,
-                                    color: Colors.white
-                                ),
+                                  "PHP 70",
+                                  style: TextStyle(
+                                      fontFamily: "AdobeDevanagari",
+                                      fontStyle: FontStyle.italic,
+                                      fontSize: 20,
+                                      color: Colors.white),
                                 ),
                               ),
                             ),
@@ -329,8 +383,7 @@ class _iCoinsState extends State<iCoins> {
                       width: 350,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: lightOrangeColor
-                      ),
+                          color: lightOrangeColor),
                       child: Row(
                         children: [
                           Padding(
@@ -341,42 +394,42 @@ class _iCoinsState extends State<iCoins> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "30", textAlign: TextAlign.left ,style: TextStyle(
-                                  fontFamily: "AdobeDevanagari",
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
-                                  color: brownColor
-                              ),
+                                "30",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                    color: brownColor),
                               ),
                               Text(
-                                "iExplore Coin Bonus!", style: TextStyle(
-                                  fontFamily: "AdobeDevanagari",
-                                  fontSize: 10,
-                                  color: brownColor
-                              ),
+                                "iExplore Coin Bonus!",
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontSize: 16,
+                                    color: brownColor),
                               )
                             ],
                           ),
                           Spacer(),
                           GestureDetector(
-                            onTap: (){},
+                            onTap: () {},
                             child: Container(
                               margin: const EdgeInsets.only(right: 5),
                               height: 40,
                               width: 100,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
-                                  color: darkOrangeColor
-                              ),
+                                  color: darkOrangeColor),
                               child: Center(
                                 child: Text(
-                                  "PHP 110", style: TextStyle(
-                                    fontFamily: "AdobeDevanagari",
-                                    fontStyle: FontStyle.italic,
-                                    fontSize: 20,
-                                    color: Colors.white
-                                ),
+                                  "PHP 110",
+                                  style: TextStyle(
+                                      fontFamily: "AdobeDevanagari",
+                                      fontStyle: FontStyle.italic,
+                                      fontSize: 20,
+                                      color: Colors.white),
                                 ),
                               ),
                             ),
@@ -397,8 +450,7 @@ class _iCoinsState extends State<iCoins> {
                       width: 350,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: lightOrangeColor
-                      ),
+                          color: lightOrangeColor),
                       child: Row(
                         children: [
                           Padding(
@@ -409,42 +461,42 @@ class _iCoinsState extends State<iCoins> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "40", textAlign: TextAlign.left ,style: TextStyle(
-                                  fontFamily: "AdobeDevanagari",
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
-                                  color: brownColor
-                              ),
+                                "40",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                    color: brownColor),
                               ),
                               Text(
-                                "iExplore Coin Bonus!", style: TextStyle(
-                                  fontFamily: "AdobeDevanagari",
-                                  fontSize: 10,
-                                  color: brownColor
-                              ),
+                                "iExplore Coin Bonus!",
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontSize: 16,
+                                    color: brownColor),
                               )
                             ],
                           ),
                           Spacer(),
                           GestureDetector(
-                            onTap: (){},
+                            onTap: () {},
                             child: Container(
                               margin: const EdgeInsets.only(right: 5),
                               height: 40,
                               width: 100,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
-                                  color: darkOrangeColor
-                              ),
+                                  color: darkOrangeColor),
                               child: Center(
                                 child: Text(
-                                  "PHP 150", style: TextStyle(
-                                    fontFamily: "AdobeDevanagari",
-                                    fontStyle: FontStyle.italic,
-                                    fontSize: 20,
-                                    color: Colors.white
-                                ),
+                                  "PHP 150",
+                                  style: TextStyle(
+                                      fontFamily: "AdobeDevanagari",
+                                      fontStyle: FontStyle.italic,
+                                      fontSize: 20,
+                                      color: Colors.white),
                                 ),
                               ),
                             ),
@@ -465,8 +517,7 @@ class _iCoinsState extends State<iCoins> {
                       width: 350,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: lightOrangeColor
-                      ),
+                          color: lightOrangeColor),
                       child: Row(
                         children: [
                           Padding(
@@ -477,42 +528,42 @@ class _iCoinsState extends State<iCoins> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "60", textAlign: TextAlign.left ,style: TextStyle(
-                                  fontFamily: "AdobeDevanagari",
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
-                                  color: brownColor
-                              ),
+                                "60",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                    color: brownColor),
                               ),
                               Text(
-                                "iExplore Coin Bonus!", style: TextStyle(
-                                  fontFamily: "AdobeDevanagari",
-                                  fontSize: 10,
-                                  color: brownColor
-                              ),
+                                "iExplore Coin Bonus!",
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontSize: 16,
+                                    color: brownColor),
                               )
                             ],
                           ),
                           Spacer(),
                           GestureDetector(
-                            onTap: (){},
+                            onTap: () {},
                             child: Container(
                               margin: const EdgeInsets.only(right: 5),
                               height: 40,
                               width: 100,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
-                                  color: darkOrangeColor
-                              ),
+                                  color: darkOrangeColor),
                               child: Center(
                                 child: Text(
-                                  "PHP 200", style: TextStyle(
-                                    fontFamily: "AdobeDevanagari",
-                                    fontStyle: FontStyle.italic,
-                                    fontSize: 20,
-                                    color: Colors.white
-                                ),
+                                  "PHP 200",
+                                  style: TextStyle(
+                                      fontFamily: "AdobeDevanagari",
+                                      fontStyle: FontStyle.italic,
+                                      fontSize: 20,
+                                      color: Colors.white),
                                 ),
                               ),
                             ),
@@ -522,9 +573,7 @@ class _iCoinsState extends State<iCoins> {
                     )
                   ],
                 ),
-                Container(
-                  margin: const EdgeInsets.only(top: 15)
-                )
+                Container(margin: const EdgeInsets.only(top: 15))
               ],
             ),
           ),
