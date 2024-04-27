@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:i_explore/pages/homepage.dart';
+import 'package:go_router/go_router.dart';
 
 class FloatingButtonNavBarComponent extends StatelessWidget {
   const FloatingButtonNavBarComponent({Key? key}) : super(key: key);
@@ -12,11 +12,8 @@ class FloatingButtonNavBarComponent extends StatelessWidget {
       child: FittedBox(
         child: FloatingActionButton(
           onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                    const MyHomePage(title: "iExplore")));
+            context.go('/home');
+              
           },
           child: Transform.scale(
             scale: 1.275,

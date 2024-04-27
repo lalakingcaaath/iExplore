@@ -8,6 +8,8 @@ import 'package:i_explore/pages/homepage.dart';
 import 'package:i_explore/pages/leisures.dart';
 import 'package:i_explore/pages/login.dart';
 import 'package:i_explore/pages/luzon.dart';
+import 'package:i_explore/pages/manila.dart';
+import 'package:i_explore/pages/metroManila.dart';
 import 'package:i_explore/pages/profile.dart';
 import 'package:i_explore/pages/register.dart';
 import 'package:i_explore/pages/splash_screen.dart';
@@ -28,25 +30,44 @@ final GoRouter routerConfig = GoRouter(
           builder: (context, state) => const MyHomePage(title: 'Homepage'),
           routes: [
             GoRoute(
-              path: 'luzon',
-              builder: (context, state) => const luzon()),
+                path: 'luzon',
+                builder: (context, state) => const luzon(),
+                routes: [
+                  GoRoute(
+                      path: 'metro_manila',
+                      builder: (context, state) => const Metro_Manila(),
+                      routes: [
+                        GoRoute(
+                            path: 'manila',
+                            builder: (context, state) => const Manila())
+                      ])
+                ]),
             // visayas
             // mindanao
             // Tour categories
-            GoRoute(path: 'culinaries', builder: (context, state) =>  const Culinary_Tours(),),
-            GoRoute(path: 'adventures', builder: (context, state) =>  const Adventure_Tours(),),
-            GoRoute(path: 'leisures', builder: (context, state) =>  const Leisures_Tours(),),
-            GoRoute(path: 'cultural', builder: (context, state) =>  const Cultural_Tours(),),
+            GoRoute(
+              path: 'culinaries',
+              builder: (context, state) => const Culinary_Tours(),
+            ),
+            GoRoute(
+              path: 'adventures',
+              builder: (context, state) => const Adventure_Tours(),
+            ),
+            GoRoute(
+              path: 'leisures',
+              builder: (context, state) => const Leisures_Tours(),
+            ),
+            GoRoute(
+              path: 'cultural',
+              builder: (context, state) => const Cultural_Tours(),
+            ),
 
             // WIP (TO:DO NEEDED PAGES)
             // GoRoute(path: 'ecotourism', builder: (context, state) =>  const Ecotourism_Tours(),),
             // GoRoute(path: 'pilgrimage', builder: (context, state) =>  const Pilgrimage_Tours(),),
             // GoRoute(path: 'schools', builder: (context, state) =>  const Schools_Tours(),),
             // GoRoute(path: 'wellness', builder: (context, state) =>  const Wellness_Tours(),),
-
-
-          ]
-          ),
+          ]),
 
       GoRoute(
         path: '/profile',
@@ -58,17 +79,21 @@ final GoRouter routerConfig = GoRouter(
           )
         ],
       ),
-      
 
       // Login and Register
       GoRoute(path: '/login', builder: (context, state) => const Login()),
       GoRoute(path: '/register', builder: (context, state) => const Register()),
 
-
       // Splash
-      GoRoute(path: '/loading', builder: (context, state) => const Splash(),),
+      GoRoute(
+        path: '/loading',
+        builder: (context, state) => const Splash(),
+      ),
       // FOR DEBUGGIN AND TESTING PURPOSE
-      GoRoute(path: '/test', builder: (context, state) => const Test(),)
+      GoRoute(
+        path: '/test',
+        builder: (context, state) => const Test(),
+      )
     ],
     redirect: (context, state) {
       // check if user is logged in
