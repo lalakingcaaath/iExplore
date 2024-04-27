@@ -1,7 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:i_explore/model/coin_model.dart';
+import 'package:i_explore/services/auth_service.dart';
 
 class FirestoreService {
   final db = FirebaseFirestore.instance;
+
+  final String userId = AuthService().user!.uid;
 
   final user = <String, dynamic>{
     "first": "Ada",
@@ -56,17 +60,17 @@ class FirestoreService {
     print('Added coins');
   }
 
-  Future<Map<String, dynamic>> readCoinData(String user_id) async {
+  Future<Coin> readCoinData() async {
     try {
-      final docRef = await db.collection('users').doc(user_id).get();
+      final docRef = await db.collection('users').doc(userId).get();
 
       if (!docRef.exists) {
-        return {'iCoins': 0};
+        return Coin(coinValue: 0);
       }
 
       final data = docRef.data() as Map<String, dynamic>;
 
-      return data;
+      return Coin.fromFirestore(data);
     } catch (err) {
       throw Exception(err);
     }

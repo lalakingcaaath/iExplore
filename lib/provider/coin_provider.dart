@@ -7,11 +7,9 @@ class CoinProvider extends ChangeNotifier {
 
   Coin? get coinValue => _coin;
 
-  void fetchCoinData(String user_id) async {
+  void fetchCoinData() async {
     try {
-      final Map<String, dynamic> data =
-          await FirestoreService().readCoinData(user_id);
-      _coin = Coin.fromFirestore(data);
+      _coin = await FirestoreService().readCoinData();
       print(_coin!.coinValue);
       notifyListeners();
     } catch (err) {

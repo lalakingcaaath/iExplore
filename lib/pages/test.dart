@@ -42,7 +42,7 @@ class _TestState extends State<Test> {
                       onPressed: () {
                         CoinProvider coinProvider =
                             Provider.of<CoinProvider>(context, listen: false);
-                        coinProvider.fetchCoinData(uid);
+                        print(coinProvider.coinValue!.coinValue);
                       },
                       child: Text('Read data')),
                 ],
