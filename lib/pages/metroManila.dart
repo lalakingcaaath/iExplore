@@ -66,6 +66,8 @@ class _Metro_ManilaState extends State<Metro_Manila> {
   }
 }
 
+// * if this component reused in other file. make sure to create another file in ./components/RowButtonComponent.dart
+
 class RowButton extends StatelessWidget {
   final String text;
   final void Function()? func;
