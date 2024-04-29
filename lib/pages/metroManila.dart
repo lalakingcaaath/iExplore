@@ -32,411 +32,28 @@ class _Metro_ManilaState extends State<Metro_Manila> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          context.push('/home/luzon/metro_manila/manila');
-                        },
-                        child: Container(
-                          width: 350,
-                          padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                          decoration: BoxDecoration(
-                              color: lightOrangeColor,
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Center(
-                            child: Text(
-                              "Manila",
-                              style: TextStyle(
-                                  color: orangeTwoColor,
-                                  fontFamily: 'AdobeDevanagari',
-                                  fontStyle: FontStyle.italic,
-                                  fontSize: 20),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                  RowButton(
+                      text: 'Manila',
+                      func: () =>
+                          context.push('/home/luzon/metro_manila/manila')),
+                  RowButton(text: 'Navotas'),
+                  RowButton(text: 'Las Pinas'),
+                  RowButton(text: 'Makati'),
+                  RowButton(text: 'Malabon'),
+                  RowButton(text: 'Mandaluyong'),
+                  RowButton(text: 'Marikina'),
+                  RowButton(text: 'Muntinlupa'),
+                  RowButton(text: 'Navotas'),
+                  RowButton(text: 'Paranaque'),
+                  RowButton(text: 'Pasay'),
+                  RowButton(text: 'Pasig'),
+                  RowButton(text: 'Quezon City'),
+                  RowButton(text: 'San Juan'),
+                  RowButton(text: 'Valenzuela'),
+                  RowButton(text: 'Pateros'),
+                  SizedBox(
+                    height: 40.0,
                   ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        decoration: BoxDecoration(
-                            color: lightOrangeColor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Center(
-                          child: Text(
-                            "Caloocan",
-                            style: TextStyle(
-                                color: orangeTwoColor,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        decoration: BoxDecoration(
-                            color: lightOrangeColor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Center(
-                          child: Text(
-                            "Las Piñas",
-                            style: TextStyle(
-                                color: orangeTwoColor,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        decoration: BoxDecoration(
-                            color: lightOrangeColor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Center(
-                          child: Text(
-                            "Makati",
-                            style: TextStyle(
-                                color: orangeTwoColor,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        decoration: BoxDecoration(
-                            color: lightOrangeColor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Center(
-                          child: Text(
-                            "Malabon",
-                            style: TextStyle(
-                                color: orangeTwoColor,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        decoration: BoxDecoration(
-                            color: lightOrangeColor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Center(
-                          child: Text(
-                            "Mandaluyong",
-                            style: TextStyle(
-                                color: orangeTwoColor,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        decoration: BoxDecoration(
-                            color: lightOrangeColor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Center(
-                          child: Text(
-                            "Marikina",
-                            style: TextStyle(
-                                color: orangeTwoColor,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        decoration: BoxDecoration(
-                            color: lightOrangeColor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Center(
-                          child: Text(
-                            "Muninlupa",
-                            style: TextStyle(
-                                color: orangeTwoColor,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        decoration: BoxDecoration(
-                            color: lightOrangeColor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Center(
-                          child: Text(
-                            "Navotas",
-                            style: TextStyle(
-                                color: orangeTwoColor,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        decoration: BoxDecoration(
-                            color: lightOrangeColor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Center(
-                          child: Text(
-                            "Parañaque",
-                            style: TextStyle(
-                                color: orangeTwoColor,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        decoration: BoxDecoration(
-                            color: lightOrangeColor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Center(
-                          child: Text(
-                            "Pasay",
-                            style: TextStyle(
-                                color: orangeTwoColor,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        decoration: BoxDecoration(
-                            color: lightOrangeColor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Center(
-                          child: Text(
-                            "Pasig",
-                            style: TextStyle(
-                                color: orangeTwoColor,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        decoration: BoxDecoration(
-                            color: lightOrangeColor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Center(
-                          child: Text(
-                            "Quezon City",
-                            style: TextStyle(
-                                color: orangeTwoColor,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        decoration: BoxDecoration(
-                            color: lightOrangeColor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Center(
-                          child: Text(
-                            "San Juan",
-                            style: TextStyle(
-                                color: orangeTwoColor,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        decoration: BoxDecoration(
-                            color: lightOrangeColor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Center(
-                          child: Text(
-                            "Valenzuela",
-                            style: TextStyle(
-                                color: orangeTwoColor,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        decoration: BoxDecoration(
-                            color: lightOrangeColor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Center(
-                          child: Text(
-                            "Pateros",
-                            style: TextStyle(
-                                color: orangeTwoColor,
-                                fontFamily: 'AdobeDevanagari',
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 30),
-                  )
                 ],
               ),
             ),
@@ -445,6 +62,49 @@ class _Metro_ManilaState extends State<Metro_Manila> {
               FloatingActionButtonLocation.centerDocked,
           floatingActionButton: FloatingButtonNavBarComponent(),
           bottomNavigationBar: BottomNavigationBarComponent()),
+    );
+  }
+}
+
+class RowButton extends StatelessWidget {
+  final String text;
+  final void Function()? func;
+
+  const RowButton({
+    super.key,
+    required this.text,
+    this.func,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(top: 16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          GestureDetector(
+            onTap: func,
+            child: Container(
+              width: 350,
+              padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+              decoration: BoxDecoration(
+                  color: lightOrangeColor,
+                  borderRadius: BorderRadius.circular(20)),
+              child: Center(
+                child: Text(
+                  text,
+                  style: TextStyle(
+                      color: orangeTwoColor,
+                      fontFamily: 'AdobeDevanagari',
+                      fontStyle: FontStyle.italic,
+                      fontSize: 20),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

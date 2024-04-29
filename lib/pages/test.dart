@@ -65,7 +65,8 @@ class _TestState extends State<Test> {
                   ElevatedButton(
                       onPressed: () async {
                         // after adding coin
-                        await FirestoreService().getIternaries();
+                        await FirestoreService()
+                            .getIternaries('metro_manila', 'manila');
                       },
                       child: Text('Get Itinaries')),
                 ],

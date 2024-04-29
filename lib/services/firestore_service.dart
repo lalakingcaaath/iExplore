@@ -3,9 +3,13 @@ import 'package:i_explore/model/coin_model.dart';
 import 'package:i_explore/services/auth_service.dart';
 
 class FirestoreService {
-  final db = FirebaseFirestore.instance;
+  static final FirebaseFirestore db = FirebaseFirestore.instance;
 
   final String userId = AuthService().user!.uid;
+
+  // Collections
+  final users = db.collection('users');
+  final itineraries = db.collection('itineraries');
 
   void addUser() {
     db.collection('users').doc(userId).set({'iCoins': 0}).onError(
@@ -24,31 +28,19 @@ class FirestoreService {
     print('Added coins');
   }
 
-  // void addItenaries() {
-  //   final sampleData = <String, dynamic> {
-  //     "time": "10:00AM",
-  //     "place": "Place one",
-  //     "whatToDo": ['eating', 'circus'],
-  //   };
+  Future<void> getIternaries(String region, String city) async {
+    try {
+      final placeCollection =
+          await itineraries.doc(region).collection(city).get();
 
-  //   db.collection()
-  // }
-
-  Future<void> getIternaries() async {
-    // sample collection manila_itineraries
-    // then documents such as
-    //  -> LsM9TWEgtBIJ0UjKxmRi 
-    //  ----> then. they should have a subcollections: comments & sched
-    //  -------> comments (collection) - uniqueid (document) - {comment, name, rating, commentPosted} (fields)
-    
-
-
-    db.collection('manila_itineraries').get().then((querySnap) {
-      for (var i in querySnap.docs) {
+      for (var i in placeCollection.docs) {
         print('${i.id} => ${i.data()}');
       }
-    });
+    } catch (e) {
+      print(e);
+    }
   }
+
 
   void removeSampleCoins(int coinValue) {
     final sampleData = <String, dynamic>{
@@ -81,3 +73,19 @@ class FirestoreService {
     }
   }
 }
+
+
+
+  // Future<void> getIternaries() async {
+  //   // sample collection manila_itineraries
+  //   // then documents such as
+  //   //  -> LsM9TWEgtBIJ0UjKxmRi
+  //   //  ----> then. they should have a subcollections: comments & sched
+  //   //  -------> comments (collection) - uniqueid (document) - {comment, name, rating, commentPosted} (fields)
+
+  //   db.collection('manila_itineraries').get().then((querySnap) {
+  //     for (var i in querySnap.docs) {
+  //       print('${i.id} => ${i.data()}');
+  //     }
+  //   });
+  // }
