@@ -62,6 +62,12 @@ class _TestState extends State<Test> {
                             .fetchCoinData();
                       },
                       child: Text('-1 coin')),
+                  ElevatedButton(
+                      onPressed: () async {
+                        // after adding coin
+                        await FirestoreService().getIternaries();
+                      },
+                      child: Text('Get Itinaries')),
                 ],
               ),
             ],

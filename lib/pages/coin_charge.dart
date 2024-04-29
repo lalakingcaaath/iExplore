@@ -280,7 +280,9 @@ class _iCoinsState extends State<iCoins> {
                           ),
                           Spacer(),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              addCoins(15);
+                            },
                             child: Container(
                               margin: const EdgeInsets.only(right: 5),
                               height: 40,
@@ -347,7 +349,9 @@ class _iCoinsState extends State<iCoins> {
                           ),
                           Spacer(),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              addCoins(20);
+                            },
                             child: Container(
                               margin: const EdgeInsets.only(right: 5),
                               height: 40,
@@ -414,7 +418,9 @@ class _iCoinsState extends State<iCoins> {
                           ),
                           Spacer(),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              addCoins(30);
+                            },
                             child: Container(
                               margin: const EdgeInsets.only(right: 5),
                               height: 40,
@@ -481,7 +487,9 @@ class _iCoinsState extends State<iCoins> {
                           ),
                           Spacer(),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              addCoins(40);
+                            },
                             child: Container(
                               margin: const EdgeInsets.only(right: 5),
                               height: 40,

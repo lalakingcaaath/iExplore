@@ -24,6 +24,32 @@ class FirestoreService {
     print('Added coins');
   }
 
+  // void addItenaries() {
+  //   final sampleData = <String, dynamic> {
+  //     "time": "10:00AM",
+  //     "place": "Place one",
+  //     "whatToDo": ['eating', 'circus'],
+  //   };
+
+  //   db.collection()
+  // }
+
+  Future<void> getIternaries() async {
+    // sample collection manila_itineraries
+    // then documents such as
+    //  -> LsM9TWEgtBIJ0UjKxmRi 
+    //  ----> then. they should have a subcollections: comments & sched
+    //  -------> comments (collection) - uniqueid (document) - {comment, name, rating, commentPosted} (fields)
+    
+
+
+    db.collection('manila_itineraries').get().then((querySnap) {
+      for (var i in querySnap.docs) {
+        print('${i.id} => ${i.data()}');
+      }
+    });
+  }
+
   void removeSampleCoins(int coinValue) {
     final sampleData = <String, dynamic>{
       "iCoins": FieldValue.increment(-coinValue),
