@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:i_explore/pages/adventure.dart';
 import 'package:i_explore/pages/culinary.dart';
 import 'package:i_explore/pages/cultures.dart';
+import 'package:i_explore/pages/day_select.dart';
 import 'package:i_explore/pages/edit_profile.dart';
 import 'package:i_explore/pages/homepage.dart';
 import 'package:i_explore/pages/leisures.dart';
@@ -69,6 +70,14 @@ final GoRouter routerConfig = GoRouter(
             // GoRoute(path: 'wellness', builder: (context, state) =>  const Wellness_Tours(),),
           ]),
 
+      GoRoute(
+        path: '/day_select/:city',
+        builder: (context, state) {
+          return DaySelect(
+            testText: state.pathParameters['city']!,
+          );
+        },
+      ),
       GoRoute(
         path: '/profile',
         builder: (context, state) => const Profile(),

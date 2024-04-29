@@ -35,22 +35,69 @@ class _Metro_ManilaState extends State<Metro_Manila> {
                   RowButton(
                       text: 'Manila',
                       func: () =>
-                          context.push('/home/luzon/metro_manila/manila')),
-                  RowButton(text: 'Navotas'),
-                  RowButton(text: 'Las Pinas'),
-                  RowButton(text: 'Makati'),
-                  RowButton(text: 'Malabon'),
-                  RowButton(text: 'Mandaluyong'),
-                  RowButton(text: 'Marikina'),
-                  RowButton(text: 'Muntinlupa'),
-                  RowButton(text: 'Navotas'),
-                  RowButton(text: 'Paranaque'),
-                  RowButton(text: 'Pasay'),
-                  RowButton(text: 'Pasig'),
-                  RowButton(text: 'Quezon City'),
-                  RowButton(text: 'San Juan'),
-                  RowButton(text: 'Valenzuela'),
-                  RowButton(text: 'Pateros'),
+                          context.pushReplacement('/day_select/manila')),
+                  RowButton(
+                    text: 'Navotas',
+                    func: () => context.pushReplacement('/day_select/navotas'),
+                  ),
+                  RowButton(
+                    text: 'Las Pinas',
+                    func: () =>
+                        context.pushReplacement('/day_select/las_pinas'),
+                  ),
+                  RowButton(
+                    text: 'Makati',
+                    func: () => context.pushReplacement('/day_select/makati'),
+                  ),
+                  RowButton(
+                    text: 'Malabon',
+                    func: () => context.pushReplacement('/day_select/malabon'),
+                  ),
+                  RowButton(
+                    text: 'Mandaluyong',
+                    func: () =>
+                        context.pushReplacement('/day_select/mandaluyong'),
+                  ),
+                  RowButton(
+                    text: 'Marikina',
+                    func: () => context.pushReplacement('/day_select/marikina'),
+                  ),
+                  RowButton(
+                    text: 'Muntinlupa',
+                    func: () =>
+                        context.pushReplacement('/day_select/muntinlupa'),
+                  ),
+                  RowButton(
+                    text: 'Navotas',
+                    func: () => context.pushReplacement('/day_select/navotas'),
+                  ),
+                  RowButton(
+                    text: 'Paranaque',
+                    func: () =>
+                        context.pushReplacement('/day_select/paranaque'),
+                  ),
+                  RowButton(
+                      text: 'Pasay',
+                      func: () => context.pushReplacement('/day_select/pasay')),
+                  RowButton(
+                      text: 'Pasig',
+                      func: () => context.pushReplacement('/day_select/pasig')),
+                  RowButton(
+                      text: 'Quezon City',
+                      func: () =>
+                          context.pushReplacement('/day_select/quezon')),
+                  RowButton(
+                      text: 'San Juan',
+                      func: () =>
+                          context.pushReplacement('/day_select/san_juan')),
+                  RowButton(
+                      text: 'Valenzuela',
+                      func: () =>
+                          context.pushReplacement('/day_select/valenzuela')),
+                  RowButton(
+                      text: 'Pateros',
+                      func: () =>
+                          context.pushReplacement('/day_select/pateros')),
                   SizedBox(
                     height: 40.0,
                   ),
