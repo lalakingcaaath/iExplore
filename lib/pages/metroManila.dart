@@ -97,14 +97,6 @@ class _Metro_ManilaState extends State<Metro_Manila> {
                         }),
                   ),
                   RowButton(
-                    text: 'Navotas',
-                    func: () => context.pushReplacementNamed('day_select',
-                        pathParameters: {
-                          'region': 'metro_manila',
-                          'city': 'navotas'
-                        }),
-                  ),
-                  RowButton(
                     text: 'Paranaque',
                     func: () => context.pushReplacementNamed('day_select',
                         pathParameters: {

@@ -56,6 +56,7 @@ class FirestoreService {
 
       for (var i in placeCollection.docs) {
         data.add(DayModel.fromFirestore(i.id, i));
+        print(data);
       }
       return data;
     } catch (err) {

@@ -24,6 +24,7 @@ class DaySelect extends StatefulWidget {
 
 class _DaySelectState extends State<DaySelect> {
   int day = 1;
+  bool isHidden = false;
 
   void dayIncrement() {
     setState(() {
@@ -40,6 +41,16 @@ class _DaySelectState extends State<DaySelect> {
 
   void getRecommended() async {
     await FirestoreService().getIternaries(widget.region, widget.city);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<DayProvider>(context, listen: false).removeAll();
+
+      // Add Your Code here.
+    });
   }
 
   @override
@@ -165,6 +176,9 @@ class _DaySelectState extends State<DaySelect> {
                                 final list = await FirestoreService()
                                     .getRecommendedIternaries(
                                         widget.region, widget.city, day);
+                                // print(list);
+                                // print(widget.city);
+                                // print(day);
                                 Provider.of<DayProvider>(context, listen: false)
                                     .fetchDay(list);
                               },
