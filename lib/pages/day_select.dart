@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
+import 'package:i_explore/model/day_model.dart';
+import 'package:i_explore/provider/day_provider.dart';
+import 'package:i_explore/services/firestore_service.dart';
 import 'package:i_explore/utils/colors.dart';
+import 'package:provider/provider.dart';
 
 class DaySelect extends StatefulWidget {
   final String city;
@@ -32,6 +36,10 @@ class _DaySelectState extends State<DaySelect> {
     setState(() {
       day--;
     });
+  }
+
+  void getRecommended() async {
+    await FirestoreService().getIternaries(widget.region, widget.city);
   }
 
   @override
@@ -153,7 +161,13 @@ class _DaySelectState extends State<DaySelect> {
                               borderRadius: BorderRadius.circular(20)),
                           child: Center(
                             child: GestureDetector(
-                              onTap: () {},
+                              onTap: () async {
+                                final list = await FirestoreService()
+                                    .getRecommendedIternaries(
+                                        widget.region, widget.city, day);
+                                Provider.of<DayProvider>(context, listen: false)
+                                    .fetchDay(list);
+                              },
                               child: Text(
                                 "Save",
                                 style: TextStyle(
@@ -167,7 +181,20 @@ class _DaySelectState extends State<DaySelect> {
                         ),
                       ],
                     ),
-                    Text(widget.city + " " + widget.region)
+                    Consumer<DayProvider>(
+                      builder: (context, dayProvider, child) {
+                        List<DayModel> dayList = dayProvider.dayValue;
+                        return Column(
+                          children: dayList.map((dayModel) {
+                            return ListTile(
+                              title: Text(dayModel.title),
+                              subtitle: Text(dayModel.desc),
+                              // Add more UI elements as needed
+                            );
+                          }).toList(),
+                        );
+                      },
+                    )
                   ],
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:i_explore/model/coin_model.dart';
+import 'package:i_explore/model/day_model.dart';
 import 'package:i_explore/services/auth_service.dart';
 
 class FirestoreService {
@@ -34,13 +35,34 @@ class FirestoreService {
           await itineraries.doc(region).collection(city).get();
 
       for (var i in placeCollection.docs) {
-        print('${i.id} => ${i.data()}');
+        DayModel dayModel = DayModel.fromFirestore(i.id, i);
+        print(dayModel.id +
+            dayModel.desc); // Corrected to print dayModel properties
       }
     } catch (e) {
       print(e);
     }
   }
 
+  Future<List<DayModel>> getRecommendedIternaries(
+      String region, String city, int days) async {
+    List<DayModel> data = [];
+    try {
+      final placeCollection = await itineraries
+          .doc(region)
+          .collection(city)
+          .where('goodForDays', isEqualTo: days)
+          .get();
+
+      for (var i in placeCollection.docs) {
+        data.add(DayModel.fromFirestore(i.id, i));
+      }
+      return data;
+    } catch (err) {
+      print(err);
+      return [];
+    }
+  }
 
   void removeSampleCoins(int coinValue) {
     final sampleData = <String, dynamic>{
