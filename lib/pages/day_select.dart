@@ -5,12 +5,14 @@ import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/utils/colors.dart';
 
 class DaySelect extends StatefulWidget {
-  final String testText;
+  final String city;
+  final String region;
 
-  const DaySelect({
-    Key? key, // Fix the key parameter declaration
-    required this.testText,
-  }) : super(key: key); // Add super(key: key)
+  const DaySelect(
+      {Key? key, // Fix the key parameter declaration
+      required this.city,
+      required this.region})
+      : super(key: key); // Add super(key: key)
 
   @override
   State<DaySelect> createState() => _DaySelectState();
@@ -42,7 +44,7 @@ class _DaySelectState extends State<DaySelect> {
         child: Scaffold(
             backgroundColor: Colors.transparent,
             appBar: HeaderAppBarComponent(
-              headerTitle: '${widget.testText} City',
+              headerTitle: '${widget.city} City',
             ),
             body: SingleChildScrollView(
               child: Container(
@@ -54,7 +56,7 @@ class _DaySelectState extends State<DaySelect> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'YOU ARE NOW IN ${widget.testText.toUpperCase()} CITY',
+                          'YOU ARE NOW IN ${widget.city.toUpperCase()} CITY',
                           style: TextStyle(
                               fontFamily: 'FSP-Demo',
                               fontWeight: FontWeight.w500,
@@ -164,7 +166,8 @@ class _DaySelectState extends State<DaySelect> {
                           ),
                         ),
                       ],
-                    )
+                    ),
+                    Text(widget.city + " " + widget.region)
                   ],
                 ),
               ),

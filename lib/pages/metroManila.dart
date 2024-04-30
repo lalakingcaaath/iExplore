@@ -33,71 +33,127 @@ class _Metro_ManilaState extends State<Metro_Manila> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   RowButton(
-                      text: 'Manila',
-                      func: () =>
-                          context.pushReplacement('/day_select/manila')),
+                    text: 'Manila',
+                    func: () => context.pushReplacementNamed('day_select',
+                        pathParameters: {
+                          'region': 'metro_manila',
+                          'city': 'manila'
+                        }),
+                  ),
                   RowButton(
                     text: 'Navotas',
-                    func: () => context.pushReplacement('/day_select/navotas'),
+                    func: () => context.pushReplacementNamed('day_select',
+                        pathParameters: {
+                          'region': 'metro_manila',
+                          'city': 'navotas'
+                        }),
                   ),
                   RowButton(
                     text: 'Las Pinas',
-                    func: () =>
-                        context.pushReplacement('/day_select/las_pinas'),
+                    func: () => context.pushReplacementNamed('day_select',
+                        pathParameters: {
+                          'region': 'metro_manila',
+                          'city': 'las_pinas'
+                        }),
                   ),
                   RowButton(
                     text: 'Makati',
-                    func: () => context.pushReplacement('/day_select/makati'),
+                    func: () => context.pushReplacementNamed('day_select',
+                        pathParameters: {
+                          'region': 'metro_manila',
+                          'city': 'makati'
+                        }),
                   ),
                   RowButton(
                     text: 'Malabon',
-                    func: () => context.pushReplacement('/day_select/malabon'),
+                    func: () => context.pushReplacementNamed('day_select',
+                        pathParameters: {
+                          'region': 'metro_manila',
+                          'city': 'malabon'
+                        }),
                   ),
                   RowButton(
                     text: 'Mandaluyong',
-                    func: () =>
-                        context.pushReplacement('/day_select/mandaluyong'),
+                    func: () => context.pushReplacementNamed('day_select',
+                        pathParameters: {
+                          'region': 'metro_manila',
+                          'city': 'mandaluyong'
+                        }),
                   ),
                   RowButton(
                     text: 'Marikina',
-                    func: () => context.pushReplacement('/day_select/marikina'),
+                    func: () => context.pushReplacementNamed('day_select',
+                        pathParameters: {
+                          'region': 'metro_manila',
+                          'city': 'marikina'
+                        }),
                   ),
                   RowButton(
                     text: 'Muntinlupa',
-                    func: () =>
-                        context.pushReplacement('/day_select/muntinlupa'),
+                    func: () => context.pushReplacementNamed('day_select',
+                        pathParameters: {
+                          'region': 'metro_manila',
+                          'city': 'muntinlupa'
+                        }),
                   ),
                   RowButton(
                     text: 'Navotas',
-                    func: () => context.pushReplacement('/day_select/navotas'),
+                    func: () => context.pushReplacementNamed('day_select',
+                        pathParameters: {
+                          'region': 'metro_manila',
+                          'city': 'navotas'
+                        }),
                   ),
                   RowButton(
                     text: 'Paranaque',
-                    func: () =>
-                        context.pushReplacement('/day_select/paranaque'),
+                    func: () => context.pushReplacementNamed('day_select',
+                        pathParameters: {
+                          'region': 'metro_manila',
+                          'city': 'paranaque'
+                        }),
                   ),
                   RowButton(
                       text: 'Pasay',
-                      func: () => context.pushReplacement('/day_select/pasay')),
+                      func: () => context.pushReplacementNamed('day_select',
+                              pathParameters: {
+                                'region': 'metro_manila',
+                                'city': 'pasay'
+                              })),
                   RowButton(
                       text: 'Pasig',
-                      func: () => context.pushReplacement('/day_select/pasig')),
+                      func: () => context.pushReplacementNamed('day_select',
+                              pathParameters: {
+                                'region': 'metro_manila',
+                                'city': 'pasig'
+                              })),
                   RowButton(
                       text: 'Quezon City',
-                      func: () =>
-                          context.pushReplacement('/day_select/quezon')),
+                      func: () => context.pushReplacementNamed('day_select',
+                              pathParameters: {
+                                'region': 'metro_manila',
+                                'city': 'quezon'
+                              })),
                   RowButton(
                       text: 'San Juan',
-                      func: () =>
-                          context.pushReplacement('/day_select/san_juan')),
+                      func: () => context.pushReplacementNamed('day_select',
+                              pathParameters: {
+                                'region': 'metro_manila',
+                                'city': 'san_juan'
+                              })),
                   RowButton(
                       text: 'Valenzuela',
-                      func: () =>
-                          context.pushReplacement('/day_select/valenzuela')),
+                      func: () => context.pushReplacementNamed('day_select',
+                              pathParameters: {
+                                'region': 'metro_manila',
+                                'city': 'valenzuela'
+                              })),
                   RowButton(
                       text: 'Pateros',
-                      func: () =>
-                          context.pushReplacement('/day_select/pateros')),
+                      func: () => context.pushReplacementNamed('day_select',
+                              pathParameters: {
+                                'region': 'metro_manila',
+                                'city': 'pateros'
+                              })),
                   SizedBox(
                     height: 40.0,
                   ),

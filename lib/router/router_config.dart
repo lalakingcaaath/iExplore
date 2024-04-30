@@ -71,10 +71,12 @@ final GoRouter routerConfig = GoRouter(
           ]),
 
       GoRoute(
-        path: '/day_select/:city',
+        name: 'day_select',
+        path: '/day_select/:region/:city',
         builder: (context, state) {
           return DaySelect(
-            testText: state.pathParameters['city']!,
+            region: state.pathParameters['region']!,
+            city: state.pathParameters['city']!,
           );
         },
       ),
