@@ -15,4 +15,9 @@ class DayProvider extends ChangeNotifier {
       print(err);
     }
   }
+
+  void removeAll() {
+    _day.clear();
+    notifyListeners();
+  }
 }

@@ -105,6 +105,15 @@ final GoRouter routerConfig = GoRouter(
             city: state.pathParameters['city']!,
           );
         },
+        routes: [
+          GoRoute(
+            path: 'sched',
+            builder: (context, state) {
+              return
+            },
+            )
+
+        ]
       ),
       GoRoute(
         path: '/profile',

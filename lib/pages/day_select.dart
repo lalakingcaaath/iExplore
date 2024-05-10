@@ -23,7 +23,8 @@ class DaySelect extends StatefulWidget {
 }
 
 class _DaySelectState extends State<DaySelect> {
-  int day = 0;
+  int day = 1;
+  bool isHidden = false;
 
   void dayIncrement() {
     setState(() {
@@ -40,6 +41,16 @@ class _DaySelectState extends State<DaySelect> {
 
   void getRecommended() async {
     await FirestoreService().getIternaries(widget.region, widget.city);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<DayProvider>(context, listen: false).removeAll();
+
+      // Add Your Code here.
+    });
   }
 
   @override
@@ -165,6 +176,9 @@ class _DaySelectState extends State<DaySelect> {
                                 final list = await FirestoreService()
                                     .getRecommendedIternaries(
                                         widget.region, widget.city, day);
+                                // print(list);
+                                // print(widget.city);
+                                // print(day);
                                 Provider.of<DayProvider>(context, listen: false)
                                     .fetchDay(list);
                               },
@@ -181,15 +195,44 @@ class _DaySelectState extends State<DaySelect> {
                         ),
                       ],
                     ),
+                    SizedBox(
+                      height: 16,
+                    ),
                     Consumer<DayProvider>(
                       builder: (context, dayProvider, child) {
                         List<DayModel> dayList = dayProvider.dayValue;
                         return Column(
                           children: dayList.map((dayModel) {
-                            return ListTile(
-                              title: Text(dayModel.title),
-                              subtitle: Text(dayModel.desc),
-                              // Add more UI elements as needed
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 8),
+                              child: ListTile(
+                                tileColor: brownColor,
+                                title: Text(
+                                  dayModel.title,
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontStyle: FontStyle.italic,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w800,
+                                      color: Colors.white),
+                                ),
+                                subtitle: Text(
+                                  dayModel.desc,
+                                  style: TextStyle(
+                                      fontSize: 16, color: orangeFourColor),
+                                ),
+                                trailing: Text(
+                                  'Good for ${dayModel.goodForDays} ${dayModel.goodForDays > 1 ? 'days' : 'day'}',
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontStyle: FontStyle.italic,
+                                      fontSize: 16,
+                                      color: Colors.white),
+                                ),
+                                onTap: () {
+                                  print(dayModel.id);
+                                }, // Add more UI elements as needed
+                              ),
                             );
                           }).toList(),
                         );
