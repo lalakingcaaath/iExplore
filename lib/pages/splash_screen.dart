@@ -22,7 +22,7 @@ class _SplashState extends State<Splash> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Provider.of<CoinProvider>(context, listen: false).fetchCoinData();
       Future.delayed(const Duration(milliseconds: 3500), () {
-        context.go('/home');
+        context.go('/home/introduction');
       });
     });
   }

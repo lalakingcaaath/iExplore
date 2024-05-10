@@ -11,6 +11,7 @@ import 'package:i_explore/pages/day_select.dart';
 import 'package:i_explore/pages/edit_profile.dart';
 import 'package:i_explore/pages/homepage.dart';
 import 'package:i_explore/pages/category_pages/leisures.dart';
+import 'package:i_explore/pages/introductory.dart';
 import 'package:i_explore/pages/login.dart';
 import 'package:i_explore/pages/luzon.dart';
 import 'package:i_explore/pages/manila.dart';
@@ -88,6 +89,11 @@ final GoRouter routerConfig = GoRouter(
                 path: 'itinerary_Collection',
                 builder: (context, state) => const ItineraryCollection()
             ),
+            //Introductory Page
+            GoRoute(
+                path: 'introduction',
+                builder: (context, state) => const Introductory_Screen()
+            )
 
             // WIP (TO:DO NEEDED PAGES)
             // GoRoute(path: 'ecotourism', builder: (context, state) =>  const Ecotourism_Tours(),),
@@ -106,13 +112,6 @@ final GoRouter routerConfig = GoRouter(
           );
         },
         routes: [
-          GoRoute(
-            path: 'sched',
-            builder: (context, state) {
-              return
-            },
-            )
-
         ]
       ),
       GoRoute(
