@@ -35,6 +35,10 @@ class ItineraryCollection extends StatelessWidget {
                         width: 120,
                         height: 100,
                         decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage("images/category_images/CULINARIES/CULINARY.jpg"),
+                            fit: BoxFit.fill
+                          ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
                         ),
@@ -57,11 +61,15 @@ class ItineraryCollection extends StatelessWidget {
                       width: 15,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/home/ecotourism"),
                       child: Container(
                         width: 120,
                         height: 100,
                         decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/IMG_6121.jpg"),
+                                fit: BoxFit.fill
+                            ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
                         ),
@@ -84,11 +92,15 @@ class ItineraryCollection extends StatelessWidget {
                       width: 15,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push('/home/schools'),
                       child: Container(
                         width: 120,
                         height: 100,
                         decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/SCHOOL.jpg"),
+                                fit: BoxFit.fill
+                            ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
                         ),
@@ -116,11 +128,15 @@ class ItineraryCollection extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/home/hotels"),
                       child: Container(
                         width: 120,
                         height: 100,
                         decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/HOTEL-1.jpg"),
+                                fit: BoxFit.fill
+                            ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
                         ),
@@ -143,11 +159,15 @@ class ItineraryCollection extends StatelessWidget {
                       width: 15,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/home/adventures"),
                       child: Container(
                         width: 120,
                         height: 100,
                         decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/ADVENTURE-2.jpg"),
+                                fit: BoxFit.fill
+                            ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
                         ),
@@ -170,11 +190,15 @@ class ItineraryCollection extends StatelessWidget {
                       width: 15,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/home/leisures"),
                       child: Container(
                         width: 120,
                         height: 100,
                         decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/LEISURE-4.jpg"),
+                                fit: BoxFit.fill
+                            ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
                         ),
@@ -202,11 +226,15 @@ class ItineraryCollection extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/home/pilgrimage"),
                       child: Container(
                         width: 120,
                         height: 100,
                         decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/PILGRIMAGE-1.jpg"),
+                                fit: BoxFit.fill
+                            ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
                         ),
@@ -229,11 +257,15 @@ class ItineraryCollection extends StatelessWidget {
                       width: 15,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/home/cultural"),
                       child: Container(
                         width: 120,
                         height: 100,
                         decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/CULTURAL.jpg"),
+                                fit: BoxFit.fill
+                            ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
                         ),

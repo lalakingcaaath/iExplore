@@ -33,238 +33,208 @@ class _Leisures_ToursState extends State<Leisures_Tours> {
               children: [
                 Center(
                   child: Text(
-                    "NEARBY LEISURES", style: TextStyle(
-                      fontFamily: 'FSP-Demo',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20,
-                      color: Colors.white
+                    "NEARBY LEISURES",
+                    style: TextStyle(
+                        fontFamily: 'FSP-Demo',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20,
+                        color: Colors.white),
                   ),
-                  ),
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 20),
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: 100,
-                          width: 150,
-                          decoration: BoxDecoration(
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/LEISURE/Baluarte.jpg"),
+                                fit: BoxFit.fill
+                            ),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Baluarte", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
                           ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Center(
-                                child: Text(
-                                  "MANILA \nBAYWALK", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
-                                ),
-                              )
-                            ],
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: 100,
-                          width: 150,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Center(
-                                child: Text(
-                                  "DOLOMITE \nBEACH", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                        width: 40
-                    )
                   ],
                 ),
                 Container(
-                  margin: const EdgeInsets.only(top: 20),
+                  height: 10,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                        width: 40
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: 100,
-                          width: 150,
-                          decoration: BoxDecoration(
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/LEISURE/Chinatown.jpg"),
+                                fit: BoxFit.fill
+                            ),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Chinatown", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
                           ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Center(
-                                child: Text(
-                                  "MANILA ZOO", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
-                                ),
-                              )
-                            ],
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: 100,
-                          width: 150,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Center(
-                                child: Text(
-                                  "BALIUARTE DE \nSAN DIEGO\nGARDENS", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                        width: 40
-                    )
                   ],
                 ),
                 Container(
-                  margin: const EdgeInsets.only(top: 20),
+                  height: 10,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                        width: 40
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: 100,
-                          width: 150,
-                          decoration: BoxDecoration(
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/LEISURE/Escolta.JPG"),
+                                fit: BoxFit.fill
+                            ),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Escolta", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
                           ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Center(
-                                child: Text(
-                                  "PLAZA\nROMA", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
-                                ),
-                              )
-                            ],
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: 100,
-                          width: 150,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Center(
-                                child: Text(
-                                  "JONES BRIDGE", textAlign: TextAlign.center, style: TextStyle(
-                                    fontFamily: 'AdobeDevanagari',
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                        width: 40
-                    )
                   ],
+                ),
+                Container(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/LEISURE/JonesBridge.jpg"),
+                                fit: BoxFit.fill
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Jones Bridge", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
+                          ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/LEISURE/ManilaZoo.jpg"),
+                                fit: BoxFit.fill
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Manila Zoo", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
+                          ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/LEISURE/PlazaRoma.jpg"),
+                                fit: BoxFit.fill
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Plaza Roma", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
+                          ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 20,
                 ),
               ],
             ),

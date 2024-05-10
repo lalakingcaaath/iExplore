@@ -33,7 +33,7 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
               children: [
                 Center(
                   child: Text(
-                    "NEARBY LEISURES",
+                    "NEARBY CULTURAL SITES",
                     style: TextStyle(
                         fontFamily: 'FSP-Demo',
                         fontWeight: FontWeight.w500,
@@ -45,149 +45,292 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                   margin: const EdgeInsets.only(top: 20),
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: 100,
-                          width: 150,
-                          decoration: BoxDecoration(
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/CULTURAL/Cultural Center of the Philippines.jpg"),
+                                fit: BoxFit.fill
+                            ),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Cultural Center of the Philippines", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
                           ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Center(
-                                child: Text(
-                                  "NATIONAL \nMUSEUM",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontFamily: 'AdobeDevanagari',
-                                      fontStyle: FontStyle.italic,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                              )
-                            ],
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: 100,
-                          width: 150,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Center(
-                                child: Text(
-                                  "MUSEO DE \nINTRAMUROS",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontFamily: 'AdobeDevanagari',
-                                      fontStyle: FontStyle.italic,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 40)
                   ],
                 ),
                 Container(
-                  margin: const EdgeInsets.only(top: 20),
+                  height: 10,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(width: 40),
-                    Flexible(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: 100,
-                          width: 150,
-                          decoration: BoxDecoration(
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/CULTURAL/KatipunanMonumentManila.jpg"),
+                                fit: BoxFit.fill
+                            ),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Katipunan Monument", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
                           ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Center(
-                                child: Text(
-                                  "CASA MANILA",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontFamily: 'AdobeDevanagari',
-                                      fontStyle: FontStyle.italic,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                              )
-                            ],
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: 100,
-                          width: 150,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Center(
-                                child: Text(
-                                  "KATIPUNAN \nMONUMENT",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontFamily: 'AdobeDevanagari',
-                                      fontStyle: FontStyle.italic,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 40)
                   ],
+                ),
+                Container(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/CULTURAL/MalacanangPalace.jpeg"),
+                                fit: BoxFit.fill
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Malacanang Palace", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
+                          ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/CULTURAL/Manila Metropolitan Theater.jpg"),
+                                fit: BoxFit.fill
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Manila Metropolitan Theater", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
+                          ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/CULTURAL/Museo de Intramuros.jpg"),
+                                fit: BoxFit.fill
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Museo de Intramuros", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
+                          ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/CULTURAL/National museum of Anthropology.jpg"),
+                                fit: BoxFit.fill
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "National Museum of Antropology", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
+                          ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/CULTURAL/National Museum of Fine Arts.jpg"),
+                                fit: BoxFit.fill
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "National Museum of Fine Arts", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
+                          ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/CULTURAL/National Museum of Natural History.jpg"),
+                                fit: BoxFit.fill
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "National Museum of Natural History", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
+                          ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/CULTURAL/National Museum of the Philippines.jpg"),
+                                fit: BoxFit.fill
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "National Museum of the Philippines", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
+                          ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 20,
                 ),
               ],
             ),

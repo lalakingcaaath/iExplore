@@ -33,7 +33,7 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
               children: [
                 Center(
                   child: Text(
-                    "NEARBY LEISURES",
+                    "NEARBY ADVENTURE SITES",
                     style: TextStyle(
                         fontFamily: 'FSP-Demo',
                         fontWeight: FontWeight.w500,
@@ -45,76 +45,164 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
                   margin: const EdgeInsets.only(top: 20),
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: 100,
-                          width: 150,
-                          decoration: BoxDecoration(
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/ADVENTURE/Bambike.png"),
+                                fit: BoxFit.fill
+                            ),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Bambike", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
                           ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Center(
-                                child: Text(
-                                  "BAMBIKE TOUR",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontFamily: 'AdobeDevanagari',
-                                      fontStyle: FontStyle.italic,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                              )
-                            ],
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: 100,
-                          width: 150,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: brownColor,
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Center(
-                                child: Text(
-                                  "KALESA RIDE",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontFamily: 'AdobeDevanagari',
-                                      fontStyle: FontStyle.italic,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 40)
                   ],
+                ),
+                Container(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/ADVENTURE/ClubIntramurosGolf.jpg"),
+                                fit: BoxFit.fill
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Intramuros Golf Club", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
+                          ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/ADVENTURE/Craft Academy.jpg"),
+                                fit: BoxFit.fill
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Craft Academy", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
+                          ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/ADVENTURE/Kalesa.jpg"),
+                                fit: BoxFit.fill
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Kalesa - Intramuros", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
+                          ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 350,
+                        height: 75,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/category_images/ADVENTURE/WhiteKnight.jpg"),
+                                fit: BoxFit.fill
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor
+                        ),
+                        child: Center(
+                          child: Text(
+                            "White Knight", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 20
+                          ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 20,
                 ),
               ],
             ),

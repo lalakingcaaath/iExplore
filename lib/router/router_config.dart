@@ -3,6 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:i_explore/pages/category_pages/adventure.dart';
 import 'package:i_explore/pages/category_pages/culinary.dart';
 import 'package:i_explore/pages/category_pages/cultures.dart';
+import 'package:i_explore/pages/category_pages/ecotourism.dart';
+import 'package:i_explore/pages/category_pages/hotel.dart';
+import 'package:i_explore/pages/category_pages/pilgrimage.dart';
+import 'package:i_explore/pages/category_pages/schools.dart';
 import 'package:i_explore/pages/day_select.dart';
 import 'package:i_explore/pages/edit_profile.dart';
 import 'package:i_explore/pages/homepage.dart';
@@ -63,11 +67,27 @@ final GoRouter routerConfig = GoRouter(
               path: 'cultural',
               builder: (context, state) => const Cultural_Tours(),
             ),
+            GoRoute(
+              path: 'ecotourism',
+              builder: (context, state) => const Ecotourism(),
+            ),
+            GoRoute(
+              path: 'pilgrimage',
+              builder: (context, state) => const Pilgrimage(),
+            ),
+            GoRoute(
+              path: 'hotels',
+              builder: (context, state) => const Hotels(),
+            ),
+            GoRoute(
+                path: 'schools',
+                builder: (context, state) => const Schools(),
+            ),
             //See more button
             GoRoute(
                 path: 'itinerary_Collection',
                 builder: (context, state) => const ItineraryCollection()
-            )
+            ),
 
             // WIP (TO:DO NEEDED PAGES)
             // GoRoute(path: 'ecotourism', builder: (context, state) =>  const Ecotourism_Tours(),),

@@ -74,6 +74,15 @@ flutter:
     # To add assets to your application, add an assets section, like this:
     assets:
         - images/
+        - images/category_images/
+        - images/category_images/ADVENTURE/
+        - images/category_images/CULINARIES/
+        - images/category_images/CULTURAL/
+        - images/category_images/ECOTOURISM/
+        - images/category_images/LEISURE/
+        - images/category_images/PILGRIMAGE/
+        - images/category_images/HOTELS/
+        - images/category_images/SCHOOL_LOGO/
 
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware
