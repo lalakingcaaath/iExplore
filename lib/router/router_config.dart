@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:i_explore/pages/adventure.dart';
-import 'package:i_explore/pages/culinary.dart';
-import 'package:i_explore/pages/cultures.dart';
+import 'package:i_explore/pages/category_pages/adventure.dart';
+import 'package:i_explore/pages/category_pages/culinary.dart';
+import 'package:i_explore/pages/category_pages/cultures.dart';
 import 'package:i_explore/pages/day_select.dart';
 import 'package:i_explore/pages/edit_profile.dart';
 import 'package:i_explore/pages/homepage.dart';
-import 'package:i_explore/pages/leisures.dart';
+import 'package:i_explore/pages/category_pages/leisures.dart';
 import 'package:i_explore/pages/login.dart';
 import 'package:i_explore/pages/luzon.dart';
 import 'package:i_explore/pages/manila.dart';
@@ -17,6 +17,7 @@ import 'package:i_explore/pages/splash_screen.dart';
 import 'package:i_explore/pages/test.dart';
 import 'package:i_explore/services/auth_service.dart';
 import 'package:provider/provider.dart';
+import 'package:i_explore/pages/itinerary_Collection.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -62,6 +63,11 @@ final GoRouter routerConfig = GoRouter(
               path: 'cultural',
               builder: (context, state) => const Cultural_Tours(),
             ),
+            //See more button
+            GoRoute(
+                path: 'itinerary_Collection',
+                builder: (context, state) => const ItineraryCollection()
+            )
 
             // WIP (TO:DO NEEDED PAGES)
             // GoRoute(path: 'ecotourism', builder: (context, state) =>  const Ecotourism_Tours(),),

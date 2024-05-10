@@ -18,7 +18,7 @@ class BottomNavigationBarComponent extends StatelessWidget {
             icon: SizedBox(
                 child: Transform.scale(
               scale: 1.5,
-              child: const Icon(Icons.bookmark),
+              child: const Icon(Icons.favorite),
             )),
             label: "",
           ),

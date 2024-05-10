@@ -3,10 +3,10 @@ import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/utils/colors.dart';
-import 'package:i_explore/pages/culinary.dart';
-import 'package:i_explore/pages/adventure.dart';
-import 'package:i_explore/pages/leisures.dart';
-import 'package:i_explore/pages/cultures.dart';
+import 'package:i_explore/pages/category_pages/culinary.dart';
+import 'package:i_explore/pages/category_pages/adventure.dart';
+import 'package:i_explore/pages/category_pages/leisures.dart';
+import 'package:i_explore/pages/category_pages/cultures.dart';
 import 'package:i_explore/pages/itinerary_schedule.dart';
 
 class Manila_Itinerary extends StatefulWidget {
