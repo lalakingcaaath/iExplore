@@ -24,9 +24,16 @@ class BottomNavigationBarComponent extends StatelessWidget {
           ),
           BottomNavigationBarItem(
               icon: SizedBox(
+                width: 25,
+                height: 25,
                 child: Transform.scale(
                   scale: 1.5,
-                  child: const Icon(Icons.search),
+                  child: GestureDetector(
+                    onTap: () => context.push("/day_select/:region/:city"),
+                    child: Image.asset(
+                        "images/AI-transparent.png", fit: BoxFit.contain,
+                    ),
+                  ),
                 ),
               ),
               label: ""),

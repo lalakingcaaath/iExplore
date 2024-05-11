@@ -99,88 +99,21 @@ class _MyHomePageState extends State<MyHomePage> {
                     Container(
                       margin: const EdgeInsets.only(top: 20),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            width: 120,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: brownColor
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  "CULINARY", style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: "AdobeDevanagari",
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15
-                                ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: 15,
-                        ),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            width: 120,
-                            height: 100,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: brownColor
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  "ECOTOURISM", style: TextStyle(
-                                    color: Colors.white,
-                                    fontFamily: "AdobeDevanagari",
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15
-                                ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: 15,
-                        ),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            width: 120,
-                            height: 100,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: brownColor
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  "SCHOOLS", style: TextStyle(
-                                    color: Colors.white,
-                                    fontFamily: "AdobeDevanagari",
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15
-                                ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
+                    Container(
+                      height: 100,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          _itineraryCard(context, "CULINARY", "images/category_images/CULINARY.jpg", "/home/culinaries"),
+                          _itineraryCard(context, "ECOTOURISM", "images/category_images/IMG_6121.jpg", "/home/ecotourism"),
+                          _itineraryCard(context, "SCHOOLS", "images/category_images/SCHOOL.jpg", "/home/schools"),
+                          _itineraryCard(context, "HOTELS", "images/category_images/HOTEL-1.jpg", "/home/hotels"),
+                          _itineraryCard(context, "ADVENTURE", "images/category_images/ADVENTURE-2.jpg", "/home/adventures"),
+                          _itineraryCard(context, "LEISURE", "iimages/category_images/LEISURE-4.jpg", "/home/leisures"),
+                          _itineraryCard(context, "PILGRIMAGE", "images/category_images/PILGRIMAGE-1.jpg", "/home/pilgrimage"),
+                          _itineraryCard(context, "CULTURAL", "images/category_images/CULTURAL.jpg", "/home/cultural")
+                        ],
+                      ),
                     ),
                     Container(
                       margin: const EdgeInsets.only(top: 20),
@@ -204,104 +137,21 @@ class _MyHomePageState extends State<MyHomePage> {
                     Container(
                       margin: const EdgeInsets.only(top: 20),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                              width: 120,
-                              height: 100,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: brownColor
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 5, right: 5),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Icon(
-                                          Icons.favorite,
-                                          color: Colors.grey,
-                                          size: 30,
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              )
-                          ),
-                        ),
-                        Container(
-                          width: 15,
-                        ),
-
-                        GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                              width: 120,
-                              height: 100,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: brownColor
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 5, right: 5),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Icon(
-                                          Icons.favorite,
-                                          color: Colors.grey,
-                                          size: 30,
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              )
-                          ),
-                        ),
-                        Container(
-                          width: 15,
-                        ),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            width: 120,
-                            height: 100,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: brownColor
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 5, right: 5),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Icon(
-                                        Icons.favorite,
-                                        color: Colors.grey,
-                                        size: 30,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            )
-                          ),
-                        ),
-                      ],
+                    Container(
+                      height: 100,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          _itineraryFavorites(),
+                          _itineraryFavorites(),
+                          _itineraryFavorites(),
+                          _itineraryFavorites(),
+                          _itineraryFavorites(),
+                          _itineraryFavorites(),
+                          _itineraryFavorites(),
+                          _itineraryFavorites(),
+                        ],
+                      ),
                     ),
                     Container(
                       height: 20,
@@ -365,4 +215,69 @@ class _MyHomePageState extends State<MyHomePage> {
           bottomNavigationBar: BottomNavigationBarComponent()),
     );
   }
+}
+
+
+//Scrollable Itinerary Cards
+Widget _itineraryCard(BuildContext context, String title, String imagePath, String pageRoute) {
+  return GestureDetector(
+    onTap: () => context.push(pageRoute),
+    child: Container(
+      margin: const EdgeInsets.symmetric(horizontal: 8),
+      width: 120,
+      decoration: BoxDecoration(
+        color: brownColor,
+        borderRadius: BorderRadius.circular(10),
+        image: DecorationImage(
+          image: AssetImage(imagePath),
+          fit: BoxFit.fill
+        )
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+         Center(
+           child: Text(
+             title, style: TextStyle(
+             color: Colors.white,
+             fontFamily: "AdobeDevanagari",
+             fontWeight: FontWeight.bold,
+             fontSize: 15
+           ),
+           ),
+         )
+        ],
+      ),
+    ),
+  );
+}
+
+//Scrollable Favorites
+Widget _itineraryFavorites() {
+  return Container(
+    margin: const EdgeInsets.symmetric(horizontal: 8),
+    width: 120,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(10),
+      color: brownColor
+    ),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 5, right: 5),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Icon(
+                Icons.favorite,
+                color: Colors.grey,
+                size: 30,
+              )
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
 }
