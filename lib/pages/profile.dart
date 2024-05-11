@@ -266,6 +266,68 @@ class _ProfileState extends State<Profile> {
                 Divider(
                   color: Colors.white,
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 350,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: orangeFourColor,
+                        border: Border.all(color: Colors.white)
+                      ),
+                      child: Center(
+                        child: Text(
+                          "SHARE iEXPLORER PH & GET REWARDED!", style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: "AdobeDevanagari",
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 2
+                        ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                Container(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Get more coins for every successful referral!", style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: "AdobeDevanagari",
+                      fontWeight: FontWeight.bold,
+                    ),
+                    )
+                  ],
+                ),
+                Container(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 150,
+                      height: 30,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: orangeFourColor,
+                          border: Border.all(color: Colors.white)
+                      ),
+                      child: Center(
+                        child: Text(
+                          "See details", style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "AdobeDevanagari",
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 2
+                        ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
                 Container(
                   margin: const EdgeInsets.only(top: 50),
                 ),

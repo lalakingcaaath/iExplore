@@ -29,7 +29,7 @@ class BottomNavigationBarComponent extends StatelessWidget {
                 child: Transform.scale(
                   scale: 1.5,
                   child: GestureDetector(
-                    onTap: () => context.push("/day_select/:region/:city"),
+                    onTap: () => context.push("/day_select"),
                     child: Image.asset(
                         "images/AI-transparent.png", fit: BoxFit.contain,
                     ),

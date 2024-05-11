@@ -109,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           _itineraryCard(context, "SCHOOLS", "images/category_images/SCHOOL.jpg", "/home/schools"),
                           _itineraryCard(context, "HOTELS", "images/category_images/HOTEL-1.jpg", "/home/hotels"),
                           _itineraryCard(context, "ADVENTURE", "images/category_images/ADVENTURE-2.jpg", "/home/adventures"),
-                          _itineraryCard(context, "LEISURE", "iimages/category_images/LEISURE-4.jpg", "/home/leisures"),
+                          _itineraryCard(context, "LEISURE", "images/category_images/LEISURE-4.jpg", "/home/leisures"),
                           _itineraryCard(context, "PILGRIMAGE", "images/category_images/PILGRIMAGE-1.jpg", "/home/pilgrimage"),
                           _itineraryCard(context, "CULTURAL", "images/category_images/CULTURAL.jpg", "/home/cultural")
                         ],

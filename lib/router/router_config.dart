@@ -15,6 +15,7 @@ import 'package:i_explore/pages/introductory.dart';
 import 'package:i_explore/pages/login.dart';
 import 'package:i_explore/pages/luzon.dart';
 import 'package:i_explore/pages/manila.dart';
+import 'package:i_explore/pages/manila_Itinerary.dart';
 import 'package:i_explore/pages/metroManila.dart';
 import 'package:i_explore/pages/profile.dart';
 import 'package:i_explore/pages/register.dart';
@@ -23,6 +24,7 @@ import 'package:i_explore/pages/test.dart';
 import 'package:i_explore/services/auth_service.dart';
 import 'package:provider/provider.dart';
 import 'package:i_explore/pages/itinerary_Collection.dart';
+import 'package:i_explore/pages/day_itinerary.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -103,17 +105,20 @@ final GoRouter routerConfig = GoRouter(
           ]),
 
       GoRoute(
-        name: 'day_select',
-        path: '/day_select/:region/:city',
-        builder: (context, state) {
-          return DaySelect(
-            region: state.pathParameters['region']!,
-            city: state.pathParameters['city']!,
-          );
-        },
-        routes: [
-        ]
+          path: '/day_select',
+          builder: (context, state) => DaySelect()
       ),
+
+      GoRoute(
+          path: '/day_itinerary',
+          builder: (context, state) => const DayItinerary()
+      ),
+
+      GoRoute(
+        path: '/manila_itinerary',
+        builder: (context, state) => const Manila_Itinerary()
+      ),
+
       GoRoute(
         path: '/profile',
         builder: (context, state) => const Profile(),
