@@ -168,10 +168,30 @@ class _MyHomePageState extends State<MyHomePage> {
                           width: 10,
                         ),
                         Text(
-                          "Having a problem with your planning?\nTap the AI Button", textAlign: TextAlign.center, style: TextStyle(
+                          "Having a problem with your planning?", style: TextStyle(
                           color: Colors.white,
                           fontFamily: "AdobeDevanagari",
                           fontSize: 15
+                        ),
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Tap the ", style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "AdobeDevanagari",
+                            fontSize: 15
+                        ),
+                        ),
+                        Image.asset("images/AI.png", width: 24, height: 24,),
+                        Text(
+                          " button", style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "AdobeDevanagari",
+                            fontSize: 15
                         ),
                         )
                       ],

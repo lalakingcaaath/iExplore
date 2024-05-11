@@ -351,21 +351,24 @@ Widget _introPage3(BuildContext context) {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 250,
-                height: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.white),
-                ),
-                child: Center(
-                  child: Text(
-                    "GENERATE NOW!", style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: "AdobeDevanagari",
-                      fontSize: 20,
-                      letterSpacing: 5
+              GestureDetector(
+                onTap: () => context.push("/manila_itinerary"),
+                child: Container(
+                  width: 250,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.white),
                   ),
+                  child: Center(
+                    child: Text(
+                      "GENERATE NOW!", style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: "AdobeDevanagari",
+                        fontSize: 20,
+                        letterSpacing: 5
+                    ),
+                    ),
                   ),
                 ),
               )
