@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
@@ -48,14 +49,15 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/bambike"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/ADVENTURE/Bambike.png"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -80,14 +82,15 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/golfrange"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/ADVENTURE/ClubIntramurosGolf.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -112,14 +115,15 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/craftacademy"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/ADVENTURE/Craft Academy.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -144,14 +148,15 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/kalesa"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/ADVENTURE/Kalesa.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -176,14 +181,15 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/whiteknight"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/ADVENTURE/WhiteKnight.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor

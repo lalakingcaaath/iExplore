@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
@@ -43,14 +44,15 @@ class Hotels extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/gohotel"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/HOTELS/Go Hotels Ermita.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -75,14 +77,15 @@ class Hotels extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/hotelh20"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/HOTELS/Hotel H20.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -107,14 +110,15 @@ class Hotels extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/lotushotel"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/HOTELS/Manila Lotus Hotel.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -139,14 +143,15 @@ class Hotels extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/manilaprince"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/HOTELS/Manila Prince.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -171,14 +176,15 @@ class Hotels extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/rphotel"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/HOTELS/Rizal Park Hotel.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -203,14 +209,15 @@ class Hotels extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/shangrila"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/HOTELS/Shangri-La The Fort, Manila.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -235,14 +242,15 @@ class Hotels extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/bayleaf"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/HOTELS/The Bayleaf Intramuros Hotel.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -267,14 +275,15 @@ class Hotels extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/peninsula"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/HOTELS/The Peninsula Manila.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -299,14 +308,15 @@ class Hotels extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/torre"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/HOTELS/Torre De Manila.png"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -331,14 +341,15 @@ class Hotels extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/wkhotel"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/HOTELS/White Knight Hotel-1.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor

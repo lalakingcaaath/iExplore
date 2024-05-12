@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
@@ -43,14 +44,15 @@ class Ecotourism extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/arroceros"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/ECOTOURISM/Arroceros Forest Park.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -75,14 +77,15 @@ class Ecotourism extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/casamanila"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/ECOTOURISM/Casa Manila.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -107,14 +110,15 @@ class Ecotourism extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/fortsantiago"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/ECOTOURISM/Intramuros Fort Santiago.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -139,14 +143,15 @@ class Ecotourism extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/oceanpark"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/ECOTOURISM/Manila Ocean Park.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -171,14 +176,15 @@ class Ecotourism extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/garden"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/ECOTOURISM/MehanGarden.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -203,14 +209,15 @@ class Ecotourism extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/pacopark"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/ECOTOURISM/Paco Park.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -235,14 +242,15 @@ class Ecotourism extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/rizalpark"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/ECOTOURISM/Rizal Park.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -267,14 +275,15 @@ class Ecotourism extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/dungeon"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/ECOTOURISM/The Dungeons of Fort Santiago-2.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor

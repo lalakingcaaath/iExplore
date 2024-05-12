@@ -250,7 +250,8 @@ Widget _itineraryCard(BuildContext context, String title, String imagePath, Stri
         borderRadius: BorderRadius.circular(10),
         image: DecorationImage(
           image: AssetImage(imagePath),
-          fit: BoxFit.fill
+          fit: BoxFit.fill,
+            opacity: 0.5
         )
       ),
       child: Column(

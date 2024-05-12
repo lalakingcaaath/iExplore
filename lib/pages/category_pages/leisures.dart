@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
@@ -48,14 +49,15 @@ class _Leisures_ToursState extends State<Leisures_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/baluarte"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/LEISURE/Baluarte.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -80,14 +82,15 @@ class _Leisures_ToursState extends State<Leisures_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/chinatown"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/LEISURE/Chinatown.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -112,14 +115,15 @@ class _Leisures_ToursState extends State<Leisures_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/escolta"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/LEISURE/Escolta.JPG"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -144,14 +148,15 @@ class _Leisures_ToursState extends State<Leisures_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/jonesbridge"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/LEISURE/JonesBridge.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -176,14 +181,15 @@ class _Leisures_ToursState extends State<Leisures_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/manilazoo"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/LEISURE/ManilaZoo.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -208,14 +214,15 @@ class _Leisures_ToursState extends State<Leisures_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push("/plazaroma"),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/LEISURE/PlazaRoma.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor

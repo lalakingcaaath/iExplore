@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:i_explore/components/ImageCircleComponent.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:go_router/go_router.dart';
+import 'package:i_explore/services/auth_service.dart';
+import 'package:provider/provider.dart';
 
 class Introductory_Screen extends StatefulWidget {
   const Introductory_Screen({Key? key}) : super(key: key);
@@ -11,8 +13,17 @@ class Introductory_Screen extends StatefulWidget {
 }
 
 class _Introductory_ScreenState extends State<Introductory_Screen> {
+  String? _name;
   int _currentPage = 0;
+
   final PageController _controller = PageController();
+
+  @override
+  void initState() {
+    super.initState();
+    AuthService authService = Provider.of<AuthService>(context, listen: false);
+    _name = authService.user?.displayName;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +91,7 @@ Widget _introIndicator(BuildContext, int _currentPage,int index) {
 }
 
 Widget _introPage1(BuildContext context)  {
+  String? _name;
   return Container(
     decoration: BoxDecoration(
       gradient: LinearGradient(
@@ -128,7 +140,7 @@ Widget _introPage1(BuildContext context)  {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "YOUR EXPLORER COMPANION\nHi Name!", textAlign: TextAlign.center, style: TextStyle(
+                "YOUR EXPLORER COMPANION\nHi $_name!", textAlign: TextAlign.center, style: TextStyle(
                   color: Colors.white,
                   fontFamily: "FSP-Demo",
                   fontSize: 20
@@ -143,6 +155,7 @@ Widget _introPage1(BuildContext context)  {
 }
 
 Widget _introPage2(BuildContext context) {
+  String? _name;
   return Container(
     decoration: BoxDecoration(
       gradient: LinearGradient(
@@ -182,7 +195,7 @@ Widget _introPage2(BuildContext context) {
               Container(
                 margin: const EdgeInsets.only(left: 10),
                 child: Text(
-                  "Hi Name!", style: TextStyle(
+                  "Hi $_name!", style: TextStyle(
                     color: Colors.white,
                     fontFamily: "FSP-Demo",
                     fontSize: 20
@@ -263,6 +276,7 @@ Widget _introPage2(BuildContext context) {
 }
 
 Widget _introPage3(BuildContext context) {
+  String? _name;
   return Container(
     decoration: BoxDecoration(
       gradient: LinearGradient(
@@ -282,7 +296,7 @@ Widget _introPage3(BuildContext context) {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Hi Name!", style: TextStyle(
+                "Hi $_name!", style: TextStyle(
                   color: Colors.white,
                   fontFamily: "FSP-Demo",
                   fontSize: 20

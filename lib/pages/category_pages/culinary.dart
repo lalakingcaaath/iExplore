@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
@@ -38,7 +39,8 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                         fontFamily: 'FSP-Demo',
                         fontWeight: FontWeight.w500,
                         fontSize: 20,
-                        color: Colors.white),
+                        color: Colors.white
+                    ),
                   ),
                 ),
                 Container(
@@ -48,14 +50,15 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push('/barbara'),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage("images/category_images/CULINARIES/Barbaras.jpg"),
-                            fit: BoxFit.fill
+                            fit: BoxFit.fill,
+                              opacity: 0.5
                           ),
                           borderRadius: BorderRadius.circular(10),
                           color: brownColor
@@ -80,14 +83,15 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push('/binondo'),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/CULINARIES/binondo 1.jpeg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -112,14 +116,15 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push('/bricks'),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/CULINARIES/BricksBrew.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -144,14 +149,15 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push('/coldtreats'),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/CULINARIES/cold treats1.jpeg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -176,14 +182,15 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push('/kapetolyo'),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/CULINARIES/Kapetolyo.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -208,14 +215,15 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push('/lacathedral'),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/CULINARIES/LaCathedral-1.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -240,14 +248,15 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push('/skydeck'),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/CULINARIES/Skydeck-bayleaf.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -272,14 +281,15 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push('/unsquare'),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/CULINARIES/UNsquare.jpg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor
@@ -304,14 +314,15 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.push('/ugbo'),
                       child: Container(
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/category_images/CULINARIES/Ugbo.jpeg"),
-                                fit: BoxFit.fill
+                                fit: BoxFit.fill,
+                                opacity: 0.5
                             ),
                             borderRadius: BorderRadius.circular(10),
                             color: brownColor

@@ -193,7 +193,7 @@ class Schools extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "STATE UNIVERSITY", style: TextStyle(
+                    "STATE UNIVERSITIES", style: TextStyle(
                     color: Colors.white,
                     fontFamily: "FSP-Demo",
                     fontSize: 20,

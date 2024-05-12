@@ -4,6 +4,8 @@ import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/utils/colors.dart';
+import 'package:i_explore/services/auth_service.dart';
+import 'package:provider/provider.dart';
 
 class DaySelect extends StatefulWidget {
   @override
@@ -11,6 +13,16 @@ class DaySelect extends StatefulWidget {
 }
 
 class _DaySelectState extends State<DaySelect> {
+  String? _name;
+
+  @override
+  void initState() {
+    super.initState();
+    AuthService authService = Provider.of<AuthService>(context, listen: false);
+    _name = authService.user?.displayName;
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,7 +45,7 @@ class _DaySelectState extends State<DaySelect> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Hi Name!',
+                          'Hi $_name!',
                           style: TextStyle(
                               fontFamily: 'FSP-Demo',
                               fontWeight: FontWeight.w500,

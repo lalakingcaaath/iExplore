@@ -6,6 +6,7 @@ import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:i_explore/provider/day_provider.dart';
+import 'package:i_explore/services/auth_service.dart';
 
 class DayItinerary extends StatefulWidget {
   const DayItinerary({Key? key}) : super(key: key);
@@ -15,8 +16,16 @@ class DayItinerary extends StatefulWidget {
 }
 
 class _DayItineraryState extends State<DayItinerary> {
+  String? _name;
   int day = 1;
   bool isHidden = false;
+
+  @override
+  void initState() {
+    super.initState();
+    AuthService authService = Provider.of<AuthService>(context, listen: false);
+    _name = authService.user?.displayName;
+  }
 
   void dayIncrement() {
     setState(() {
@@ -31,17 +40,8 @@ class _DayItineraryState extends State<DayItinerary> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<DayProvider>(context, listen: false).removeAll();
-
-      // Add Your Code here.
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+
     return Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -59,7 +59,7 @@ class _DayItineraryState extends State<DayItinerary> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Hi Name!',
+                    'Hi $_name!',
                     style: TextStyle(
                         fontFamily: 'FSP-Demo',
                         fontWeight: FontWeight.w500,
