@@ -39,7 +39,7 @@ class BottomNavigationBarComponent extends StatelessWidget {
               label: ""),
           const BottomNavigationBarItem(
             icon: Icon(null),
-            label: "DASHBOARD",
+            label: "HOME",
           ),
           BottomNavigationBarItem(
               icon: SizedBox(
@@ -65,7 +65,9 @@ class BottomNavigationBarComponent extends StatelessWidget {
         unselectedLabelStyle: TextStyle(
             fontFamily: "Fontspring-Demo",
             fontWeight: FontWeight.bold,
-            color: orangeThreeColor),
+            color: orangeThreeColor,
+            fontSize: 10
+        ),
         unselectedItemColor: darkOrangeColor,
         selectedItemColor: darkOrangeColor,
       ),

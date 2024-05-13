@@ -3,6 +3,7 @@ import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/utils/colors.dart';
+import 'package:http/http.dart' as http;
 
 class Barbara extends StatefulWidget {
   const Barbara({Key? key}) : super(key: key);
@@ -12,6 +13,10 @@ class Barbara extends StatefulWidget {
 }
 
 class _BarbaraState extends State<Barbara> {
+  String _googleInfo = '';
+  bool _isLoading = false;
+  bool _hasError = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(

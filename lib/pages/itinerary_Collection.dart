@@ -34,7 +34,7 @@ class ItineraryCollection extends StatelessWidget {
                       GestureDetector(
                         onTap: () => context.push('/home/culinaries'),
                         child: Container(
-                          width: 120,
+                          width: 100,
                           height: 100,
                           decoration: BoxDecoration(
                             image: DecorationImage(
@@ -66,7 +66,7 @@ class ItineraryCollection extends StatelessWidget {
                       GestureDetector(
                         onTap: () => context.push("/home/ecotourism"),
                         child: Container(
-                          width: 120,
+                          width: 100,
                           height: 100,
                           decoration: BoxDecoration(
                               image: DecorationImage(
@@ -98,7 +98,7 @@ class ItineraryCollection extends StatelessWidget {
                       GestureDetector(
                         onTap: () => context.push('/home/schools'),
                         child: Container(
-                          width: 120,
+                          width: 100,
                           height: 100,
                           decoration: BoxDecoration(
                               image: DecorationImage(
@@ -138,7 +138,7 @@ class ItineraryCollection extends StatelessWidget {
                       GestureDetector(
                         onTap: () => context.push("/home/hotels"),
                         child: Container(
-                          width: 120,
+                          width: 100,
                           height: 100,
                           decoration: BoxDecoration(
                               image: DecorationImage(
@@ -170,7 +170,7 @@ class ItineraryCollection extends StatelessWidget {
                       GestureDetector(
                         onTap: () => context.push("/home/adventures"),
                         child: Container(
-                          width: 120,
+                          width: 100,
                           height: 100,
                           decoration: BoxDecoration(
                               image: DecorationImage(
@@ -202,7 +202,7 @@ class ItineraryCollection extends StatelessWidget {
                       GestureDetector(
                         onTap: () => context.push("/home/leisures"),
                         child: Container(
-                          width: 120,
+                          width: 100,
                           height: 100,
                           decoration: BoxDecoration(
                               image: DecorationImage(
@@ -242,7 +242,7 @@ class ItineraryCollection extends StatelessWidget {
                       GestureDetector(
                         onTap: () => context.push("/home/pilgrimage"),
                         child: Container(
-                          width: 120,
+                          width: 100,
                           height: 100,
                           decoration: BoxDecoration(
                               image: DecorationImage(
@@ -274,7 +274,7 @@ class ItineraryCollection extends StatelessWidget {
                       GestureDetector(
                         onTap: () => context.push("/home/cultural"),
                         child: Container(
-                          width: 120,
+                          width: 100,
                           height: 100,
                           decoration: BoxDecoration(
                               image: DecorationImage(

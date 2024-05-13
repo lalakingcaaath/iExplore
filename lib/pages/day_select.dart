@@ -33,7 +33,7 @@ class _DaySelectState extends State<DaySelect> {
         child: Scaffold(
             backgroundColor: Colors.transparent,
             appBar: HeaderAppBarComponent(
-              headerTitle: 'Digi-Companion',
+              headerTitle: 'DigiCompanion',
             ),
             body: SingleChildScrollView(
               child: Container(
@@ -45,13 +45,19 @@ class _DaySelectState extends State<DaySelect> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Hi $_name!',
+                          'Hi $_name',
                           style: TextStyle(
                               fontFamily: 'FSP-Demo',
                               fontWeight: FontWeight.w500,
                               fontSize: 20,
                               color: Colors.white
                           ),
+                        ),
+                        Text(
+                          "!", style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20
+                        ),
                         )
                       ],
                     ),
@@ -66,7 +72,7 @@ class _DaySelectState extends State<DaySelect> {
                           style: TextStyle(
                               fontFamily: 'FSP-Demo',
                               fontWeight: FontWeight.w500,
-                              fontSize: 20,
+                              fontSize: 17,
                               color: Colors.white),
                         ),
                       ],
@@ -81,7 +87,7 @@ class _DaySelectState extends State<DaySelect> {
                           style: TextStyle(
                               fontFamily: 'FSP-Demo',
                               fontWeight: FontWeight.w500,
-                              fontSize: 20,
+                              fontSize: 17,
                               color: Colors.white),
                         ),
                       ],

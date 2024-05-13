@@ -50,7 +50,7 @@ class _DayItineraryState extends State<DayItinerary> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: HeaderAppBarComponent(headerTitle: "Digi-Companion"),
+        appBar: HeaderAppBarComponent(headerTitle: "DigiCompanion"),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -59,12 +59,18 @@ class _DayItineraryState extends State<DayItinerary> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Hi $_name!',
+                    'Hi $_name',
                     style: TextStyle(
                         fontFamily: 'FSP-Demo',
                         fontWeight: FontWeight.w500,
                         fontSize: 20,
                         color: Colors.white),
+                  ),
+                  Text(
+                    "!", style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20
+                  ),
                   )
                 ],
               ),
@@ -80,7 +86,7 @@ class _DayItineraryState extends State<DayItinerary> {
                     style: TextStyle(
                         fontFamily: 'FSP-Demo',
                         fontWeight: FontWeight.w500,
-                        fontSize: 20,
+                        fontSize: 17,
                         color: Colors.white
                     ),
                   ),

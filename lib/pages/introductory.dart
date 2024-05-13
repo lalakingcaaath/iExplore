@@ -23,6 +23,10 @@ class _Introductory_ScreenState extends State<Introductory_Screen> {
     super.initState();
     AuthService authService = Provider.of<AuthService>(context, listen: false);
     _name = authService.user?.displayName;
+
+    setState(() {
+      _name = authService.user?.displayName;
+    });
   }
 
   @override
@@ -140,14 +144,32 @@ Widget _introPage1(BuildContext context)  {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "YOUR EXPLORER COMPANION\nHi $_name!", textAlign: TextAlign.center, style: TextStyle(
+                "YOUR EXPLORER COMPANION", style: TextStyle(
                   color: Colors.white,
                   fontFamily: "FSP-Demo",
                   fontSize: 20
               ),
-              )
+              ),
             ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Hi $_name", style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: "FSP-Demo",
+                  fontSize: 20
+              ),
+              ),
+              Text(
+                "!", style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20
+              ),
+              )
+            ],
+          )
         ],
       ),
     )
@@ -195,12 +217,18 @@ Widget _introPage2(BuildContext context) {
               Container(
                 margin: const EdgeInsets.only(left: 10),
                 child: Text(
-                  "Hi $_name!", style: TextStyle(
+                  "Hi $_name", style: TextStyle(
                     color: Colors.white,
                     fontFamily: "FSP-Demo",
                     fontSize: 20
                 ),
                 ),
+              ),
+              Text(
+                "!", style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20
+              ),
               )
             ],
           ),
@@ -218,56 +246,50 @@ Widget _introPage2(BuildContext context) {
           Container(
             height: 20,
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Welcome to iExplorer PH,\n"
-                      "your ultimate digital tourist guide\n"
-                      "mobile application.", textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: "FSP-Demo",
-                      fontSize: 20
-                  ),
-                )
-              ],
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Welcome to iExplorer PH,\n"
+                    "your ultimate digital tourist guide\n"
+                    "mobile application.", textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "FSP-Demo",
+                    fontSize: 17
+                ),
+              )
+            ],
           ),
           Container(
             height: 30,
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: "FSP-Demo",
-                        fontSize: 20
-                      ),
-                      children: <TextSpan> [
-                        TextSpan(
-                          text: "Get ready for a fascinating journey\n"
-                              "as iExplorer PH suggests exciting\n"
-                              "itineraries and amazing features,\n"
-                        ),
-                        TextSpan(
-                          text: "all in just one click", style: TextStyle(
-                          fontWeight: FontWeight.bold
-                        )
-                        )
-                      ]
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: "FSP-Demo",
+                      fontSize: 17
                     ),
-                )
-              ],
-            ),
+                    children: <TextSpan> [
+                      TextSpan(
+                        text: "Get ready for a fascinating journey\n"
+                            "as iExplorer PH suggests exciting\n"
+                            "itineraries and amazing features,\n"
+                      ),
+                      TextSpan(
+                        text: "all in just one click", style: TextStyle(
+                        fontWeight: FontWeight.bold
+                      )
+                      )
+                    ]
+                  ),
+              )
+            ],
           )
         ],
       ),
@@ -296,9 +318,15 @@ Widget _introPage3(BuildContext context) {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Hi $_name!", style: TextStyle(
+                "Hi $_name", style: TextStyle(
                   color: Colors.white,
                   fontFamily: "FSP-Demo",
+                  fontSize: 20
+              ),
+              ),
+              Text(
+                "!", style: TextStyle(
+                  color: Colors.white,
                   fontSize: 20
               ),
               )
@@ -318,31 +346,34 @@ Widget _introPage3(BuildContext context) {
           Container(
             height: 15,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: "FSP-Demo",
-                        fontSize: 20
-                    ),
-                    children: <TextSpan> [
-                      TextSpan(
-                          text: "Indulge yourself in the beauty and\n"
-                              "riches of the Philippine culture through\n"
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: "FSP-Demo",
+                          fontSize: 17
                       ),
-                      TextSpan(
-                          text: "iExplorer PH", style: TextStyle(
-                          fontWeight: FontWeight.bold
-                      )
-                      )
-                    ]
-                ),
-              )
-            ],
+                      children: <TextSpan> [
+                        TextSpan(
+                            text: "Indulge yourself in the beauty and\n"
+                                "riches of the Philippine culture through\n"
+                        ),
+                        TextSpan(
+                            text: "iExplorer PH", style: TextStyle(
+                            fontWeight: FontWeight.bold
+                        )
+                        )
+                      ]
+                  ),
+                )
+              ],
+            ),
           ),
           Container(
             height: 100,
@@ -354,7 +385,7 @@ Widget _introPage3(BuildContext context) {
                 "Are you ready to start exploring?", style: TextStyle(
                   color: Colors.white,
                   fontFamily: "AdobeDevanagari",
-                  fontSize: 25
+                  fontSize: 20
               ),
               ),
             ],
