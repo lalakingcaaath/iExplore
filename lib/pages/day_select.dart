@@ -6,6 +6,8 @@ import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:i_explore/services/auth_service.dart';
 import 'package:provider/provider.dart';
+import 'package:typewritertext/typewritertext.dart';
+import 'package:typethis/typethis.dart';
 
 class DaySelect extends StatefulWidget {
   @override
@@ -44,20 +46,25 @@ class _DaySelectState extends State<DaySelect> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          'Hi $_name',
+                        TypeThis(string:
+                        "Hi $_name",
                           style: TextStyle(
                               fontFamily: 'FSP-Demo',
                               fontWeight: FontWeight.w500,
                               fontSize: 20,
-                              color: Colors.white
+                              color: Colors.white,
                           ),
+                          speed: 150,
+                          showBlinkingCursor: false,
                         ),
-                        Text(
-                          "!", style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20
-                        ),
+                        TypeThis(string:
+                        "!",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20
+                          ),
+                          speed: 150,
+                          showBlinkingCursor: false,
                         )
                       ],
                     ),
@@ -67,33 +74,22 @@ class _DaySelectState extends State<DaySelect> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          "READY TO EXPLORE IN JUST ONE CLICK?",
+                        TypeThis(
+                          string: "READY TO EXPLORE IN ONE CLICK?\n"
+                              "IN WHAT WAYS DO YOU WANT TO\n CUSTOMIZE YOUR ITINERARIES?", textAlign: TextAlign.center,
                           style: TextStyle(
                               fontFamily: 'FSP-Demo',
                               fontWeight: FontWeight.w500,
                               fontSize: 17,
-                              color: Colors.white),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 5),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "IN WHAT WAYS DO YOU WANT TO\n"
-                              "CUSTOMIZE YOUR ITINERARIES?", textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontFamily: 'FSP-Demo',
-                              fontWeight: FontWeight.w500,
-                              fontSize: 17,
-                              color: Colors.white),
+                              color: Colors.white
+                          ),
+                          speed: 150,
+                          showBlinkingCursor: false,
                         ),
                       ],
                     ),
                     SizedBox(
-                      height: 16,
+                      height: 50,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
