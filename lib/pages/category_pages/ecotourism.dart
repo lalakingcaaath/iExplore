@@ -275,7 +275,7 @@ class Ecotourism extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () => context.push("/dungeon"),
+                      onTap: () => context.push("/dungeons"),
                       child: Container(
                         width: 350,
                         height: 75,

@@ -3,6 +3,7 @@ import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/utils/colors.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ChinaTown extends StatefulWidget {
   const ChinaTown({Key? key}) : super(key: key);
@@ -12,6 +13,28 @@ class ChinaTown extends StatefulWidget {
 }
 
 class _ChinaTownState extends State<ChinaTown> {
+  final firestoreInstance = FirebaseFirestore.instance;
+  String _data = "";
+
+  @override
+  void dispose() {
+    _data = ""; // Reset _data when the widget is disposed
+    super.dispose();
+  }
+
+  void fetchData() {
+    firestoreInstance.collection('tour_categories').doc('Leisure').get().then((DocumentSnapshot documentSnapshot) {
+      if (documentSnapshot.exists) {
+        Map<String, dynamic> data = documentSnapshot.data() as Map<String, dynamic>;
+        setState(() {
+          _data = data["Chinatown"] ?? "";
+        });
+      } else {
+        print("Document does not exist");
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +47,7 @@ class _ChinaTownState extends State<ChinaTown> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: HeaderAppBarComponent(headerTitle: 'Adventure Tours'),
+        appBar: HeaderAppBarComponent(headerTitle: 'Leisure Tours'),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -65,29 +88,45 @@ class _ChinaTownState extends State<ChinaTown> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    width: 325,
-                    height: 200,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white12,
-                        border: Border.all(color: Colors.white)
-                    ),
-                    child: Center(
-                      child: Text(
-                        "GENERATE\n"
-                            "INFORMATION FROM\n"
-                            "GOOGLE", textAlign: TextAlign.center, style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: "AdobeDevanagari",
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25
+                  GestureDetector(
+                    onTap: fetchData,
+                    child: Container(
+                      width: 325,
+                      height: 200,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white12,
+                          border: Border.all(color: Colors.white)
                       ),
+                      child: Center(
+                        child: Text(
+                          "GENERATE\n"
+                              "INFORMATION FROM\n"
+                              "GOOGLE", textAlign: TextAlign.center, style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "AdobeDevanagari",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25
+                        ),
+                        ),
                       ),
                     ),
                   )
                 ],
-              )
+              ),
+              SizedBox(height: 20),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 30),
+                child: Text(
+                  "$_data", textAlign: TextAlign.center, style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "AdobeDevanagari",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18
+                ),
+                ),
+              ),
+              SizedBox(height: 30),
             ],
           ),
         ),

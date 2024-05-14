@@ -5,7 +5,6 @@ import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:provider/provider.dart';
-import 'package:i_explore/provider/day_provider.dart';
 import 'package:i_explore/services/auth_service.dart';
 
 class DayItinerary extends StatefulWidget {

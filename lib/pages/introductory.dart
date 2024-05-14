@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:i_explore/components/ImageCircleComponent.dart';
 import 'package:i_explore/utils/colors.dart';
@@ -12,7 +14,8 @@ class Introductory_Screen extends StatefulWidget {
   State<Introductory_Screen> createState() => _Introductory_ScreenState();
 }
 
-class _Introductory_ScreenState extends State<Introductory_Screen> {
+class _Introductory_ScreenState extends State<Introductory_Screen> with SingleTickerProviderStateMixin {
+  late AnimationController _logoController;
   String? _name;
   int _currentPage = 0;
 
@@ -27,6 +30,17 @@ class _Introductory_ScreenState extends State<Introductory_Screen> {
     setState(() {
       _name = authService.user?.displayName;
     });
+
+    _logoController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 4),
+    )..repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _logoController.dispose();
+    super.dispose();
   }
 
   @override
@@ -54,7 +68,7 @@ class _Introductory_ScreenState extends State<Introductory_Screen> {
                   },
                   itemBuilder: (BuildContext context, int index) {
                     if (index == 0) {
-                      return _introPage1(context, _name);
+                      return _introPage1(context, _name, _logoController);
                     } else if (index == 1) {
                       return _introPage2(context, _name);
                     } else {
@@ -94,7 +108,7 @@ Widget _introIndicator(BuildContext, int _currentPage,int index) {
   );
 }
 
-Widget _introPage1(BuildContext context, String? _name)  {
+Widget _introPage1(BuildContext context, String? _name, AnimationController _logoController)  {
   return Container(
     decoration: BoxDecoration(
       gradient: LinearGradient(
@@ -128,13 +142,20 @@ Widget _introPage1(BuildContext context, String? _name)  {
           Container(
             height: 30,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
+          AnimatedBuilder(
+            animation: _logoController,
+            builder: (BuildContext, Widget? child) {
+              double rotationAngle = Tween<double>(
+                begin: 0,
+                end: pi,
+              ).transform(_logoController.value);
+                  return Transform(
+                alignment: Alignment.center,
+                transform: Matrix4.rotationY(rotationAngle),
+                child: Image.asset(
                 'images/iexplore-logo.png', width: 150, height: 150,
-              ),
-            ],
+              ));
+            }
           ),
           Container(
             height: 20,

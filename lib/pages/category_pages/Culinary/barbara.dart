@@ -3,7 +3,7 @@ import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/utils/colors.dart';
-import 'package:http/http.dart' as http;
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Barbara extends StatefulWidget {
   const Barbara({Key? key}) : super(key: key);
@@ -13,9 +13,27 @@ class Barbara extends StatefulWidget {
 }
 
 class _BarbaraState extends State<Barbara> {
-  String _googleInfo = '';
-  bool _isLoading = false;
-  bool _hasError = false;
+  final firestoreInstance = FirebaseFirestore.instance;
+  String _data = "";
+
+  @override
+  void dispose() {
+    _data = ""; // Reset _data when the widget is disposed
+    super.dispose();
+  }
+
+  void fetchData() {
+    firestoreInstance.collection('tour_categories').doc('Culinary').get().then((DocumentSnapshot documentSnapshot) {
+      if (documentSnapshot.exists) {
+        Map<String, dynamic> data = documentSnapshot.data() as Map<String, dynamic>;
+        setState(() {
+          _data = data["Barbara"] ?? "";
+        });
+      } else {
+        print("Document does not exist");
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +57,7 @@ class _BarbaraState extends State<Barbara> {
                 children: [
                   Center(
                     child: Text(
-                      "Barbara's Heritage Restaurant", style: TextStyle(
+                      "Barbara Heritage Restaurant", style: TextStyle(
                         fontFamily: 'FSP-Demo',
                         fontWeight: FontWeight.w500,
                         fontSize: 20,
@@ -70,29 +88,45 @@ class _BarbaraState extends State<Barbara> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    width: 325,
-                    height: 200,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white12,
-                        border: Border.all(color: Colors.white)
-                    ),
-                    child: Center(
-                      child: Text(
-                        "GENERATE\n"
-                            "INFORMATION FROM\n"
-                            "GOOGLE", textAlign: TextAlign.center, style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: "AdobeDevanagari",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25
+                  GestureDetector(
+                    onTap: fetchData,
+                    child: Container(
+                      width: 325,
+                      height: 200,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white12,
+                          border: Border.all(color: Colors.white)
                       ),
+                      child: Center(
+                        child: Text(
+                          "GENERATE\n"
+                              "INFORMATION FROM\n"
+                              "GOOGLE", textAlign: TextAlign.center, style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: "AdobeDevanagari",
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25
+                        ),
+                        ),
                       ),
                     ),
                   )
                 ],
-              )
+              ),
+              SizedBox(height: 20),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 30),
+                child: Text(
+                  "$_data", textAlign: TextAlign.center, style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "AdobeDevanagari",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18
+                ),
+                ),
+              ),
+              SizedBox(height: 30),
             ],
           ),
         ),
