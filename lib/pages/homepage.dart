@@ -4,6 +4,10 @@ import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/utils/colors.dart';
+import 'package:provider/provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:i_explore/services/auth_service.dart';
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required String title});
@@ -13,6 +17,42 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late String _userID;
+
+  void _getUserID() {
+    AuthService _authService = Provider.of<AuthService>(context, listen: false);
+    _userID = _authService.user!.uid;
+    print('UserUID: $_userID');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    AuthService _authService = Provider.of<AuthService>(context, listen: false);
+    _userID = _authService.user!.uid; // Store userUid in the class-level variable
+    print('UserUID: $_userID');
+  }
+
+  Future<List<DocumentSnapshot>> _getFavorites() async {
+    await _getUserID;
+
+    QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(_userID)
+        .collection('favorites')
+        .get();
+    return snapshot.docs;
+  }
+
+  Future<void> _removeFavorite(String favoriteID) async {
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(_userID)
+        .collection('favorites')
+        .doc(favoriteID)
+        .delete();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -139,19 +179,90 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     Container(
                       height: 100,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          _itineraryFavorites(),
-                          _itineraryFavorites(),
-                          _itineraryFavorites(),
-                          _itineraryFavorites(),
-                          _itineraryFavorites(),
-                          _itineraryFavorites(),
-                          _itineraryFavorites(),
-                          _itineraryFavorites(),
-                        ],
-                      ),
+                      child: FutureBuilder(
+                        future: _getFavorites(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState == ConnectionState.waiting) {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          } else if (snapshot.hasError) {
+                            return Center(
+                              child: Text("Error: ${snapshot.error}"),
+                            );
+                          } else {
+                            List<DocumentSnapshot> favorites = snapshot.data ?? [];
+                            if (favorites.isEmpty) {
+                              return Center(
+                                child: Text(
+                                  "No favorites yet.", style: TextStyle(
+                                    fontFamily: 'FSP-Demo',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 20,
+                                    color: Colors.white
+                                ),
+                                ),
+                              );
+                            } else {
+                              return ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: favorites.length,
+                                itemBuilder: (context, index) {
+                                  Map<String, dynamic> favoriteDate = favorites[index].data() as Map<String, dynamic>;
+                                  String imagePath = favoriteDate["imagePath"];
+                                  return Container(
+                                    margin: EdgeInsets.symmetric(horizontal: 8),
+                                    width: 120,
+                                    child: Stack(
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                                          children: [
+                                            Expanded(
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(10),
+                                                  image: DecorationImage(
+                                                    image: AssetImage(imagePath),
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft: Radius.circular(10),
+                                                  bottomRight: Radius.circular(10),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.end,
+                                          children: [
+                                            IconButton(
+                                              icon: Icon(Icons.favorite),
+                                              color: Colors.red,
+                                              onPressed: () async {
+                                                await _removeFavorite(favorites[index].id);
+                                                setState(() {
+                                                  favorites.removeAt(index);
+                                                });
+                                              },
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
+                            }
+                          }
+                        },
+                      )
                     ),
                     Container(
                       height: 20,
@@ -269,36 +380,6 @@ Widget _itineraryCard(BuildContext context, String title, String imagePath, Stri
          )
         ],
       ),
-    ),
-  );
-}
-
-//Scrollable Favorites
-Widget _itineraryFavorites() {
-  return Container(
-    margin: const EdgeInsets.symmetric(horizontal: 8),
-    width: 120,
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
-      color: brownColor
-    ),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 5, right: 5),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Icon(
-                Icons.favorite,
-                color: Colors.grey,
-                size: 30,
-              )
-            ],
-          ),
-        ),
-      ],
     ),
   );
 }

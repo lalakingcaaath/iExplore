@@ -18,7 +18,12 @@ class BottomNavigationBarComponent extends StatelessWidget {
             icon: SizedBox(
                 child: Transform.scale(
               scale: 1.5,
-              child: const Icon(Icons.favorite),
+              child: GestureDetector(
+                onTap: () {
+                  context.go('/favorite');
+                },
+                  child: const Icon(Icons.favorite)
+              ),
             )),
             label: "",
           ),
@@ -29,7 +34,9 @@ class BottomNavigationBarComponent extends StatelessWidget {
                 child: Transform.scale(
                   scale: 1.5,
                   child: GestureDetector(
-                    onTap: () => context.push("/day_select"),
+                    onTap: () {
+                      context.go('/day_select');
+                    },
                     child: Image.asset(
                         "images/AI-transparent.png", fit: BoxFit.contain,
                     ),
@@ -45,7 +52,12 @@ class BottomNavigationBarComponent extends StatelessWidget {
               icon: SizedBox(
                 child: Transform.scale(
                   scale: 1.5,
-                  child: const Icon(Icons.download),
+                  child: GestureDetector(
+                    onTap: () {
+                      context.go('/downloads');
+                    },
+                      child: const Icon(Icons.download)
+                  ),
                 ),
               ),
               label: ""),

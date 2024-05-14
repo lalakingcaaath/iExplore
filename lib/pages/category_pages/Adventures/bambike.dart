@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
+import 'package:i_explore/services/auth_service.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
 
 class Bambike extends StatefulWidget {
   const Bambike({Key? key}) : super(key: key);
@@ -15,6 +17,7 @@ class Bambike extends StatefulWidget {
 class _BambikeState extends State<Bambike> {
   final firestoreInstance = FirebaseFirestore.instance;
   String _data = "";
+  late String _userID;
 
   @override
   void dispose() {
@@ -34,6 +37,46 @@ class _BambikeState extends State<Bambike> {
       }
     });
   }
+
+  void _getUserID() {
+    AuthService _authService = Provider.of<AuthService>(context, listen: false);
+    _userID = _authService.user!.uid;
+    print('UserUID: $_userID');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    AuthService _authService = Provider.of<AuthService>(context, listen: false);
+    _userID = _authService.user!.uid; // Store userUid in the class-level variable
+    print('UserUID: $_userID');
+  }
+
+  void addFavorites(String itinerary, String imagePath) {
+    _getUserID();
+
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(_userID)
+        .collection('favorites')
+        .add({
+      'itinerary': itinerary,
+      'imagePath': imagePath,
+    })
+        .then((value) {
+      print('Favorite added successfully!');
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Added to Favorites!"))
+      );
+    })
+        .catchError((error) {
+      print('Error adding favorite: $error');
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Error adding to Favorites: $error"))
+      );
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -71,15 +114,20 @@ class _BambikeState extends State<Bambike> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    width: 325,
-                    height: 200,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                            image: AssetImage("images/category_images/ADVENTURE/Bambike.png"),
-                            fit: BoxFit.fill
-                        )
+                  GestureDetector(
+                    onDoubleTap: () {
+                      addFavorites('Bambike', 'images/category_images/ADVENTURE/Bambike.png');
+                    },
+                    child: Container(
+                      width: 325,
+                      height: 200,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                              image: AssetImage("images/category_images/ADVENTURE/Bambike.png"),
+                              fit: BoxFit.fill
+                          )
+                      ),
                     ),
                   )
                 ],

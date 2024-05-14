@@ -80,6 +80,8 @@ import 'package:i_explore/services/auth_service.dart';
 import 'package:provider/provider.dart';
 import 'package:i_explore/pages/itinerary_Collection.dart';
 import 'package:i_explore/pages/day_itinerary.dart';
+import 'package:i_explore/pages/favorites.dart';
+import 'package:i_explore/pages/downloads.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -433,6 +435,18 @@ final GoRouter routerConfig = GoRouter(
       GoRoute(
           path: '/sschurch',
           builder: (context, state) => const SanSebastianChurch()
+      ),
+
+      //Favorite
+      GoRoute(
+          path: "/favorite",
+          builder: (context, state) => const Favorites()
+      ),
+
+      //Downloads
+      GoRoute(
+          path: "/downloads",
+          builder: (context, state) => const Downloads()
       ),
 
 

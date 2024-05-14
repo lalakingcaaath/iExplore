@@ -6,7 +6,6 @@ import 'package:i_explore/components/HeaderAppBarComponent.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:i_explore/services/auth_service.dart';
 import 'package:provider/provider.dart';
-import 'package:typewritertext/typewritertext.dart';
 import 'package:typethis/typethis.dart';
 
 class DaySelect extends StatefulWidget {
