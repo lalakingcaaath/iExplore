@@ -54,11 +54,11 @@ class _Introductory_ScreenState extends State<Introductory_Screen> {
                   },
                   itemBuilder: (BuildContext context, int index) {
                     if (index == 0) {
-                      return _introPage1(context);
+                      return _introPage1(context, _name);
                     } else if (index == 1) {
-                      return _introPage2(context);
+                      return _introPage2(context, _name);
                     } else {
-                      return _introPage3(context);
+                      return _introPage3(context, _name);
                     }
                   },
                 physics: PageScrollPhysics(),
@@ -94,8 +94,7 @@ Widget _introIndicator(BuildContext, int _currentPage,int index) {
   );
 }
 
-Widget _introPage1(BuildContext context)  {
-  String? _name;
+Widget _introPage1(BuildContext context, String? _name)  {
   return Container(
     decoration: BoxDecoration(
       gradient: LinearGradient(
@@ -176,8 +175,7 @@ Widget _introPage1(BuildContext context)  {
   );
 }
 
-Widget _introPage2(BuildContext context) {
-  String? _name;
+Widget _introPage2(BuildContext context, String? _name) {
   return Container(
     decoration: BoxDecoration(
       gradient: LinearGradient(
@@ -297,8 +295,7 @@ Widget _introPage2(BuildContext context) {
   );
 }
 
-Widget _introPage3(BuildContext context) {
-  String? _name;
+Widget _introPage3(BuildContext context, String? _name) {
   return Container(
     decoration: BoxDecoration(
       gradient: LinearGradient(
