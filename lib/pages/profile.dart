@@ -270,7 +270,7 @@ class _ProfileState extends State<Profile> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: 350,
+                      width: 330,
                       height: 40,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
@@ -283,6 +283,7 @@ class _ProfileState extends State<Profile> {
                           color: Colors.white,
                           fontFamily: "AdobeDevanagari",
                           fontWeight: FontWeight.bold,
+                          fontSize: 11,
                           letterSpacing: 2
                         ),
                         ),

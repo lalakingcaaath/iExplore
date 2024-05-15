@@ -62,6 +62,7 @@ import 'package:i_explore/pages/category_pages/ecotourism.dart';
 import 'package:i_explore/pages/category_pages/hotel.dart';
 import 'package:i_explore/pages/category_pages/pilgrimage.dart';
 import 'package:i_explore/pages/category_pages/schools.dart';
+import 'package:i_explore/pages/chat.dart';
 import 'package:i_explore/pages/day_select.dart';
 import 'package:i_explore/pages/edit_profile.dart';
 import 'package:i_explore/pages/homepage.dart';
@@ -447,6 +448,12 @@ final GoRouter routerConfig = GoRouter(
       GoRoute(
           path: "/downloads",
           builder: (context, state) => const Downloads()
+      ),
+
+      //Chatbot
+      GoRoute(
+          path: "/chat",
+          builder: (context, state) => const ChatScreen()
       ),
 
 
