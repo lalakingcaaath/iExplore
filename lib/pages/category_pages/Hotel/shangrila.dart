@@ -47,13 +47,19 @@ class _ShangriLaState extends State<ShangriLa> {
         .then((value) {
       print('Favorite added successfully!');
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Added to Favorites!"))
+          SnackBar(
+            content: Text("Added to Favorites!"),
+            behavior: SnackBarBehavior.floating
+            )
       );
     })
         .catchError((error) {
       print('Error adding favorite: $error');
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Error adding to Favorites: $error"))
+          SnackBar(
+            content: Text("Error adding to Favorites: $error"),
+            behavior: SnackBarBehavior.floating
+            )
       );
     });
   }
@@ -99,7 +105,7 @@ class _ShangriLaState extends State<ShangriLa> {
                   children: [
                     Center(
                       child: Text(
-                        "Shangri-La The Fort, Manila", style: TextStyle(
+                        "Shangri La The Fort, Manila", style: TextStyle(
                           fontFamily: 'FSP-Demo',
                           fontWeight: FontWeight.w500,
                           fontSize: 20,
@@ -115,7 +121,7 @@ class _ShangriLaState extends State<ShangriLa> {
                 children: [
                   GestureDetector(
                     onDoubleTap: () {
-                      addFavorites("Shangri-La, The Fort, Manila", "images/category_images/HOTELS/Shangri-La The Fort, Manila.jpg");
+                      addFavorites("Shangri La, The Fort, Manila", "images/category_images/HOTELS/Shangri-La The Fort, Manila.jpg");
                     },
                     child: Container(
                       width: 325,

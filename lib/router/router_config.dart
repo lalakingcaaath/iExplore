@@ -83,6 +83,7 @@ import 'package:i_explore/pages/itinerary_Collection.dart';
 import 'package:i_explore/pages/day_itinerary.dart';
 import 'package:i_explore/pages/favorites.dart';
 import 'package:i_explore/pages/downloads.dart';
+import 'package:i_explore/pages/time_select.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -159,6 +160,11 @@ final GoRouter routerConfig = GoRouter(
       GoRoute(
           path: '/day_select',
           builder: (context, state) => DaySelect()
+      ),
+
+      GoRoute(
+        path: "/time_select",
+        builder: (context, state) => TimeItinerary()
       ),
 
       GoRoute(

@@ -47,13 +47,19 @@ class _BricksbrewState extends State<Bricksbrew> {
         .then((value) {
       print('Favorite added successfully!');
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Added to Favorites!"))
+          SnackBar(
+            content: Text("Added to Favorites!"),
+            behavior: SnackBarBehavior.floating
+            )
       );
     })
         .catchError((error) {
       print('Error adding favorite: $error');
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Error adding to Favorites: $error"))
+          SnackBar(
+            content: Text("Error adding to Favorites: $error"),
+            behavior: SnackBarBehavior.floating
+            )
       );
     });
   }
@@ -99,7 +105,7 @@ class _BricksbrewState extends State<Bricksbrew> {
                   children: [
                     Center(
                       child: Text(
-                        "Bricks & Brew", style: TextStyle(
+                        "Bricks and Brew", style: TextStyle(
                           fontFamily: 'FSP-Demo',
                           fontWeight: FontWeight.w500,
                           fontSize: 20,

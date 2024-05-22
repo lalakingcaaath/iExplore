@@ -122,7 +122,7 @@ class _DaySelectState extends State<DaySelect> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () => context.push("/time_select"),
                           child: Container(
                             width: 200,
                             height: 60,

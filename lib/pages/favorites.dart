@@ -132,7 +132,7 @@ class _FavoritesState extends State<Favorites> {
                                         children: [
                                           Center(
                                             child: Text(
-                                              itinerary, style: TextStyle(
+                                              itinerary, textAlign: TextAlign.center, style: TextStyle(
                                                 fontFamily: 'FSP-Demo',
                                                 fontWeight: FontWeight.w500,
                                                 fontSize: 20,

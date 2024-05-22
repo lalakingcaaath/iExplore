@@ -48,13 +48,19 @@ class _FineArtsState extends State<FineArts> {
         .then((value) {
       print('Favorite added successfully!');
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Added to Favorites!"))
+          SnackBar(
+            content: Text("Added to Favorites!"),
+            behavior: SnackBarBehavior.floating
+            )
       );
     })
         .catchError((error) {
       print('Error adding favorite: $error');
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Error adding to Favorites: $error"))
+          SnackBar(
+            content: Text("Error adding to Favorites: $error"),
+            behavior: SnackBarBehavior.floating
+            )
       );
     });
   }
