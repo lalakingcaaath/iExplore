@@ -343,7 +343,8 @@ class _MyHomePageState extends State<MyHomePage> {
           floatingActionButtonLocation:
           FloatingActionButtonLocation.centerDocked,
           floatingActionButton: FloatingButtonNavBarComponent(),
-          bottomNavigationBar: BottomNavigationBarComponent()),
+          bottomNavigationBar: BottomNavigationBarComponent()
+      ),
     );
   }
 }

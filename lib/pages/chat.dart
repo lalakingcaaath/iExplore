@@ -7,27 +7,6 @@ import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'AI Chat',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
-      home: const ChatScreen(),
-    );
-  }
-}
-
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
 
@@ -35,15 +14,8 @@ class ChatScreen extends StatefulWidget {
   State<ChatScreen> createState() => _ChatScreenState();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
+class _ChatScreenState extends State<ChatScreen> with WidgetsBindingObserver {
   TextEditingController _userInput =TextEditingController();
-
-  @override
-  void dispose() {
-    // Dispose the TextEditingController when the state is disposed
-    _userInput.dispose();
-    super.dispose();
-  }
 
   static const apiKey = "AIzaSyBNit_I6C6T3mwzbQETGXYgJFjWXA3RZ1s";
 
@@ -56,6 +28,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
     setState(() {
       _messages.add(Message(isUser: true, message: message, date: DateTime.now()));
+      _userInput.clear();
     });
 
     final content = [Content.text(message)];
@@ -64,12 +37,14 @@ class _ChatScreenState extends State<ChatScreen> {
 
     setState(() {
       _messages.add(Message(isUser: false, message: response.text?? "", date: DateTime.now()));
+      _userInput.clear();
     });
 
   }
 
   @override
   Widget build(BuildContext context) {
+    bool showFab = MediaQuery.of(context).viewInsets.bottom == 0;
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -130,7 +105,9 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingButtonNavBarComponent(),
+        floatingActionButton:Visibility(
+            visible: showFab,
+            child: FloatingButtonNavBarComponent()),
         bottomNavigationBar: BottomNavigationBarComponent(),
       ),
     );

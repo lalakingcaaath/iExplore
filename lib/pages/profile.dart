@@ -99,6 +99,7 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
+    bool showFab = MediaQuery.of(context).viewInsets.bottom == 0;
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -354,8 +355,12 @@ class _ProfileState extends State<Profile> {
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingButtonNavBarComponent(),
+        floatingActionButton: Visibility(
+            visible: showFab,
+            child: FloatingButtonNavBarComponent()
+        ),
         bottomNavigationBar: BottomNavigationBarComponent(),
+        resizeToAvoidBottomInset: false,
       ),
     );
   }

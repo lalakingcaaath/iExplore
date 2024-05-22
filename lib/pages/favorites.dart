@@ -68,6 +68,16 @@ class _FavoritesState extends State<Favorites> {
           child: Column(
             children: [
               SizedBox(height: 20),
+              Center(
+                child: Text(
+                  "Itineraries", style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: "FSP-Demo",
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20
+                ),
+                ),
+              ),
               FutureBuilder(
                   future: _getFavorites(),
                   builder: (context, snapshot) {
@@ -158,7 +168,18 @@ class _FavoritesState extends State<Favorites> {
                       }
                     }
                   }
-              )
+              ),
+              SizedBox(height: 20),
+              Center(
+                child: Text(
+                  "Schedule", style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "FSP-Demo",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20
+                ),
+                ),
+              ),
             ],
           ),
         ),

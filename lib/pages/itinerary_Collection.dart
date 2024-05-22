@@ -53,7 +53,7 @@ class ItineraryCollection extends StatelessWidget {
                                   color: Colors.white,
                                   fontFamily: "AdobeDevanagari",
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 12
+                                  fontSize: 10
                               ),
                               ),
                             ],
@@ -85,7 +85,7 @@ class ItineraryCollection extends StatelessWidget {
                                   color: Colors.white,
                                   fontFamily: "AdobeDevanagari",
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 12
+                                  fontSize: 10
                               ),
                               ),
                             ],
@@ -117,7 +117,7 @@ class ItineraryCollection extends StatelessWidget {
                                   color: Colors.white,
                                   fontFamily: "AdobeDevanagari",
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 12
+                                  fontSize: 10
                               ),
                               ),
                             ],
@@ -157,7 +157,7 @@ class ItineraryCollection extends StatelessWidget {
                                   color: Colors.white,
                                   fontFamily: "AdobeDevanagari",
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 12
+                                  fontSize: 10
                               ),
                               ),
                             ],
@@ -189,7 +189,7 @@ class ItineraryCollection extends StatelessWidget {
                                   color: Colors.white,
                                   fontFamily: "AdobeDevanagari",
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 12
+                                  fontSize: 10
                               ),
                               ),
                             ],
@@ -221,7 +221,7 @@ class ItineraryCollection extends StatelessWidget {
                                   color: Colors.white,
                                   fontFamily: "AdobeDevanagari",
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 12
+                                  fontSize: 10
                               ),
                               ),
                             ],
@@ -261,7 +261,7 @@ class ItineraryCollection extends StatelessWidget {
                                   color: Colors.white,
                                   fontFamily: "AdobeDevanagari",
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 12
+                                  fontSize: 10
                               ),
                               ),
                             ],
@@ -293,7 +293,7 @@ class ItineraryCollection extends StatelessWidget {
                                   color: Colors.white,
                                   fontFamily: "AdobeDevanagari",
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 12
+                                  fontSize: 10
                               ),
                               ),
                             ],
@@ -309,7 +309,7 @@ class ItineraryCollection extends StatelessWidget {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingButtonNavBarComponent(),
-        bottomNavigationBar: BottomNavigationBarComponent(),
+        bottomNavigationBar: BottomNavigationBarComponent()
       ),
     );
   }

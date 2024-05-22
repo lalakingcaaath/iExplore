@@ -560,7 +560,7 @@ class _ItineraryScheduleState extends State<ItinerarySchedule> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingButtonNavBarComponent(),
-        bottomNavigationBar: BottomNavigationBarComponent(),
+        bottomNavigationBar: BottomNavigationBarComponent()
       ),
     );
   }

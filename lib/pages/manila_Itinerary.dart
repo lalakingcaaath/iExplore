@@ -193,7 +193,7 @@ class _Manila_ItineraryState extends State<Manila_Itinerary> {
                                     width: 10,
                                     height: 10,
                                     child: Icon(
-                                        Icons.pin_drop, color: Colors.white, size: 15
+                                        Icons.pin_drop, color: Colors.red, size: 15
                                     )
                                 ),
                                 //Casa Manila
@@ -1197,15 +1197,20 @@ class _Manila_ItineraryState extends State<Manila_Itinerary> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingButtonNavBarComponent(),
-        bottomNavigationBar: BottomNavigationBarComponent(),
+        bottomNavigationBar: BottomNavigationBarComponent()
       ),
     );
   }
 }
 
-class CustomDialogWidget extends StatelessWidget {
+class CustomDialogWidget extends StatefulWidget {
   const CustomDialogWidget({Key? key}) : super(key: key);
 
+  @override
+  State<CustomDialogWidget> createState() => _CustomDialogWidgetState();
+}
+
+class _CustomDialogWidgetState extends State<CustomDialogWidget> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
