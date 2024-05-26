@@ -84,6 +84,8 @@ import 'package:i_explore/pages/day_itinerary.dart';
 import 'package:i_explore/pages/favorites.dart';
 import 'package:i_explore/pages/downloads.dart';
 import 'package:i_explore/pages/time_select.dart';
+import 'package:i_explore/pages/category_pages/Schools/UAAP/adu.dart';
+import 'package:i_explore/pages/category_pages/Schools/UAAP/lasalle.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -458,9 +460,19 @@ final GoRouter routerConfig = GoRouter(
 
       //Chatbot
       GoRoute(
-          path: "/chat",
-          builder: (context, state) => const ChatScreen()
+        path: "/chat",
+        builder: (context, state) => const ChatScreen()
       ),
+
+      //UAAP Schools
+      GoRoute(
+        path: "/adu",
+        builder: (context, state) => const Adamson()
+      ),
+      GoRoute(
+        path: "/dlsu",
+        builder: (context, state) => const LaSalle() 
+        ),
 
 
       // Login and Register

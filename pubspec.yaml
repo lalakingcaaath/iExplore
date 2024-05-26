@@ -90,6 +90,8 @@ flutter:
         - images/category_images/PILGRIMAGE/
         - images/category_images/HOTELS/
         - images/category_images/SCHOOL_LOGO/
+        - images/category_images/SCHOOL_CARDS/
+        - images/category_images/SCHOOL_HERO/
 
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware
