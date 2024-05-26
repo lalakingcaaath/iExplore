@@ -23,18 +23,49 @@ class Pilgrimage extends StatelessWidget {
         appBar: HeaderAppBarComponent(headerTitle: "Pilgrimage"),
         body: SingleChildScrollView(
           child: Container(
-              margin: const EdgeInsets.only(top: 30),
+            margin: const EdgeInsets.only(top: 30),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
-                  child: Text(
-                    "NEARBY PILGRIMAGE SITES",
-                    style: TextStyle(
-                        fontFamily: 'FSP-Demo',
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
-                        color: Colors.white),
+                GestureDetector(
+                  onTap: () => context.push("/generate"),
+                  child: Container(
+                    width: 250,
+                    decoration: BoxDecoration(
+                        color: lightOrangeColor,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset("images/AI-transparent.png",
+                            width: 40, color: Colors.black),
+                        Text(
+                          "Generate an Itinerary now!",
+                          style: TextStyle(
+                              fontFamily: "AdobeDevanagari",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              color: Colors.black),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  margin: const EdgeInsets.only(left: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "NEARBY PILGRIMAGE SITES",
+                        style: TextStyle(
+                            fontFamily: 'FSP-Demo',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
@@ -50,20 +81,19 @@ class Pilgrimage extends StatelessWidget {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/PILGRIMAGE/Binondo Church.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/PILGRIMAGE/Binondo Church.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Binondo Church", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Binondo Church",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -83,20 +113,20 @@ class Pilgrimage extends StatelessWidget {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/PILGRIMAGE/National Shrine of Our Lady of the Abandoned.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/PILGRIMAGE/National Shrine of Our Lady of the Abandoned.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "National Shrine of Our Lady of the Abandoned", textAlign: TextAlign.center,style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "National Shrine of Our Lady of the Abandoned",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -116,20 +146,19 @@ class Pilgrimage extends StatelessWidget {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/PILGRIMAGE/Paco Church.jpeg"),
+                                image: AssetImage(
+                                    "images/category_images/PILGRIMAGE/Paco Church.jpeg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Paco Church", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Paco Church",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -149,20 +178,19 @@ class Pilgrimage extends StatelessWidget {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/PILGRIMAGE/Quiapo Church.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/PILGRIMAGE/Quiapo Church.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Quiapo Church", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Quiapo Church",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -182,20 +210,19 @@ class Pilgrimage extends StatelessWidget {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/PILGRIMAGE/San Agustin Church.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/PILGRIMAGE/San Agustin Church.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "San Agustin Church", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "San Agustin Church",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -215,20 +242,19 @@ class Pilgrimage extends StatelessWidget {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/PILGRIMAGE/San Sebastian Church.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/PILGRIMAGE/San Sebastian Church.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "San Sebastian Church", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "San Sebastian Church",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -248,20 +274,19 @@ class Pilgrimage extends StatelessWidget {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/PILGRIMAGE/Santa Cruz Church.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/PILGRIMAGE/Santa Cruz Church.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Santa Cruz Church", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Santa Cruz Church",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -281,20 +306,19 @@ class Pilgrimage extends StatelessWidget {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/PILGRIMAGE/St. Vincent de Paul Parish Church.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/PILGRIMAGE/St. Vincent de Paul Parish Church.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "St. Vincent de Paul Parish Church", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "St. Vincent de Paul Parish Church",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),

@@ -63,6 +63,7 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
 
   @override
   Widget build(BuildContext context) {
+    bool showFab = MediaQuery.of(context).viewInsets.bottom == 0;
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -81,8 +82,8 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TypeThis(string:
-                  "Hi $_name",
+                  TypeThis(
+                    string: "Hi $_name",
                     style: TextStyle(
                       fontFamily: 'FSP-Demo',
                       fontWeight: FontWeight.w500,
@@ -92,12 +93,9 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                     speed: 150,
                     showBlinkingCursor: false,
                   ),
-                  TypeThis(string:
-                  "!",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20
-                    ),
+                  TypeThis(
+                    string: "!",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
                     speed: 150,
                     showBlinkingCursor: false,
                   )
@@ -108,13 +106,13 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TypeThis(
-                    string: "READY TO EXPLORE IN ONE CLICK", textAlign: TextAlign.center,
+                    string: "READY TO EXPLORE IN ONE CLICK",
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                         fontFamily: 'FSP-Demo',
                         fontWeight: FontWeight.w500,
                         fontSize: 20,
-                        color: Colors.white
-                    ),
+                        color: Colors.white),
                     speed: 150,
                     showBlinkingCursor: false,
                   ),
@@ -126,41 +124,38 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                   initialPage: 0,
                   indicatorBackgroundColor: Colors.grey,
                   autoPlayInterval: 2500,
-                  isLoop: false,
+                  isLoop: true,
                   children: [
+                    Image.asset("images/category_images/ADVENTURE/Bambike.png",
+                        fit: BoxFit.cover),
                     Image.asset(
-                      "images/category_images/ADVENTURE/Bambike.png",
-                      fit: BoxFit.cover
-                    ),
-                    Image.asset(
-                        "images/category_images/ADVENTURE/ClubIntramurosGolf.jpg",
+                      "images/category_images/CULINARIES/Barbaras.jpg",
                       fit: BoxFit.cover,
                     ),
                     Image.asset(
-                        "images/category_images/ADVENTURE/Craft Academy.jpg",
-                        fit: BoxFit.cover
-                    ),
+                        "images/category_images/CULTURAL/Manila Metropolitan Theater.jpg",
+                        fit: BoxFit.cover),
                     Image.asset(
-                      "images/category_images/ADVENTURE/Kalesa.jpg",
+                      "images/category_images/HOTELS/Shangri-La The Fort, Manila.jpg",
                       fit: BoxFit.cover,
                     ),
+                    Image.asset("images/category_images/LEISURE/Baluarte.jpg",
+                        fit: BoxFit.cover),
                     Image.asset(
-                        "images/category_images/ADVENTURE/WhiteKnight.jpg",
-                        fit: BoxFit.cover
-                    ),
-                  ]
-              ),
+                        "images/category_images/PILGRIMAGE/Quiapo Church.jpg",
+                        fit: BoxFit.cover),
+                  ]),
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Generate your itinerary based on your preference", style: TextStyle(
-                    fontFamily: "AdobeDevanagari",
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: Colors.white
-                  ),
+                    "Generate your itinerary based on your preference",
+                    style: TextStyle(
+                        fontFamily: "AdobeDevanagari",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colors.white),
                   )
                 ],
               ),
@@ -173,102 +168,104 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                     width: 150,
                     decoration: BoxDecoration(
                         color: brownColor,
-                        borderRadius: BorderRadius.circular(20)
-                    ),
+                        borderRadius: BorderRadius.circular(20)),
                     child: day > 1
                         ? Row(
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceBetween,
-                      children: [
-                        ButtonComponent(
-                          icon: Icons.remove,
-                          func: dayDecrement,
-                        ),
-                        Text(
-                          "$day day",
-                          style: TextStyle(
-                              fontFamily: 'AdobeDevanagari',
-                              fontSize: 15,
-                              color: Colors.white),
-                        ),
-                        ButtonComponent(
-                            icon: Icons.add, func: dayIncrement),
-                      ],
-                    )
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              ButtonComponent(
+                                icon: Icons.remove,
+                                func: dayDecrement,
+                              ),
+                              Text(
+                                "$day day",
+                                style: TextStyle(
+                                    fontFamily: 'AdobeDevanagari',
+                                    fontSize: 15,
+                                    color: Colors.white),
+                              ),
+                              ButtonComponent(
+                                  icon: Icons.add, func: dayIncrement),
+                            ],
+                          )
                         : Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(flex: 1, child: Icon(Icons.sunny, color: Colors.white, size: 30)),
-                        Expanded(
-                          flex: 1,
-                          child: Text(
-                            "$day day",
-                            style: TextStyle(
-                                fontFamily: 'AdobeDevanagari',
-                                fontSize: 15,
-                                color: Colors.white),
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                  flex: 1,
+                                  child: Icon(Icons.sunny,
+                                      color: Colors.white, size: 30)),
+                              Expanded(
+                                flex: 1,
+                                child: Text(
+                                  "$day day",
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontSize: 15,
+                                      color: Colors.white),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 0,
+                                child: ButtonComponent(
+                                  icon: Icons.add,
+                                  func: dayIncrement,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        Expanded(
-                          flex: 0,
-                          child: ButtonComponent(
-                            icon: Icons.add,
-                            func: dayIncrement,
-                          ),
-                        ),
-                      ],
-                    ),
                   ),
                   Container(
                     height: 64,
                     width: 150,
                     decoration: BoxDecoration(
                         color: brownColor,
-                        borderRadius: BorderRadius.circular(20)
-                    ),
+                        borderRadius: BorderRadius.circular(20)),
                     child: hour > 1
                         ? Row(
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceBetween,
-                      children: [
-                        ButtonComponent(
-                          icon: Icons.remove,
-                          func: hourDecrement,
-                        ),
-                        Text(
-                          "$hour hour",
-                          style: TextStyle(
-                              fontFamily: 'AdobeDevanagari',
-                              fontSize: 15,
-                              color: Colors.white),
-                        ),
-                        ButtonComponent(
-                            icon: Icons.add, func: hourIncrement),
-                      ],
-                    )
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              ButtonComponent(
+                                icon: Icons.remove,
+                                func: hourDecrement,
+                              ),
+                              Text(
+                                "$hour hour",
+                                style: TextStyle(
+                                    fontFamily: 'AdobeDevanagari',
+                                    fontSize: 15,
+                                    color: Colors.white),
+                              ),
+                              ButtonComponent(
+                                  icon: Icons.add, func: hourIncrement),
+                            ],
+                          )
                         : Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(flex: 1, child: Icon(Icons.access_time_filled, color: Colors.white, size: 30)),
-                        Expanded(
-                          flex: 1,
-                          child: Text(
-                            "$hour hour",
-                            style: TextStyle(
-                                fontFamily: 'AdobeDevanagari',
-                                fontSize: 15,
-                                color: Colors.white),
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                  flex: 1,
+                                  child: Icon(Icons.access_time_filled,
+                                      color: Colors.white, size: 30)),
+                              Expanded(
+                                flex: 1,
+                                child: Text(
+                                  "$hour hour",
+                                  style: TextStyle(
+                                      fontFamily: 'AdobeDevanagari',
+                                      fontSize: 15,
+                                      color: Colors.white),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 0,
+                                child: ButtonComponent(
+                                  icon: Icons.add,
+                                  func: hourIncrement,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        Expanded(
-                          flex: 0,
-                          child: ButtonComponent(
-                            icon: Icons.add,
-                            func: hourIncrement,
-                          ),
-                        ),
-                      ],
-                    ),
                   ),
                 ],
               ),
@@ -277,12 +274,11 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 300,
+                    width: 275,
                     height: 290,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: brownColor
-                    ),
+                        borderRadius: BorderRadius.circular(10),
+                        color: brownColor),
                     child: Container(
                       margin: const EdgeInsets.symmetric(vertical: 15),
                       child: Column(
@@ -292,12 +288,12 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                             children: [
                               Icon(Icons.search, color: Colors.white, size: 30),
                               Text(
-                                "Tour Category", style: TextStyle(
-                                fontFamily: "AdobeDevanagari",
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: Colors.white
-                              ),
+                                "Tour Category",
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                    color: Colors.white),
                               )
                             ],
                           ),
@@ -306,12 +302,12 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "You can select more than one category", style: TextStyle(
-                                fontFamily: "AdobeDevanagari",
-                                fontStyle: FontStyle.italic,
-                                fontSize: 15,
-                                color: Colors.white
-                              ),
+                                "You can select more than one category",
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontStyle: FontStyle.italic,
+                                    fontSize: 15,
+                                    color: Colors.white),
                               )
                             ],
                           ),
@@ -324,21 +320,21 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                                   children: [
                                     Checkbox(
                                         activeColor: Colors.transparent,
-                                        side: BorderSide(color: Colors.white, width: 2),
+                                        side: BorderSide(
+                                            color: Colors.white, width: 2),
                                         checkColor: Colors.white,
                                         value: isCulinary,
                                         onChanged: (bool? value) {
                                           setState(() {
                                             isCulinary = value!;
                                           });
-                                        }
-                                    ),
+                                        }),
                                     Text(
-                                      "Culinary", style: TextStyle(
-                                        fontFamily: "AdobeDevanagari",
-                                        fontSize: 15,
-                                        color: Colors.white
-                                    ),
+                                      "Culinary",
+                                      style: TextStyle(
+                                          fontFamily: "AdobeDevanagari",
+                                          fontSize: 15,
+                                          color: Colors.white),
                                     ),
                                   ],
                                 ),
@@ -349,21 +345,21 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                                   children: [
                                     Checkbox(
                                         activeColor: Colors.transparent,
-                                        side: BorderSide(color: Colors.white, width: 2),
+                                        side: BorderSide(
+                                            color: Colors.white, width: 2),
                                         checkColor: Colors.white,
                                         value: isAdventure,
                                         onChanged: (bool? value) {
                                           setState(() {
                                             isAdventure = value!;
                                           });
-                                        }
-                                    ),
+                                        }),
                                     Text(
-                                      "Adventure", style: TextStyle(
-                                        fontFamily: "AdobeDevanagari",
-                                        fontSize: 15,
-                                        color: Colors.white
-                                    ),
+                                      "Adventure",
+                                      style: TextStyle(
+                                          fontFamily: "AdobeDevanagari",
+                                          fontSize: 15,
+                                          color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -379,21 +375,21 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                                   children: [
                                     Checkbox(
                                         activeColor: Colors.transparent,
-                                        side: BorderSide(color: Colors.white, width: 2),
+                                        side: BorderSide(
+                                            color: Colors.white, width: 2),
                                         checkColor: Colors.white,
                                         value: isEcotourism,
                                         onChanged: (bool? value) {
                                           setState(() {
                                             isEcotourism = value!;
                                           });
-                                        }
-                                    ),
+                                        }),
                                     Text(
-                                      "Ecotourism", style: TextStyle(
-                                        fontFamily: "AdobeDevanagari",
-                                        fontSize: 15,
-                                        color: Colors.white
-                                    ),
+                                      "Ecotourism",
+                                      style: TextStyle(
+                                          fontFamily: "AdobeDevanagari",
+                                          fontSize: 15,
+                                          color: Colors.white),
                                     ),
                                   ],
                                 ),
@@ -404,21 +400,21 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                                   children: [
                                     Checkbox(
                                         activeColor: Colors.transparent,
-                                        side: BorderSide(color: Colors.white, width: 2),
+                                        side: BorderSide(
+                                            color: Colors.white, width: 2),
                                         checkColor: Colors.white,
                                         value: isLeisure,
                                         onChanged: (bool? value) {
                                           setState(() {
                                             isLeisure = value!;
                                           });
-                                        }
-                                    ),
+                                        }),
                                     Text(
-                                      "Leisure", style: TextStyle(
-                                        fontFamily: "AdobeDevanagari",
-                                        fontSize: 15,
-                                        color: Colors.white
-                                    ),
+                                      "Leisure",
+                                      style: TextStyle(
+                                          fontFamily: "AdobeDevanagari",
+                                          fontSize: 15,
+                                          color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -434,21 +430,21 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                                   children: [
                                     Checkbox(
                                         activeColor: Colors.transparent,
-                                        side: BorderSide(color: Colors.white, width: 2),
+                                        side: BorderSide(
+                                            color: Colors.white, width: 2),
                                         checkColor: Colors.white,
                                         value: isSchools,
                                         onChanged: (bool? value) {
                                           setState(() {
                                             isSchools = value!;
                                           });
-                                        }
-                                    ),
+                                        }),
                                     Text(
-                                      "Schools", style: TextStyle(
-                                        fontFamily: "AdobeDevanagari",
-                                        fontSize: 15,
-                                        color: Colors.white
-                                    ),
+                                      "Schools",
+                                      style: TextStyle(
+                                          fontFamily: "AdobeDevanagari",
+                                          fontSize: 15,
+                                          color: Colors.white),
                                     ),
                                   ],
                                 ),
@@ -459,21 +455,21 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                                   children: [
                                     Checkbox(
                                         activeColor: Colors.transparent,
-                                        side: BorderSide(color: Colors.white, width: 2),
+                                        side: BorderSide(
+                                            color: Colors.white, width: 2),
                                         checkColor: Colors.white,
                                         value: isPilgrimage,
                                         onChanged: (bool? value) {
                                           setState(() {
                                             isPilgrimage = value!;
                                           });
-                                        }
-                                    ),
+                                        }),
                                     Text(
-                                      "Pilgrimage", style: TextStyle(
-                                        fontFamily: "AdobeDevanagari",
-                                        fontSize: 15,
-                                        color: Colors.white
-                                    ),
+                                      "Pilgrimage",
+                                      style: TextStyle(
+                                          fontFamily: "AdobeDevanagari",
+                                          fontSize: 15,
+                                          color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -489,21 +485,21 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                                   children: [
                                     Checkbox(
                                         activeColor: Colors.transparent,
-                                        side: BorderSide(color: Colors.white, width: 2),
+                                        side: BorderSide(
+                                            color: Colors.white, width: 2),
                                         checkColor: Colors.white,
                                         value: isHotels,
                                         onChanged: (bool? value) {
                                           setState(() {
                                             isHotels = value!;
                                           });
-                                        }
-                                    ),
+                                        }),
                                     Text(
-                                      "Hotels", style: TextStyle(
-                                        fontFamily: "AdobeDevanagari",
-                                        fontSize: 15,
-                                        color: Colors.white
-                                    ),
+                                      "Hotels",
+                                      style: TextStyle(
+                                          fontFamily: "AdobeDevanagari",
+                                          fontSize: 15,
+                                          color: Colors.white),
                                     ),
                                   ],
                                 ),
@@ -514,21 +510,21 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                                   children: [
                                     Checkbox(
                                         activeColor: Colors.transparent,
-                                        side: BorderSide(color: Colors.white, width: 2),
+                                        side: BorderSide(
+                                            color: Colors.white, width: 2),
                                         checkColor: Colors.white,
                                         value: isCultural,
                                         onChanged: (bool? value) {
                                           setState(() {
                                             isCultural = value!;
                                           });
-                                        }
-                                    ),
+                                        }),
                                     Text(
-                                      "Cultural", style: TextStyle(
-                                        fontFamily: "AdobeDevanagari",
-                                        fontSize: 15,
-                                        color: Colors.white
-                                    ),
+                                      "Cultural",
+                                      style: TextStyle(
+                                          fontFamily: "AdobeDevanagari",
+                                          fontSize: 15,
+                                          color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -540,12 +536,156 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                     ),
                   )
                 ],
-              )
+              ),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 200,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: brownColor,
+                    ),
+                    child: Center(
+                      // Center the content within the Container
+                      child: Row(
+                        mainAxisSize:
+                            MainAxisSize.min, // Use min to wrap the content
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: SizedBox(
+                              width: 100, // Adjust width of TextField as needed
+                              child: TextField(
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "...type here",
+                                    hintStyle: TextStyle(
+                                      fontFamily: "AdobeDevanagari",
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                    )),
+                                style: TextStyle(
+                                  fontFamily: "AdobeDevanagari",
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "budget",
+                            style: TextStyle(
+                              fontFamily: "AdobeDevanagari",
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 300,
+                    height: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: brownColor),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Optional",
+                                style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontStyle: FontStyle.italic,
+                                    fontSize: 15,
+                                    color: Colors.white),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 5),
+                          Container(
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.white)),
+                              child: SizedBox(
+                                width: 290,
+                                height: 50,
+                                child: TextField(
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      hintText:
+                                          "...if you want to include a specific place"
+                                          "and activity in your itinerary you can type it here."
+                                          "Otherwise leave it blank",
+                                      hintMaxLines: 3,
+                                      hintStyle: TextStyle(
+                                        fontFamily: "AdobeDevanagari",
+                                        fontStyle: FontStyle.italic,
+                                        fontSize: 10,
+                                        color: Colors.white,
+                                      )),
+                                  style: TextStyle(
+                                    fontFamily: "AdobeDevanagari",
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              )),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(height: 10),
+              GestureDetector(
+                onTap: () => context.push("/manila_itinerary"),
+                child: Container(
+                  width: 200,
+                  decoration: BoxDecoration(
+                      color: lightOrangeColor,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset("images/AI-transparent.png",
+                          width: 40, color: Colors.black),
+                      Text(
+                        "Generate",
+                        style: TextStyle(
+                            fontFamily: "AdobeDevanagari",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
             ],
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingButtonNavBarComponent(),
+        floatingActionButton: Visibility(
+            visible: showFab, child: FloatingButtonNavBarComponent()),
         bottomNavigationBar: BottomNavigationBarComponent(),
       ),
     );
@@ -571,9 +711,7 @@ class ButtonComponent extends StatelessWidget {
             }
             return darkOrangeColor;
           }),
-          shape: WidgetStateProperty.all<OutlinedBorder>(
-              CircleBorder()
-          ),
+          shape: WidgetStateProperty.all<OutlinedBorder>(CircleBorder()),
         ),
         icon: Icon(icon, color: Colors.white));
   }

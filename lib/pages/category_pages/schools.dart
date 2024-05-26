@@ -27,15 +27,41 @@ class Schools extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(top: 30),
               ),
+              GestureDetector(
+                onTap: () => context.push("/generate"),
+                child: Container(
+                  width: 250,
+                  decoration: BoxDecoration(
+                      color: lightOrangeColor,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image.asset("images/AI-transparent.png",
+                          width: 40, color: Colors.black),
+                      Text(
+                        "Generate an Itinerary now!",
+                        style: TextStyle(
+                            fontFamily: "AdobeDevanagari",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "UAAP SCHOOLS", style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: "FSP-Demo",
-                    fontSize: 20,
-                  ),
+                    "UAAP SCHOOLS",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: "FSP-Demo",
+                      fontSize: 20,
+                    ),
                   )
                 ],
               ),
@@ -50,7 +76,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/Adamson University.jpg"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/Adamson University.jpg"),
                     ),
                   ),
                   GestureDetector(
@@ -58,7 +85,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/Ateneo De Manila University.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/Ateneo De Manila University.png"),
                     ),
                   ),
                   GestureDetector(
@@ -66,7 +94,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/De La Salle University.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/De La Salle University.png"),
                     ),
                   ),
                 ],
@@ -82,7 +111,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/Far_Easter_University_Logo.svg.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/Far_Easter_University_Logo.svg.png"),
                     ),
                   ),
                   GestureDetector(
@@ -90,7 +120,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/National University.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/National University.png"),
                     ),
                   ),
                   GestureDetector(
@@ -98,7 +129,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/University of Santo Tomas.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/University of Santo Tomas.png"),
                     ),
                   ),
                 ],
@@ -114,7 +146,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/University of the East.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/University of the East.png"),
                     ),
                   ),
                   GestureDetector(
@@ -122,7 +155,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/University of the Philippines Diliman.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/University of the Philippines Diliman.png"),
                     ),
                   ),
                 ],
@@ -134,11 +168,12 @@ class Schools extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "NCAA SCHOOLS", style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: "FSP-Demo",
-                    fontSize: 20,
-                  ),
+                    "NCAA SCHOOLS",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: "FSP-Demo",
+                      fontSize: 20,
+                    ),
                   )
                 ],
               ),
@@ -153,7 +188,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/Colegio de San Juan de Letran.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/Colegio de San Juan de Letran.png"),
                     ),
                   ),
                   GestureDetector(
@@ -161,7 +197,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/De La Salle-College of Saint Benilde.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/De La Salle-College of Saint Benilde.png"),
                     ),
                   ),
                   GestureDetector(
@@ -169,39 +206,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/Jose Rizal University.png"),
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  GestureDetector(
-                    onTap: () {},
-                    child: CircleAvatar(
-                      radius: 50,
-                      backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/Mapúa University.png"),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: CircleAvatar(
-                      radius: 50,
-                      backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/San Beda University.png"),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: CircleAvatar(
-                      radius: 50,
-                      backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/San Sebastian College – Recoletos.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/Jose Rizal University.png"),
                     ),
                   ),
                 ],
@@ -217,7 +223,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/University of Perpetual Help System DALTA.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/Mapúa University.png"),
                     ),
                   ),
                   GestureDetector(
@@ -225,7 +232,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/Lyceum of the Philippines University.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/San Beda University.png"),
                     ),
                   ),
                   GestureDetector(
@@ -233,7 +241,43 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/Emilio Aguinaldo College.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/San Sebastian College – Recoletos.png"),
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: CircleAvatar(
+                      radius: 50,
+                      backgroundColor: Colors.transparent,
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/University of Perpetual Help System DALTA.png"),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: CircleAvatar(
+                      radius: 50,
+                      backgroundColor: Colors.transparent,
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/Lyceum of the Philippines University.png"),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: CircleAvatar(
+                      radius: 50,
+                      backgroundColor: Colors.transparent,
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/Emilio Aguinaldo College.png"),
                     ),
                   ),
                 ],
@@ -245,11 +289,12 @@ class Schools extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "STATE UNIVERSITIES", style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: "FSP-Demo",
-                    fontSize: 20,
-                  ),
+                    "STATE UNIVERSITIES",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: "FSP-Demo",
+                      fontSize: 20,
+                    ),
                   )
                 ],
               ),
@@ -264,7 +309,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/Polytechnic University of the Philippines.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/Polytechnic University of the Philippines.png"),
                     ),
                   ),
                   GestureDetector(
@@ -272,7 +318,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/Philippine Normal University.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/Philippine Normal University.png"),
                     ),
                   ),
                   GestureDetector(
@@ -280,7 +327,8 @@ class Schools extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 50,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("images/category_images/SCHOOL_LOGO/Technological University of the Philippines.png"),
+                      backgroundImage: AssetImage(
+                          "images/category_images/SCHOOL_LOGO/Technological University of the Philippines.png"),
                     ),
                   ),
                 ],

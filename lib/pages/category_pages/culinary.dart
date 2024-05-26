@@ -32,15 +32,45 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
-                  child: Text(
-                    "NEARBY RESTAURANTS",
-                    style: TextStyle(
-                        fontFamily: 'FSP-Demo',
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
-                        color: Colors.white
+                GestureDetector(
+                  onTap: () => context.push("/generate"),
+                  child: Container(
+                    width: 250,
+                    decoration: BoxDecoration(
+                        color: lightOrangeColor,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset("images/AI-transparent.png",
+                            width: 40, color: Colors.black),
+                        Text(
+                          "Generate an Itinerary now!",
+                          style: TextStyle(
+                              fontFamily: "AdobeDevanagari",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              color: Colors.black),
+                        )
+                      ],
                     ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  margin: const EdgeInsets.only(left: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "NEARBY RESTAURANTS",
+                        style: TextStyle(
+                            fontFamily: 'FSP-Demo',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
@@ -55,21 +85,20 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                         width: 350,
                         height: 75,
                         decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage("images/category_images/CULINARIES/Barbaras.jpg"),
-                            fit: BoxFit.fill,
-                              opacity: 0.5
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                          color: brownColor
-                        ),
+                            image: DecorationImage(
+                                image: AssetImage(
+                                    "images/category_images/CULINARIES/Barbaras.jpg"),
+                                fit: BoxFit.fill,
+                                opacity: 0.5),
+                            borderRadius: BorderRadius.circular(10),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Barbara's Heritage Restaurant", style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "AdobeDevanagari",
-                            fontSize: 20
-                          ),
+                            "Barbara's Heritage Restaurant",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -89,20 +118,19 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULINARIES/binondo 1.jpeg"),
+                                image: AssetImage(
+                                    "images/category_images/CULINARIES/binondo 1.jpeg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Binondo", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Binondo",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -122,20 +150,19 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULINARIES/BricksBrew.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/CULINARIES/BricksBrew.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Bricks & Brew", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Bricks & Brew",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -155,20 +182,19 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULINARIES/cold treats1.jpeg"),
+                                image: AssetImage(
+                                    "images/category_images/CULINARIES/cold treats1.jpeg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Cold Treats - Intramuros", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Cold Treats - Intramuros",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -188,20 +214,19 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULINARIES/Kapetolyo.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/CULINARIES/Kapetolyo.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Kapetolyo", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Kapetolyo",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -221,20 +246,19 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULINARIES/LaCathedral-1.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/CULINARIES/LaCathedral-1.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "La Cathedral Cafe", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "La Cathedral Cafe",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -254,20 +278,19 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULINARIES/Skydeck-bayleaf.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/CULINARIES/Skydeck-bayleaf.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Skydeck View Bar", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Skydeck View Bar",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -287,20 +310,19 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULINARIES/UNsquare.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/CULINARIES/UNsquare.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "UN Square", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "UN Square",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -320,20 +342,19 @@ class _Culinary_ToursState extends State<Culinary_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULINARIES/Ugbo.jpeg"),
+                                image: AssetImage(
+                                    "images/category_images/CULINARIES/Ugbo.jpeg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Ugbo", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Ugbo",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),

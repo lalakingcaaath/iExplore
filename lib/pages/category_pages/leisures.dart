@@ -32,14 +32,45 @@ class _Leisures_ToursState extends State<Leisures_Tours> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
-                  child: Text(
-                    "NEARBY LEISURES",
-                    style: TextStyle(
-                        fontFamily: 'FSP-Demo',
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
-                        color: Colors.white),
+                GestureDetector(
+                  onTap: () => context.push("/generate"),
+                  child: Container(
+                    width: 250,
+                    decoration: BoxDecoration(
+                        color: lightOrangeColor,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset("images/AI-transparent.png",
+                            width: 40, color: Colors.black),
+                        Text(
+                          "Generate an Itinerary now!",
+                          style: TextStyle(
+                              fontFamily: "AdobeDevanagari",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              color: Colors.black),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  margin: const EdgeInsets.only(left: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "NEARBY LEISURES",
+                        style: TextStyle(
+                            fontFamily: 'FSP-Demo',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
@@ -55,20 +86,19 @@ class _Leisures_ToursState extends State<Leisures_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/LEISURE/Baluarte.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/LEISURE/Baluarte.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Baluarte", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Baluarte",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -88,20 +118,19 @@ class _Leisures_ToursState extends State<Leisures_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/LEISURE/Chinatown.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/LEISURE/Chinatown.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Chinatown", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Chinatown",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -121,20 +150,19 @@ class _Leisures_ToursState extends State<Leisures_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/LEISURE/Escolta.JPG"),
+                                image: AssetImage(
+                                    "images/category_images/LEISURE/Escolta.JPG"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Escolta", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Escolta",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -154,20 +182,19 @@ class _Leisures_ToursState extends State<Leisures_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/LEISURE/JonesBridge.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/LEISURE/JonesBridge.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Jones Bridge", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Jones Bridge",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -187,20 +214,19 @@ class _Leisures_ToursState extends State<Leisures_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/LEISURE/ManilaZoo.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/LEISURE/ManilaZoo.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Manila Zoo", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Manila Zoo",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -220,20 +246,19 @@ class _Leisures_ToursState extends State<Leisures_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/LEISURE/PlazaRoma.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/LEISURE/PlazaRoma.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Plaza Roma", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Plaza Roma",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),

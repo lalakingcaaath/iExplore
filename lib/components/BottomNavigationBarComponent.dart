@@ -35,7 +35,7 @@ class BottomNavigationBarComponent extends StatelessWidget {
                   scale: 1.5,
                   child: GestureDetector(
                     onTap: () {
-                      context.go('/day_select');
+                      context.go('/generate');
                     },
                     child: Image.asset(
                         "images/AI-transparent.png", fit: BoxFit.contain,

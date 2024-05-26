@@ -32,14 +32,45 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
-                  child: Text(
-                    "NEARBY CULTURAL SITES",
-                    style: TextStyle(
-                        fontFamily: 'FSP-Demo',
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
-                        color: Colors.white),
+                GestureDetector(
+                  onTap: () => context.push("/generate"),
+                  child: Container(
+                    width: 250,
+                    decoration: BoxDecoration(
+                        color: lightOrangeColor,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset("images/AI-transparent.png",
+                            width: 40, color: Colors.black),
+                        Text(
+                          "Generate an Itinerary now!",
+                          style: TextStyle(
+                              fontFamily: "AdobeDevanagari",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              color: Colors.black),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  margin: const EdgeInsets.only(left: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "NEARBY CULTURAL SITES",
+                        style: TextStyle(
+                            fontFamily: 'FSP-Demo',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
@@ -55,20 +86,19 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULTURAL/Cultural Center of the Philippines.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/CULTURAL/Cultural Center of the Philippines.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Cultural Center of the Philippines", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Cultural Center of the Philippines",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -88,20 +118,19 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULTURAL/KatipunanMonumentManila.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/CULTURAL/KatipunanMonumentManila.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Katipunan Monument", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Katipunan Monument",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -121,20 +150,19 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULTURAL/MalacanangPalace.jpeg"),
+                                image: AssetImage(
+                                    "images/category_images/CULTURAL/MalacanangPalace.jpeg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Malacanang Palace", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Malacanang Palace",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -154,20 +182,19 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULTURAL/Manila Metropolitan Theater.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/CULTURAL/Manila Metropolitan Theater.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Manila Metropolitan Theater", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Manila Metropolitan Theater",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -187,20 +214,19 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULTURAL/Museo de Intramuros.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/CULTURAL/Museo de Intramuros.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Museo de Intramuros", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Museo de Intramuros",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -220,20 +246,19 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULTURAL/National museum of Anthropology.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/CULTURAL/National museum of Anthropology.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "National Museum of Antropology", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "National Museum of Antropology",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -253,20 +278,19 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULTURAL/National Museum of Fine Arts.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/CULTURAL/National Museum of Fine Arts.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "National Museum of Fine Arts", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "National Museum of Fine Arts",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -286,20 +310,19 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULTURAL/National Museum of Natural History.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/CULTURAL/National Museum of Natural History.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "National Museum of Natural History", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "National Museum of Natural History",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -319,20 +342,19 @@ class _Cultural_ToursState extends State<Cultural_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/CULTURAL/National Museum of the Philippines.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/CULTURAL/National Museum of the Philippines.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "National Museum of the Philippines", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "National Museum of the Philippines",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),

@@ -145,7 +145,7 @@ class Messages extends StatelessWidget {
           right: isUser ? 10: 100
       ),
       decoration: BoxDecoration(
-          color: isUser ? orangeFourColor : orangeFourColor,
+          color: isUser ? lightOrangeColor : Colors.white,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(10),
               bottomLeft: isUser ? Radius.circular(10): Radius.zero,

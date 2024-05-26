@@ -32,14 +32,45 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
-                  child: Text(
-                    "NEARBY ADVENTURE SITES",
-                    style: TextStyle(
-                        fontFamily: 'FSP-Demo',
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
-                        color: Colors.white),
+                GestureDetector(
+                  onTap: () => context.push("/generate"),
+                  child: Container(
+                    width: 250,
+                    decoration: BoxDecoration(
+                        color: lightOrangeColor,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset("images/AI-transparent.png",
+                            width: 40, color: Colors.black),
+                        Text(
+                          "Generate an Itinerary now!",
+                          style: TextStyle(
+                              fontFamily: "AdobeDevanagari",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              color: Colors.black),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  margin: const EdgeInsets.only(left: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "NEARBY ADVENTURE SITES",
+                        style: TextStyle(
+                            fontFamily: 'FSP-Demo',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
@@ -55,20 +86,19 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/ADVENTURE/Bambike.png"),
+                                image: AssetImage(
+                                    "images/category_images/ADVENTURE/Bambike.png"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Bambike", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Bambike",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -88,20 +118,19 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/ADVENTURE/ClubIntramurosGolf.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/ADVENTURE/ClubIntramurosGolf.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Intramuros Golf Club", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Intramuros Golf Club",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -121,20 +150,19 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/ADVENTURE/Craft Academy.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/ADVENTURE/Craft Academy.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Craft Academy", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Craft Academy",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -154,20 +182,19 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/ADVENTURE/Kalesa.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/ADVENTURE/Kalesa.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "Kalesa - Intramuros", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "Kalesa - Intramuros",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
@@ -187,20 +214,19 @@ class _Adventure_ToursState extends State<Adventure_Tours> {
                         height: 75,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("images/category_images/ADVENTURE/WhiteKnight.jpg"),
+                                image: AssetImage(
+                                    "images/category_images/ADVENTURE/WhiteKnight.jpg"),
                                 fit: BoxFit.fill,
-                                opacity: 0.5
-                            ),
+                                opacity: 0.5),
                             borderRadius: BorderRadius.circular(10),
-                            color: brownColor
-                        ),
+                            color: brownColor),
                         child: Center(
                           child: Text(
-                            "White Knight", style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AdobeDevanagari",
-                              fontSize: 20
-                          ),
+                            "White Knight",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "AdobeDevanagari",
+                                fontSize: 20),
                           ),
                         ),
                       ),
