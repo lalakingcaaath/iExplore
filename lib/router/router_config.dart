@@ -68,6 +68,7 @@ import 'package:i_explore/pages/edit_profile.dart';
 import 'package:i_explore/pages/homepage.dart';
 import 'package:i_explore/pages/category_pages/leisures.dart';
 import 'package:i_explore/pages/introductory.dart';
+import 'package:i_explore/pages/itinerary_generator.dart';
 import 'package:i_explore/pages/login.dart';
 import 'package:i_explore/pages/luzon.dart';
 import 'package:i_explore/pages/manila.dart';
@@ -456,6 +457,12 @@ final GoRouter routerConfig = GoRouter(
       GoRoute(
           path: "/downloads",
           builder: (context, state) => const Downloads()
+      ),
+
+      //Generate Itineraries
+      GoRoute(
+          path: "/generate",
+          builder: (context, state) => const ItineraryGenerator()
       ),
 
       //Chatbot

@@ -264,20 +264,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         },
                       )
                     ),
-                    Container(
-                      height: 20,
-                    ),
+                    SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.message_outlined,
-                          color: Colors.white,
-                          size: 40,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
                         Text(
                           "Having a problem with your planning?", style: TextStyle(
                           color: Colors.white,
@@ -287,55 +277,30 @@ class _MyHomePageState extends State<MyHomePage> {
                         )
                       ],
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Tap the ", style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "AdobeDevanagari",
-                            fontSize: 15
+                    SizedBox(height: 10),
+                    GestureDetector(
+                      onTap: () => context.push("/generate"),
+                      child: Container(
+                        width: 250,
+                        decoration: BoxDecoration(
+                          color: lightOrangeColor,
+                          borderRadius: BorderRadius.circular(20)
                         ),
-                        ),
-                        Image.asset("images/AI.png", width: 24, height: 24,),
-                        Text(
-                          " button", style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "AdobeDevanagari",
-                            fontSize: 15
-                        ),
-                        )
-                      ],
-                    ),
-                    Container(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 260,
-                          height: 75,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.white)
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "and let iExplorer PH suggest the best, most organized itineraries that match your style", style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: "AdobeDevanagari"
-                                ),
-                                ),
-                              ],
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Image.asset("images/AI-transparent.png", width: 40, color: Colors.black),
+                            Text(
+                              "Generate an Itinerary now!", style: TextStyle(
+                              fontFamily: "AdobeDevanagari",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              color: Colors.black
                             ),
-                          ),
-                        )
-                      ],
+                            )
+                          ],
+                        ),
+                      ),
                     )
                   ],
                 ),

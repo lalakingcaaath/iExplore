@@ -46,6 +46,7 @@ class _AdamsonState extends State<Adamson> {
                 )
               ],
             ),
+            SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -71,11 +72,34 @@ class _AdamsonState extends State<Adamson> {
             SizedBox(height: 10),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                "Adamson University has endured the tests of history, first as a Greek-run school and then as a Catholic and Vincentian institution. It has emerged academically richer and stronger, accumulating layers of knowledge and experience that sustain its mission to provide education—the kind that meets stringent standards of quality yet affordable to those who have less. Now beyond its Diamond Jubilee, it confidently and ably plays its role as an agent of personal as well as social transformation.", textAlign: TextAlign.justify, style: TextStyle(
-                  fontFamily: "AdobeDevanagari",
-                  fontSize: 15,
-                  color: Colors.white
+              child: RichText(
+                textAlign: TextAlign.justify,
+                text: TextSpan(
+                    style: TextStyle(
+                        fontFamily: "AdobeDevanagari",
+                        fontSize: 15,
+                        color: Colors.white
+                    ),
+                    children: [
+                      TextSpan(
+                          text: "Adamson University has endured the tests of history, "
+                              "first as a Greek-run school and then as a Catholic "
+                              "and Vincentian institution. It has emerged "
+                              "academically richer and stronger, accumulating "
+                              "layers of knowledge and experience that sustain its "
+                              "mission to provide education—the kind that meets "
+                              "stringent standards of quality yet affordable to those "
+                              "who have less. Now beyond its Diamond Jubilee, it "
+                              "confidently and ably plays its role as an agent of "
+                              "personal as well as social transformation.\n"
+                      ),
+                      TextSpan(
+                        text: "See more", style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                        recognizer: TapGestureRecognizer()..onTap = () {},
+                      )
+                    ]
                 ),
               ),
             ),
@@ -113,7 +137,7 @@ class _AdamsonState extends State<Adamson> {
                         ),
                         children: [
                           TextSpan(
-                            text: "Adamson University soars in 2024\nQS Asia Rankings\n", style: TextStyle(
+                            text: "Adamson University soars in\n2024 QS Asia Rankings\n", style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 15
                             )
@@ -133,7 +157,7 @@ class _AdamsonState extends State<Adamson> {
                     ),
                   ),
                   Spacer(),
-                  Image.asset("images/adu_news.JPG", width: 150)
+                  Image.asset("images/adu_news.JPG", width: 200)
                 ],
               ),
             ),
@@ -190,6 +214,7 @@ class _AdamsonState extends State<Adamson> {
                 )
               ],
             ),
+            SizedBox(height: 10),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
@@ -216,6 +241,7 @@ class _AdamsonState extends State<Adamson> {
                       fontSize: 18,
                       color: Colors.white,
                       decoration: TextDecoration.underline,
+                      decorationThickness: 2,
                       decorationColor: Colors.white
                     ),
                   )

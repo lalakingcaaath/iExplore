@@ -50,6 +50,7 @@ dependencies:
     typethis: ^1.0.0
     google_generative_ai: ^0.4.0
     flutter_markdown: ^0.7.1
+    flutter_image_slideshow: ^0.1.6
 
 dev_dependencies:
     flutter_test:
