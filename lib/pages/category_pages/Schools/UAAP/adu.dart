@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
@@ -97,15 +95,14 @@ class _AdamsonState extends State<Adamson> {
                                 "confidently and ably plays its role as an agent of "
                                 "personal as well as social transformation.\n"),
                         TextSpan(
-                          text: "See more",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () => launchUrlString(
-                                "https://www.adamson.edu.ph/v1/?page=about",
-                                mode: LaunchMode.externalApplication)
-                        )
+                            text: "See more",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => launchUrlString(
+                                  "https://www.adamson.edu.ph/v1/?page=about",
+                                  mode: LaunchMode.externalApplication))
                       ]),
                 ),
               ),
@@ -152,13 +149,12 @@ class _AdamsonState extends State<Adamson> {
                                       "Adamson University was ranked in\nthe top 5 best universities"
                                       "in the\nPhilippines after it posted vast\nimprovements in the results of\nQS’ annual review.\n"),
                               TextSpan(
-                                text: "Read more",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () => launchUrlString(
-                                "https://www.adamson.edu.ph/v1/?page=view-news&newsid=2711",
-                                mode: LaunchMode.externalApplication)
-                              )
+                                  text: "Read more",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () => launchUrlString(
+                                        "https://www.adamson.edu.ph/v1/?page=view-news&newsid=2711",
+                                        mode: LaunchMode.externalApplication))
                             ]),
                       ),
                     ),
