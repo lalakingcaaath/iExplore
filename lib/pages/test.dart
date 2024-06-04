@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:i_explore/provider/coin_provider.dart';
 import 'package:i_explore/services/auth_service.dart';
 import 'package:i_explore/services/firestore_service.dart';
+import 'package:i_explore/services/generativeAI_service.dart';
 import 'package:provider/provider.dart';
 
 class Test extends StatefulWidget {
@@ -71,6 +72,19 @@ class _TestState extends State<Test> {
                       child: Text('Get Itinaries')),
                 ],
               ),
+              Row(
+                children: [
+                  ElevatedButton(
+                    onPressed: () async {
+                      GenerativeAIService aiService = GenerativeAIService();
+
+                      await aiService.promptCommand(
+                          'give me a example json data such as names, age');
+                    },
+                    child: Text('AI Prompt'),
+                  )
+                ],
+              )
             ],
           ),
         ),
