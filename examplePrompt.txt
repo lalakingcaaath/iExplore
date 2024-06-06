@@ -1,0 +1,75 @@
+give me a itineraries in the philippines given on based preference: 2 day, 3 hours, culinary, 3000 pesos budget, optional: none. response in json format
+
+{
+  itinerary: {
+   category: '', // culinary, adventure
+   duration: '', // 1 day
+   time_of_day: '', // 3 hours
+   budget: , // 1000 pesos
+   activities: [
+   {
+    day: 1,
+    activity: [
+     {
+     time: '', // 9:00am - 10:00am
+     location: '',
+     'what_to_do': '' // eatin
+     },
+
+     {
+     time: '10:00am - 11:00am',
+     location: 'dampa',
+     'what_to_do': 'eating'
+     }
+    ]
+   },
+   ]
+  }
+ }
+
+ // example format of json. 
+ // limit 3-5 activity
+ // if 6 or more day duartion. activites should be limited to day: 2 - 4 
+
+Example prompt coming from gemini API
+
+{
+"itinerary": {
+"category": "culinary",
+"duration": "2 days",
+"time_of_day": "3 hours",
+"budget": 3000,
+"activities": [
+{
+"day": 1,
+"activity": [
+{
+"time": "9:00am - 10:00am",
+"location": "Antipolo Public Market",
+"what_to_do": "Explore and taste local delicacies (Puso ng Saging, Buko Pie, suman)"
+},
+{
+"time": "10:00am - 11:00am",
+"location": "Margherita's Pizza",
+"what_to_do": "Lunch (Try their bestselling thin-crust pizza)"
+}
+]
+},
+{
+"day": 2,
+"activity": [
+{
+"time": "9:00am - 10:00am",
+"location": "Angeles de Pata Restaurant",
+"what_to_do": "Breakfast (Try their signature pata dish)"
+},
+{
+"time": "10:00am - 11:00am",
+"location": "Hinulugang Tak Tak",
+"what_to_do": "Visit and taste local delicacies (Tapa, longganisa, ensaymada)"
+}
+]
+}
+]
+}
+}

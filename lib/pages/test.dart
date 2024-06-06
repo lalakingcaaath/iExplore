@@ -19,10 +19,10 @@ class _TestState extends State<Test> {
 
   Future<void> generate() async {
     isLoading = true;
-    GenerativeAIService aiService = GenerativeAIService();
+    GenerativeAIService aiService = GenerativeAIService()
 
     String prompt = await aiService.promptCommand(
-        "give me a itineraries in the philippines given on based preference: 2 day, 5 hours, culinary, 3000 pesos budget, optional: none. response in json format. example {itinerary: {duration: , // 1 day time_of_day: , // 3 hours theme: ,budget: ,activities: [{time: , // 8:00am - 9:00am location: ,what_to_do: ,},// just limit 3 to 5 activities] }}");
+        "give me a itineraries in the philippines given on based preference: 2 day, 3 hours, culinary, 3000 pesos budget, optional: none. response in json format. example {itinerary: {duration: , // 1 day time_of_day: , // 3 hours theme: ,budget: ,activities: [{time: , // 8:00am - 9:00am location: ,what_to_do: ,},// just limit 3 to 5 activities] }}");
     Map<String, dynamic> promptJson = aiService.promptToJson(prompt);
     print(prompt);
     itinerary = Itinerary.fromJson(promptJson);
