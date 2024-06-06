@@ -19,7 +19,7 @@ class _TestState extends State<Test> {
 
   Future<void> generate() async {
     isLoading = true;
-    GenerativeAIService aiService = GenerativeAIService()
+    GenerativeAIService aiService = GenerativeAIService();
 
     String prompt = await aiService.promptCommand(
         "give me a itineraries in the philippines given on based preference: 2 day, 3 hours, culinary, 3000 pesos budget, optional: none. response in json format. example {itinerary: {duration: , // 1 day time_of_day: , // 3 hours theme: ,budget: ,activities: [{time: , // 8:00am - 9:00am location: ,what_to_do: ,},// just limit 3 to 5 activities] }}");
@@ -126,7 +126,7 @@ Widget buildItineraryTable(Itinerary itinerary) {
             ),
           ),
           TableCell(
-            child: Text(itinerary.theme),
+            child: Text(itinerary.category),
           ),
         ],
       ),
@@ -152,7 +152,7 @@ Widget buildItineraryTable(Itinerary itinerary) {
             ),
           ),
           TableCell(
-            child: Text(itinerary.budget),
+            child: Text(itinerary.budget as String),
           ),
         ],
       ),
@@ -166,7 +166,7 @@ Widget buildItineraryTable(Itinerary itinerary) {
         TableCell(child: Text('')),
       ]),
       ...itinerary.activities
-          .map((activity) => buildActivityRow(activity))
+          .map((activity) => buildActivityRow(activity as Activity))
           .toList(),
     ],
   );

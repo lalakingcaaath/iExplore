@@ -1,25 +1,31 @@
-give me a itineraries in the philippines given on based preference: 2 day, 3 hours, culinary, 3000 pesos budget, optional: none. response in json format
+give me a itineraries in the philippines given on based preference: 1 day, 3 hours, culinary, 100 pesos budget, optional: none. 
 
 {
+  
+}
+
+response in json format
+{
   itinerary: {
-   category: '', // culinary, adventure
-   duration: '', // 1 day
-   time_of_day: '', // 3 hours
-   budget: , // 1000 pesos
+   id: '',
+   category: '',
+   duration: '', 
+   number_of_days: '', 
+   budget: , 
+   remarks: ,
    activities: [
    {
     day: 1,
     activity: [
      {
-     time: '', // 9:00am - 10:00am
-     location: '',
-     'what_to_do': '' // eatin
-     },
+     time: '', 
+     location: '', 
+     'what_to_do': [] 
 
      {
-     time: '10:00am - 11:00am',
-     location: 'dampa',
-     'what_to_do': 'eating'
+     time: '',
+     location: '', 
+     'what_to_do': [] 
      }
     ]
    },
@@ -27,49 +33,43 @@ give me a itineraries in the philippines given on based preference: 2 day, 3 hou
   }
  }
 
- // example format of json. 
+ CONSTRAINTS: 
+ // format of json. 
  // limit 3-5 activity
  // if 6 or more day duartion. activites should be limited to day: 2 - 4 
+ // what_to_do is array of what people should do in that place. 
+ // location should be specific, and also searchable in google map e.g. name of establishment, food stalls, museum
+ // time is formatted in "10:00am - 11:00am"
+ // duration is formatted in "3 hours"
+ // number_of_days is formatted in "2 days"
+ // budget is formatted in "1000 peso"
+ // give remarks if necessary to the road trip 
+ // in id field. just generate random small and big letters and number (encrypted like) e.g. xxxxxx-xxxxxx
 
-Example prompt coming from gemini API
-
 {
-"itinerary": {
-"category": "culinary",
-"duration": "2 days",
-"time_of_day": "3 hours",
-"budget": 3000,
-"activities": [
-{
-"day": 1,
-"activity": [
-{
-"time": "9:00am - 10:00am",
-"location": "Antipolo Public Market",
-"what_to_do": "Explore and taste local delicacies (Puso ng Saging, Buko Pie, suman)"
-},
-{
-"time": "10:00am - 11:00am",
-"location": "Margherita's Pizza",
-"what_to_do": "Lunch (Try their bestselling thin-crust pizza)"
-}
-]
-},
-{
-"day": 2,
-"activity": [
-{
-"time": "9:00am - 10:00am",
-"location": "Angeles de Pata Restaurant",
-"what_to_do": "Breakfast (Try their signature pata dish)"
-},
-{
-"time": "10:00am - 11:00am",
-"location": "Hinulugang Tak Tak",
-"what_to_do": "Visit and taste local delicacies (Tapa, longganisa, ensaymada)"
-}
-]
-}
-]
-}
+  "itinerary": {
+    "id": "KL78g23B",
+    "category": "Culinary",
+    "duration": "3 hours",
+    "number_of_days": 1,
+    "budget": "100 pesos",
+    "remarks": "This itinerary explores budget-friendly Filipino breakfast options in Antipolo that can be enjoyed for under 100 pesos. Remember, prices may vary depending on the vendor.",
+    "activities": [
+      {
+        "day": 1,
+        "activity": [
+          {
+            "time": "7:00am - 8:00am",
+            "location": "Silog (garlic rice with a protein) Carinderias near Antipolo Public Market",
+            "what_to_do": ["Choose from various silog options like tapsilog (cured beef), longganisalog (sausage), or bangusilog (milkfish) - all with garlic rice and a fried egg (around 30-50 pesos per plate)"]
+          },
+          {
+            "time": "8:30am - 9:00am",
+            "location": "Pandesal Vendors around Antipolo Cathedral",
+            "what_to do": ["Enjoy pandesal (sweet bread roll) with coffee or hot chocolate for a classic Filipino breakfast (around 10-20 pesos per piece)"]
+          }
+        ]
+      }
+    ]
+  }
 }
