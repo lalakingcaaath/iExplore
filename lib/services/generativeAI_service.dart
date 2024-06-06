@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:google_generative_ai/google_generative_ai.dart';
 
 class GenerativeAIService {
@@ -10,23 +12,29 @@ class GenerativeAIService {
     model = GenerativeModel(model: this.modelPro, apiKey: this.apiKey);
   }
 
-  Future<void> promptCommand(String prompt, {bool isJson = false}) async {
+  Future<String> promptCommand(String prompt, {bool isJson = false}) async {
     final GenerationConfig genConfig;
 
     if (!isJson) {
       genConfig = GenerationConfig(responseMimeType: 'application/json');
     } else {
-      genConfig = GenerationConfig(responseMimeType: 'application/json');
+      genConfig = GenerationConfig(responseMimeType: 'text/plain');
     }
 
     try {
       final content = [Content.text(prompt)];
       final response =
           await model.generateContent(content, generationConfig: genConfig);
-      String? responseText = response.text;
-      print(responseText);
+      String responseText = response.text!;
+      // print(responseText);
+      return responseText;
     } catch (e) {
       print(e);
+      return '';
     }
+  }
+
+  Map<String, dynamic> promptToJson(String json) {
+    return jsonDecode(json);
   }
 }
