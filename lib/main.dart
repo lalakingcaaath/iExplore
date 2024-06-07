@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:i_explore/provider/coin_provider.dart';
 import 'package:i_explore/provider/day_provider.dart';
+import 'package:i_explore/provider/itinerary_provider.dart';
 import 'package:i_explore/router/router_config.dart';
 import 'package:i_explore/services/auth_service.dart';
 import 'package:i_explore/services/firestorage_service.dart';
@@ -26,6 +27,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<DayProvider>(create: (_) => DayProvider()),
+        ChangeNotifierProvider<ItineraryProvider>(
+            create: (_) => ItineraryProvider()),
         ChangeNotifierProvider<CoinProvider>(create: (_) => CoinProvider()),
         Provider<FirebaseStorageService>(
             create: (_) => FirebaseStorageService()),
