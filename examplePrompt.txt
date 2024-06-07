@@ -7,7 +7,6 @@ give me a itineraries in the philippines given on based preference: 1 day, 3 hou
 response in json format
 {
   itinerary: {
-   id: '',
    category: '',
    duration: '', 
    number_of_days: '', 
@@ -40,11 +39,10 @@ response in json format
  // what_to_do is array of what people should do in that place. 
  // location should be specific, and also searchable in google map e.g. name of establishment, food stalls, museum
  // time is formatted in "10:00am - 11:00am"
- // duration is formatted in "3 hours"
- // number_of_days is formatted in "2 days"
- // budget is formatted in "1000 peso"
+ // duration is integer
+ // number_of_days is integer
+ // budget is double  
  // give remarks if necessary to the road trip 
- // in id field. just generate random small and big letters and number (encrypted like) e.g. xxxxxx-xxxxxx
 
 {
   "itinerary": {

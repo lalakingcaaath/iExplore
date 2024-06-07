@@ -26,7 +26,7 @@ class GenerativeAIService {
       final response =
           await model.generateContent(content, generationConfig: genConfig);
       String responseText = response.text!;
-      // print(responseText);
+      print(responseText);
       return responseText;
     } catch (e) {
       print(e);

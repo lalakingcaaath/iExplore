@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/components/FloatingButtonNavBarComponent.dart';
 import 'package:i_explore/components/HeaderAppBarComponent.dart';
+import 'package:i_explore/services/generativeAI_service.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:go_router/go_router.dart';
 import 'package:i_explore/services/auth_service.dart';
+import 'package:i_explore/utils/helper.dart';
 import 'package:provider/provider.dart';
 import 'package:typethis/typethis.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
@@ -20,7 +23,6 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
   String? _name;
   int day = 1;
   int hour = 1;
-  bool isHidden = false;
   bool isCulinary = false;
   bool isAdventure = false;
   bool isEcotourism = false;
@@ -30,11 +32,60 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
   bool isHotels = false;
   bool isCultural = false;
 
+  final TextEditingController _optionalText = TextEditingController();
+  final TextEditingController _budget = TextEditingController();
+
   @override
   void initState() {
     super.initState();
     AuthService authService = Provider.of<AuthService>(context, listen: false);
     _name = authService.user?.displayName;
+  }
+
+  @override
+  void dispose() {
+    _optionalText.dispose();
+    _budget.dispose();
+    super.dispose();
+  }
+
+  void generateItinerary() async {
+    String optionalTextValue = _optionalText.text.trim();
+    String budgetValue = _budget.text.trim();
+    List<String> category = [];
+
+    if (isCulinary) category.add('Culinary');
+    if (isAdventure) category.add('Adventure');
+    if (isEcotourism) category.add('Ecotourism');
+    if (isLeisure) category.add('Leisure');
+    if (isSchools) category.add('Schools');
+    if (isPilgrimage) category.add('Pilgrimage');
+    if (isHotels) category.add('Hotels');
+    if (isCultural) category.add('Cultural');
+
+    // * validator
+    if (category.isEmpty) {
+      print('Please select one or more category');
+      return;
+    }
+
+    if (budgetValue.isEmpty) {
+      print('please add budget value');
+      return;
+    }
+
+    print(
+        "Day: ${day} \n Hour: ${hour} \n Budget: ${budgetValue} \n Optional Text: ${optionalTextValue} \n Categories: $category");
+
+    // * preparing statement  
+    String prompt =
+        itineraryPrompt(day, hour, category, int.parse(budgetValue));
+
+    // * create an instance class 
+    GenerativeAIService aiService = GenerativeAIService();
+    await aiService.promptCommand(prompt);
+
+    // TODO create a loading screen indicator and redirect it to another page
   }
 
   void dayIncrement() {
@@ -560,6 +611,11 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                             child: SizedBox(
                               width: 100, // Adjust width of TextField as needed
                               child: TextField(
+                                controller: _budget,
+                                keyboardType: TextInputType.number,
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.digitsOnly
+                                ],
                                 obscureText: false,
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
@@ -627,6 +683,7 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
                                 width: 290,
                                 height: 50,
                                 child: TextField(
+                                  controller: _optionalText,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                       border: InputBorder.none,
@@ -656,7 +713,7 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
               ),
               SizedBox(height: 10),
               GestureDetector(
-                onTap: () => context.push("/manila_itinerary"),
+                onTap: generateItinerary,
                 child: Container(
                   width: 200,
                   decoration: BoxDecoration(
