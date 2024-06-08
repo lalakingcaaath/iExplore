@@ -14,6 +14,7 @@ import 'package:i_explore/pages/homepage.dart';
 import 'package:i_explore/pages/category_pages/leisures.dart';
 import 'package:i_explore/pages/introductory.dart';
 import 'package:i_explore/pages/itinerary_generator.dart';
+import 'package:i_explore/pages/itinerary_table.dart';
 import 'package:i_explore/pages/login.dart';
 import 'package:i_explore/pages/luzon.dart';
 import 'package:i_explore/pages/manila.dart';
@@ -120,6 +121,11 @@ final GoRouter routerConfig = GoRouter(
       GoRoute(
           path: '/manila_itinerary',
           builder: (context, state) => const Manila_Itinerary()),
+
+      GoRoute(
+        path: '/itinerary_table',
+        builder: (context, state) => const Itinerary_Table(),
+      ),
 
       GoRoute(
         path: '/profile',

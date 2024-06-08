@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:i_explore/model/itinerary_model.dart';
 import 'package:i_explore/provider/coin_provider.dart';
+import 'package:i_explore/provider/itinerary_provider.dart';
 import 'package:i_explore/services/auth_service.dart';
 import 'package:i_explore/services/firestore_service.dart';
 import 'package:i_explore/services/generativeAI_service.dart';
@@ -100,7 +101,18 @@ class _TestState extends State<Test> {
                   ElevatedButton(
                     onPressed: generate,
                     child: Text('AI Prompt'),
-                  )
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        Itinerary? itinerary = Provider.of<ItineraryProvider>(
+                                context,
+                                listen: false)
+                            .itineraryVal;
+                        if (itinerary != null) {
+                          print(itinerary.id);
+                        }
+                      },
+                      child: Text('Fetch Itinerary'))
                 ],
               ),
             ],

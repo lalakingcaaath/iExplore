@@ -99,7 +99,7 @@ class _ItineraryGeneratorState extends State<ItineraryGenerator> {
 
       setState(() => isLoading = false);
 
-      context.
+      context.push('/itinerary_table');
     } catch (error) {
       print(error);
       setState(() => isLoading = false);
