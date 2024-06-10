@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:i_explore/model/itinerary_model.dart';
 import 'package:i_explore/provider/coin_provider.dart';
@@ -115,6 +117,25 @@ class _TestState extends State<Test> {
                       child: Text('Fetch Itinerary'))
                 ],
               ),
+              Row(
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        Itinerary? itinerary = Provider.of<ItineraryProvider>(
+                                context,
+                                listen: false)
+                            .itineraryVal;
+                        var example = itinerary?.toJson();
+
+                        print(example);
+                        // print('fetch from provider');
+                        // Itinerary itiObj = Itinerary.fromJson(example);
+
+                        // print('done');
+                      },
+                      child: Text('Get itinerary in JSON'))
+                ],
+              )
             ],
           ),
         ),

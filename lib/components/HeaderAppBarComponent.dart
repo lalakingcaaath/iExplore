@@ -36,10 +36,10 @@ class _HeaderAppBarComponentState extends State<HeaderAppBarComponent> {
             title: Text(
               widget.headerTitle.toUpperCase(),
               style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'FSP-Demo',
-                fontWeight: FontWeight.w500,
-              ),
+                  color: Colors.white,
+                  fontFamily: 'FSP-Demo',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20),
             ),
             actions: [
               Container(

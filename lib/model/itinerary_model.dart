@@ -27,6 +27,21 @@ class Itinerary {
       activities: (json['itinerary']['activities'] as List)
           .map((activity) => Activity.fromJson(activity))
           .toList());
+
+  // * make model class to be formatted in json
+
+  // ? is there a easy way to this?
+  Map<String, dynamic> toJson() => {
+        "\"itinerary\"": {
+          "\"id\"": "\"${id}\"",
+          "\"duration\"": duration,
+          "\"number_of_days\"": numberOfDays,
+          "\"budget\"": budget,
+          "\"remarks\"": "\"${remarks}\"",
+          "\"activities\"":
+              activities.map((activity) => activity.toJson()).toList()
+        }
+      };
 }
 
 class Activity {
@@ -43,6 +58,11 @@ class Activity {
       activity: (json['activity'] as List)
           .map((detail) => ActivityDetail.fromJson(detail))
           .toList());
+
+  Map<String, dynamic> toJson() => {
+        "\"day\"": day,
+        "\"activity\"": activity.map((actDetail) => actDetail.toJson()).toList()
+      };
 }
 
 class ActivityDetail {
@@ -61,4 +81,10 @@ class ActivityDetail {
         location: json['location'] as String,
         whatToDo: json["what_to_do"] as String,
       );
+
+  Map<String, dynamic> toJson() => {
+        "\"time\"": "\"${time}\"",
+        "\"location\"": "\"${location}\"",
+        "\"what_to_do\"": "\"${whatToDo}\""
+      };
 }

@@ -10,4 +10,5 @@ class ItineraryProvider extends ChangeNotifier {
     _itinerary = Itinerary.fromJson(json);
     notifyListeners();
   }
+
 }

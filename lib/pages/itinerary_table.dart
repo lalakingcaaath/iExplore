@@ -220,7 +220,7 @@ class _Itinerary_TableState extends State<Itinerary_Table> {
                       )
                     ],
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 34),
                 ],
               ),
             ),
@@ -447,42 +447,33 @@ Widget buildItineraryTable(Activity activity) {
 
 TableRow buildActivityDetailRow(ActivityDetail details) {
   return TableRow(children: [
-    Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TableCell(
-          child: Center(
-        child: Text(
-          details.time.trim(),
-          style: TextStyle(
-            fontFamily: 'AdobeDevanagari',
-            fontSize: 16,
-            color: Colors.white,
-          ),
-        ),
-      )),
-    ),
-    Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TableCell(
-          child: Center(
-              child: Text(details.location.trim(),
-                  style: TextStyle(
-                    fontFamily: 'AdobeDevanagari',
-                    fontSize: 16,
-                    color: Colors.white,
-                  )))),
-    ),
-    Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TableCell(
-          child: Text(
-        details.whatToDo.trim(),
+    TableCell(
+        child: Center(
+      child: Text(
+        details.time.trim(),
         style: TextStyle(
           fontFamily: 'AdobeDevanagari',
           fontSize: 16,
           color: Colors.white,
         ),
-      )),
-    ),
+      ),
+    )),
+    TableCell(
+        child: Center(
+            child: Text(details.location.trim(),
+                style: TextStyle(
+                  fontFamily: 'AdobeDevanagari',
+                  fontSize: 16,
+                  color: Colors.white,
+                )))),
+    TableCell(
+        child: Text(
+      details.whatToDo.trim(),
+      style: TextStyle(
+        fontFamily: 'AdobeDevanagari',
+        fontSize: 16,
+        color: Colors.white,
+      ),
+    )),
   ]);
 }
