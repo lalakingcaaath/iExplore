@@ -12,22 +12,7 @@ class FirestoreService {
   final users = db.collection('users');
   final itineraries = db.collection('itineraries');
 
-  void addUser() {
-    db.collection('users').doc(userId).set({'iCoins': 0}).onError(
-        (error, stackTrace) => print('Error writing document: $error'));
-  }
-
-  void addSampleCoins(int coinValue) {
-    final sampleData = <String, dynamic>{
-      "iCoins": FieldValue.increment(coinValue),
-      "updatedAt": FieldValue.serverTimestamp(),
-    };
-
-    db.collection('users').doc(userId).update(sampleData).onError(
-        (error, stackTrace) => print('Error writing document: $error'));
-
-    print('Added coins');
-  }
+  // ! all functions below might be deleted
 
   Future<void> getIternaries(String region, String city) async {
     try {
@@ -65,6 +50,38 @@ class FirestoreService {
     }
   }
 
+  // * itinerary function
+  // TODO add firestore functions
+
+  Future<void> saveItirenary(Map<String, dynamic> json) async {
+    try {
+      await users.doc(userId).collection('generated_itinerary').doc().set(json);
+
+      print('saved');
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  // * coin functions
+
+  void addUserCoins() {
+    db.collection('users').doc(userId).set({'iCoins': 0}).onError(
+        (error, stackTrace) => print('Error writing document: $error'));
+  }
+
+  void addSampleCoins(int coinValue) {
+    final sampleData = <String, dynamic>{
+      "iCoins": FieldValue.increment(coinValue),
+      "updatedAt": FieldValue.serverTimestamp(),
+    };
+
+    db.collection('users').doc(userId).update(sampleData).onError(
+        (error, stackTrace) => print('Error writing document: $error'));
+
+    print('Added coins');
+  }
+
   void removeSampleCoins(int coinValue) {
     final sampleData = <String, dynamic>{
       "iCoins": FieldValue.increment(-coinValue),
@@ -83,7 +100,7 @@ class FirestoreService {
 
       if (!docRef.exists) {
         // create a document if user doesnt exists in the database
-        addUser();
+        addUserCoins();
         // then show the value of coin as 0
         return Coin(coinValue: 0);
       }
@@ -97,18 +114,16 @@ class FirestoreService {
   }
 }
 
+// Future<void> getIternaries() async {
+//   // sample collection manila_itineraries
+//   // then documents such as
+//   //  -> LsM9TWEgtBIJ0UjKxmRi
+//   //  ----> then. they should have a subcollections: comments & sched
+//   //  -------> comments (collection) - uniqueid (document) - {comment, name, rating, commentPosted} (fields)
 
-
-  // Future<void> getIternaries() async {
-  //   // sample collection manila_itineraries
-  //   // then documents such as
-  //   //  -> LsM9TWEgtBIJ0UjKxmRi
-  //   //  ----> then. they should have a subcollections: comments & sched
-  //   //  -------> comments (collection) - uniqueid (document) - {comment, name, rating, commentPosted} (fields)
-
-  //   db.collection('manila_itineraries').get().then((querySnap) {
-  //     for (var i in querySnap.docs) {
-  //       print('${i.id} => ${i.data()}');
-  //     }
-  //   });
-  // }
+//   db.collection('manila_itineraries').get().then((querySnap) {
+//     for (var i in querySnap.docs) {
+//       print('${i.id} => ${i.data()}');
+//     }
+//   });
+// }

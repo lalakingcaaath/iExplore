@@ -8,6 +8,7 @@ import 'package:i_explore/components/BottomNavigationBarComponent.dart';
 import 'package:i_explore/components/MapComponent.dart';
 import 'package:i_explore/model/itinerary_model.dart';
 import 'package:i_explore/provider/itinerary_provider.dart';
+import 'package:i_explore/services/firestore_service.dart';
 import 'package:i_explore/utils/colors.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:i_explore/services/auth_service.dart';
@@ -143,11 +144,10 @@ class _Itinerary_TableState extends State<Itinerary_Table> {
                               ),
                               Spacer(),
                               GestureDetector(
-                                  onTap: () {
-                                    showDialog(
-                                        context: context,
-                                        builder: (BuildContext context) =>
-                                            const CustomDialogWidget());
+                                  onTap: () async {
+                                    var toJson = itinerary?.toJson();
+                                    print(toJson);
+                                    FirestoreService().saveItirenary(toJson!);
                                   },
                                   child: Icon(
                                       Icons.download_for_offline_outlined,

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:i_explore/model/itinerary_model.dart';
 import 'package:i_explore/provider/coin_provider.dart';

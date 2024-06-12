@@ -30,7 +30,7 @@ class Itinerary {
 
   // * make model class to be formatted in json
 
-  // ? is there a easy way to this?
+  // ? is there a easy way to do this?
   Map<String, dynamic> toJson() => {
         "\"itinerary\"": {
           "\"id\"": "\"${id}\"",
