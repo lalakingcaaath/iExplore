@@ -147,7 +147,7 @@ class _Itinerary_TableState extends State<Itinerary_Table> {
                                   onTap: () async {
                                     var toJson = itinerary?.toJson();
                                     print(toJson);
-                                    FirestoreService().saveItirenary(toJson!);
+                                    FirestoreService().saveItinenary(toJson!);
                                   },
                                   child: Icon(
                                       Icons.download_for_offline_outlined,

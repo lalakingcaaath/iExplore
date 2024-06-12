@@ -53,11 +53,40 @@ class FirestoreService {
   // * itinerary function
   // TODO add firestore functions
 
-  Future<void> saveItirenary(Map<String, dynamic> json) async {
+  Future<void> saveItinenary(Map<String, dynamic> json) async {
     try {
+      // TODO improvements in code are needed
       await users.doc(userId).collection('generated_itinerary').doc().set(json);
 
       print('saved');
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  // TODO add array of itineraries
+  Future<void> getAllItinenary() async {
+    try {
+      final collection = users.doc(userId).collection('generated_itinerary');
+
+      final querySnapshot = await collection.get();
+
+      for (var docSnapshot in querySnapshot.docs) {
+        print('${docSnapshot.id} => ${docSnapshot.data()}');
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  // TODO integrate with table
+  Future<void> getItineraryById(String id) async {
+    try {
+      final collection =
+          users.doc(userId).collection('generated_itinerary').doc(id);
+      final querySnapshot = await collection.get();
+
+      print(querySnapshot.data());
     } catch (e) {
       print(e);
     }

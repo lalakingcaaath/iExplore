@@ -118,20 +118,35 @@ class _TestState extends State<Test> {
               Row(
                 children: [
                   ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         Itinerary? itinerary = Provider.of<ItineraryProvider>(
                                 context,
                                 listen: false)
                             .itineraryVal;
                         var example = itinerary?.toJson();
+                        await FirestoreService().saveItinenary(example!);
 
-                        print(example);
                         // print('fetch from provider');
                         // Itinerary itiObj = Itinerary.fromJson(example);
 
                         // print('done');
                       },
-                      child: Text('Get itinerary in JSON'))
+                      child: Text('Save itinerary to firestore')),
+                  ElevatedButton(
+                      onPressed: () async {
+                        await FirestoreService().getAllItinenary();
+                      },
+                      child: Text('Retrieve'))
+                ],
+              ),
+              Row(
+                children: [
+                  ElevatedButton(
+                      onPressed: () async {
+                        await FirestoreService()
+                            .getItineraryById('w8iqT78B9PY2omx39RdB');
+                      },
+                      child: Text('Retrieve by id'))
                 ],
               )
             ],
