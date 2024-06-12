@@ -10,7 +10,7 @@ class CoinProvider extends ChangeNotifier {
   void fetchCoinData() async {
     try {
       _coin = await FirestoreService().readCoinData();
-      print(_coin!.coinValue);
+      // print(_coin!.coinValue);
       notifyListeners();
     } catch (err) {
       throw Exception(err);

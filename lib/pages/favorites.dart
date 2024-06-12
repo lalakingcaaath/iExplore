@@ -27,7 +27,8 @@ class _FavoritesState extends State<Favorites> {
   void initState() {
     super.initState();
     AuthService _authService = Provider.of<AuthService>(context, listen: false);
-    _userID = _authService.user!.uid; // Store userUid in the class-level variable
+    _userID =
+        _authService.user!.uid; // Store userUid in the class-level variable
     print('UserUID: $_userID');
   }
 
@@ -70,12 +71,12 @@ class _FavoritesState extends State<Favorites> {
               SizedBox(height: 20),
               Center(
                 child: Text(
-                  "Itineraries", style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: "FSP-Demo",
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20
-                ),
+                  "Itineraries",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: "FSP-Demo",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
                 ),
               ),
               FutureBuilder(
@@ -94,12 +95,12 @@ class _FavoritesState extends State<Favorites> {
                       if (favorites.isEmpty) {
                         return Center(
                           child: Text(
-                            "No favorites yet.", style: TextStyle(
-                              fontFamily: 'FSP-Demo',
-                              fontWeight: FontWeight.w500,
-                              fontSize: 20,
-                              color: Colors.white
-                          ),
+                            "No favorites yet.",
+                            style: TextStyle(
+                                fontFamily: 'FSP-Demo',
+                                fontWeight: FontWeight.w500,
+                                fontSize: 20,
+                                color: Colors.white),
                           ),
                         );
                       } else {
@@ -108,7 +109,9 @@ class _FavoritesState extends State<Favorites> {
                             physics: NeverScrollableScrollPhysics(),
                             itemCount: favorites.length,
                             itemBuilder: (context, index) {
-                              Map<String, dynamic> favoriteDate = favorites[index].data() as Map<String, dynamic>;
+                              Map<String, dynamic> favoriteDate =
+                                  favorites[index].data()
+                                      as Map<String, dynamic>;
                               String itinerary = favoriteDate["itinerary"];
                               String imagePath = favoriteDate["imagePath"];
                               return Dismissible(
@@ -123,39 +126,41 @@ class _FavoritesState extends State<Favorites> {
                                 background: Container(
                                   color: Colors.red,
                                   alignment: Alignment.centerRight,
-                                  child: Icon(Icons.delete, color: Colors.white, size: 50),
+                                  child: Icon(Icons.delete,
+                                      color: Colors.white, size: 50),
                                 ),
                                 child: Column(
                                   children: [
                                     Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Center(
                                             child: Text(
-                                              itinerary, textAlign: TextAlign.center, style: TextStyle(
-                                                fontFamily: 'FSP-Demo',
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 20,
-                                                color: Colors.white
-                                            ),
+                                              itinerary,
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  fontFamily: 'FSP-Demo',
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 20,
+                                                  color: Colors.white),
                                             ),
                                           )
-                                        ]
-                                    ),
+                                        ]),
                                     SizedBox(height: 20),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Container(
                                           width: 325,
                                           height: 200,
                                           decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(20),
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
                                               image: DecorationImage(
                                                   image: AssetImage(imagePath),
-                                                  fit: BoxFit.fill
-                                              )
-                                          ),
+                                                  fit: BoxFit.fill)),
                                         )
                                       ],
                                     ),
@@ -163,21 +168,111 @@ class _FavoritesState extends State<Favorites> {
                                   ],
                                 ),
                               );
-                            }
-                        );
+                            });
                       }
                     }
-                  }
+                  }),
+              SizedBox(height: 20),
+              Container(
+                height: 80,
+                width: 320,
+                margin: const EdgeInsets.only(top: 10),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: lightOrangeColor),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Paris Adventure: 4 Days of History and Charm",
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        softWrap: true,
+                        style: TextStyle(
+                          fontFamily: "AdobeDevanagari",
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: brownColor,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.sunny,
+                                color: brownColor,
+                              ),
+                              SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                "1 day",
+                                style: TextStyle(
+                                    fontFamily: 'FSP-Demo',
+                                    fontWeight: FontWeight.w900,
+                                    color: brownColor),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.alarm,
+                                color: brownColor,
+                              ),
+                              SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                "6 hrs",
+                                style: TextStyle(
+                                    fontFamily: 'FSP-Demo',
+                                    fontWeight: FontWeight.w900,
+                                    color: brownColor),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                "₱",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    color: brownColor),
+                              ),
+                              Text(
+                                "5000",
+                                style: TextStyle(
+                                    fontFamily: 'FSP-Demo',
+                                    fontWeight: FontWeight.w900,
+                                    color: brownColor),
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
               ),
               SizedBox(height: 20),
               Center(
                 child: Text(
-                  "Schedule", style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: "FSP-Demo",
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20
-                ),
+                  "Schedule",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: "FSP-Demo",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
                 ),
               ),
             ],

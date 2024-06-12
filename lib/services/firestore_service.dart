@@ -50,15 +50,15 @@ class FirestoreService {
     }
   }
 
-  // * itinerary function
+  // * itinerary functions
   // TODO add firestore functions
 
   Future<void> saveItinenary(Map<String, dynamic> json) async {
     try {
       // TODO improvements in code are needed
-      await users.doc(userId).collection('generated_itinerary').doc().set(json);
 
-      print('saved');
+      json['isFavorite'] = false;
+      await users.doc(userId).collection('generated_itinerary').doc().set(json);
     } catch (e) {
       print(e);
     }
@@ -87,6 +87,21 @@ class FirestoreService {
       final querySnapshot = await collection.get();
 
       print(querySnapshot.data());
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  // * get a list of favorite itineraries
+  Future<void> getFavoriteItinerary() async {
+    try {
+      final collection = users
+          .doc(userId)
+          .collection('genereated_itinerary')
+          .where('isFavorite', isEqualTo: true);
+      final querySnapshot = await collection.get();
+
+      print(querySnapshot);
     } catch (e) {
       print(e);
     }
