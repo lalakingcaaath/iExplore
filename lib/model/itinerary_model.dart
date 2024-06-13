@@ -1,7 +1,8 @@
-import 'package:uuid/uuid.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Itinerary {
-  String id = Uuid().v4();
+  String? id;
+  final String title;
   final String category;
   final int duration;
   final int numberOfDays;
@@ -11,7 +12,9 @@ class Itinerary {
   final List<Activity> activities;
 
   Itinerary(
-      {required this.category,
+      {this.id,
+      required this.title,
+      required this.category,
       required this.duration,
       required this.numberOfDays,
       required this.budget,
@@ -19,28 +22,42 @@ class Itinerary {
       required this.activities});
 
   factory Itinerary.fromJson(Map<String, dynamic> json) => Itinerary(
-      category: json['itinerary']['category'] as String,
-      duration: json['itinerary']['duration'] as int,
-      numberOfDays: json['itinerary']['number_of_days'] as int,
-      budget: json['itinerary']['budget'] as double,
-      remarks: json['itinerary']['remarks'] as String,
-      activities: (json['itinerary']['activities'] as List)
+      title: json['title'] as String,
+      category: json['category'] as String,
+      duration: json['duration'] as int,
+      numberOfDays: json['number_of_days'] as int,
+      budget: json['budget'] as double,
+      remarks: json['remarks'] as String,
+      activities: (json['activities'] as List)
           .map((activity) => Activity.fromJson(activity))
           .toList());
+
+  factory Itinerary.fromFirestore(
+          {required String id, required DocumentSnapshot data}) =>
+      Itinerary(
+          id: id,
+          title: data['\"title\"'],
+          category: data['\"category\"'],
+          duration: data['\"duration\"'],
+          numberOfDays: data['\"number_of_days\"'],
+          budget: data['\"budget\"'],
+          remarks: data['\"remarks\"'],
+          activities: (data['\"activities\"'] as List)
+              .map((activity) => Activity.fromFirestore(activity))
+              .toList());
 
   // * make model class to be formatted in json
 
   // ? is there a easy way to do this?
   Map<String, dynamic> toJson() => {
-        "\"itinerary\"": {
-          "\"id\"": "\"${id}\"",
-          "\"duration\"": duration,
-          "\"number_of_days\"": numberOfDays,
-          "\"budget\"": budget,
-          "\"remarks\"": "\"${remarks}\"",
-          "\"activities\"":
-              activities.map((activity) => activity.toJson()).toList()
-        }
+        "\"title\"": title,
+        "\"category\"": category,
+        "\"duration\"": duration,
+        "\"number_of_days\"": numberOfDays,
+        "\"budget\"": budget,
+        "\"remarks\"": "\"${remarks}\"",
+        "\"activities\"":
+            activities.map((activity) => activity.toJson()).toList()
       };
 }
 
@@ -57,6 +74,12 @@ class Activity {
       day: json['day'] as int,
       activity: (json['activity'] as List)
           .map((detail) => ActivityDetail.fromJson(detail))
+          .toList());
+
+  factory Activity.fromFirestore(Map<String, dynamic> data) => Activity(
+      day: data['\"day\"'],
+      activity: (data['\"activity\"'] as List)
+          .map((detail) => ActivityDetail.fromFirestore(detail))
           .toList());
 
   Map<String, dynamic> toJson() => {
@@ -87,4 +110,10 @@ class ActivityDetail {
         "\"location\"": "\"${location}\"",
         "\"what_to_do\"": "\"${whatToDo}\""
       };
+
+  factory ActivityDetail.fromFirestore(Map<String, dynamic> data) =>
+      ActivityDetail(
+          time: data['\"time\"'],
+          location: data['\"location\"'],
+          whatToDo: data['\"what_to_do\"']);
 }

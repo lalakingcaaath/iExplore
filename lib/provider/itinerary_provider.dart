@@ -4,7 +4,7 @@ import 'package:i_explore/model/itinerary_model.dart';
 class ItineraryProvider extends ChangeNotifier {
   Itinerary? _itinerary;
 
-  List<Itinerary> _itineraries = [];
+  List<Itinerary> favitineraries = [];
 
   Itinerary? get itineraryVal => _itinerary;
 
@@ -13,5 +13,9 @@ class ItineraryProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // TODO add a list of itineraries in saved page
+  void fetchFavoriteItinerary(List<Itinerary> itineraries) {
+    favitineraries = itineraries;
+    notifyListeners();
+  }
+
 }

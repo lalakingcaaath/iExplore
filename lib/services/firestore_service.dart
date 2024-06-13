@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:i_explore/model/coin_model.dart';
 import 'package:i_explore/model/day_model.dart';
+import 'package:i_explore/model/itinerary_model.dart';
 import 'package:i_explore/services/auth_service.dart';
 
 class FirestoreService {
@@ -51,7 +52,6 @@ class FirestoreService {
   }
 
   // * itinerary functions
-  // TODO add firestore functions
 
   Future<void> saveItinenary(Map<String, dynamic> json) async {
     try {
@@ -79,7 +79,6 @@ class FirestoreService {
     }
   }
 
-  // TODO integrate with table
   Future<void> getItineraryById(String id) async {
     try {
       final collection =
@@ -93,17 +92,25 @@ class FirestoreService {
   }
 
   // * get a list of favorite itineraries
-  Future<void> getFavoriteItinerary() async {
+  Future<List<Itinerary>> getFavoriteItinerary() async {
+    List<Itinerary> _itineraries = [];
     try {
       final collection = users
           .doc(userId)
-          .collection('genereated_itinerary')
+          .collection('generated_itinerary')
           .where('isFavorite', isEqualTo: true);
       final querySnapshot = await collection.get();
 
-      print(querySnapshot);
+      for (var i in querySnapshot.docs) {
+        print(i.data());
+        final json = Itinerary.fromFirestore(id: i.id, data: i);
+
+        _itineraries.add(json);
+      }
+      return _itineraries;
     } catch (e) {
       print(e);
+      return [];
     }
   }
 

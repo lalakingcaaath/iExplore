@@ -134,7 +134,11 @@ class _TestState extends State<Test> {
                       child: Text('Save itinerary to firestore')),
                   ElevatedButton(
                       onPressed: () async {
-                        await FirestoreService().getAllItinenary();
+                        print('clicked');
+                        final list =
+                            await FirestoreService().getFavoriteItinerary();
+
+                        print("LIST: ${list}");
                       },
                       child: Text('Retrieve'))
                 ],
@@ -143,8 +147,8 @@ class _TestState extends State<Test> {
                 children: [
                   ElevatedButton(
                       onPressed: () async {
-                        await FirestoreService()
-                            .getItineraryById('qtHPxm9h6F1CWPtMbiNu');
+                        await FirestoreService().getItineraryById(
+                            '740d297b-b713-43ec-b149-c6570b9794bf');
                       },
                       child: Text('Retrieve by id'))
                 ],

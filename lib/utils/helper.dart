@@ -8,7 +8,7 @@ String itineraryPrompt(int days, int hours, List<String> category, int budget,
 give me a itineraries in the philippines given on based preference: ${days} day, ${hours} hours, ${category}, ${budget} pesos budget, optional: ${optional}. 
 response in json format
 {
-  itinerary: {
+    title: '',
     category: '',
     duration: '', 
     number_of_days: '', 
@@ -32,7 +32,6 @@ response in json format
 ]
 },
 ]
-}
 }
 
  CONSTRAINTS: 
